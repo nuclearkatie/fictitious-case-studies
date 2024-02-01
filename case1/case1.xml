@@ -1,0 +1,2311 @@
+// case 1
+
+<simulation>
+<control>
+    <startmonth>1</startmonth>
+    <startyear>2025</startyear>
+    <dt>86400</dt>
+    <duration>1040</duration>
+    <explicit_inventory>0</explicit_inventory>
+    <explicit_inventory_compact>0</explicit_inventory_compact>
+</control>
+
+<archetypes>
+    <spec><lib>cycamore</lib><name>Source</name></spec>
+    <spec><lib>cycamore</lib><name>Storage</name></spec>
+    <spec><lib>cycamore</lib><name>Sink</name></spec>
+    <spec><lib>cycamore</lib><name>Enrichment</name></spec>
+    <spec><lib>cycamore</lib><name>Separations</name></spec>
+    <spec><lib>cycamore</lib><name>Mixer</name></spec>
+    <spec><lib>cycamore</lib><name>FuelFab</name></spec>
+    <spec><lib>cycamore</lib><name>Reactor</name></spec>
+    <spec><lib>agents</lib><name>NullRegion</name></spec>
+    <spec><lib>agents</lib><name>NullInst</name></spec>
+</archetypes>
+
+<facility>
+    <name>FSource</name>
+    <config>
+        <Source>
+            <outcommod>fluorine</outcommod>
+            <outrecipe>f</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>OSource</name>
+    <config>
+        <Source>
+            <outcommod>oxygen</outcommod>
+            <outrecipe>o</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>OFSink</name>
+    <config>
+        <Sink>
+            <in_commods>
+                <val>extra_fluorine</val>
+                <val>extra_oxygen</val>
+                <val>silica</val>
+            </in_commods>
+        </Sink>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignUF6Source</name>
+    <config>
+        <Source>
+            <outcommod>UF6</outcommod>
+            <outrecipe>UF6_feed</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentReceiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>UF6</val>
+            </in_commods>
+            <out_commods>
+                <val>UF6_received</val>
+            </out_commods>
+            <residence_time>1</residence_time>
+            <throughput>12501</throughput>
+            <max_inv_size>25002</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentStripU</name>
+        <config>
+        <Separations>
+            <feed_commods>
+                <val>UF6_received</val>
+            </feed_commods>
+            <feed_recipe>UF6_feed</feed_recipe>
+            <feedbuf_size>17140</feedbuf_size>
+            <throughput>8570</throughput>
+            <leftover_commod>extra_fluorine</leftover_commod>
+            <leftoverbuf_size>1e199</leftoverbuf_size>
+            <streams>
+                <item>
+                    <commod>enrichment_feed</commod>
+                    <info>
+                        <buf_size>14532</buf_size>
+                        <efficiencies>
+                            <item>
+                                <comp>U</comp>
+                                <eff>0.99</eff>
+                            </item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>Enrichment</name>
+    <config>
+        <Enrichment>
+            <feed_commod>enrichment_feed</feed_commod>
+            <feed_recipe>U_enrichment_feed</feed_recipe>
+            <product_commod>enriched_U_prestore</product_commod>
+            <tails_commod>tails_prestore</tails_commod>
+            <!--<tails_assay>0.003</tails_assay> -->
+            <initial_feed>0</initial_feed>
+            <max_feed_inventory>81900</max_feed_inventory>
+            <max_enrich>0.034</max_enrich>
+        </Enrichment>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentUF6Mixer</name>
+    <config>
+        <Mixer>
+        <in_streams>
+            <stream>
+                <info>
+                    <mixing_ratio>0.676</mixing_ratio>
+                    <buf_size>1e10</buf_size>
+                </info>
+                <commodities>
+                    <item>
+                        <commodity>enriched_U_prestore</commodity>
+                        <pref>1</pref>
+                    </item>
+                </commodities>
+            </stream>
+            <stream>
+                <info>
+                    <mixing_ratio>0.324</mixing_ratio>
+                    <buf_size>1e10</buf_size>
+                </info>
+                <commodities>
+                    <item>
+                        <commodity>fluorine</commodity>
+                        <pref>1</pref>
+                    </item>
+                </commodities>
+            </stream>
+        </in_streams>
+        <out_commod>enriched_UF6_prestore</out_commod>
+        <out_buf_size>1e10</out_buf_size>
+        <throughput>12501</throughput>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>enriched_UF6_prestore</val></in_commods>
+            <out_commods><val>enriched_UF6</val></out_commods>
+            <in_recipe>leu_fuel</in_recipe>
+            <residence_time>1</residence_time>
+            <throughput>440</throughput>
+            <max_inv_size>27324</max_inv_size>
+            <sell_quantity>13662</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DUTailings</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>tails_prestore</val>
+            </in_commods>
+            <out_commods>
+                <val>tails</val>
+            </out_commods>
+            <residence_time>1</residence_time>
+            <max_inv_size>1E+299</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabReceiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>enriched_UF6</val>
+            </in_commods>
+            <out_commods>
+                <val>enriched_UF6_received</val>
+            </out_commods>
+            <residence_time>1</residence_time>
+            <throughput>13662</throughput>
+            <max_inv_size>27324</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabStripU</name>
+    <config>
+        <Separations>
+            <feed_commods>
+                <val>enriched_UF6_received</val>
+            </feed_commods>
+            <feed_recipe>leu_fuel</feed_recipe>
+            <feedbuf_size>17140</feedbuf_size>
+            <throughput>8570</throughput>
+            <leftover_commod>extra_fluorine</leftover_commod>
+            <leftoverbuf_size>1e199</leftoverbuf_size>
+            <streams>
+                <item>
+                    <commod>enriched_U_fuelfab_prestore</commod>
+                    <info>
+                        <buf_size>14532</buf_size>
+                        <efficiencies>
+                            <item>
+                                <comp>U</comp>
+                                <eff>0.99</eff>
+                            </item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFab</name>
+    <config>
+        <Mixer>
+            <in_streams>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.1185</mixing_ratio>
+                        <buf_size>1e4</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>oxygen</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.8815</mixing_ratio>
+                        <buf_size>875</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>enriched_U_fuelfab_prestore</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+            </in_streams>
+            <throughput>495</throughput>
+            <out_buf_size>990</out_buf_size>
+            <out_commod>reactor_fuel_prestore</out_commod>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_fuel_prestore</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_fuel</val>
+            </out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>67180</max_inv_size>
+            <sell_quantity>6152</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignResearchReactorFuelSource</name>
+    <config>
+        <Source>
+            <outcommod>research_reactor_fuel</outcommod>
+            <outrecipe>haleu_fuel</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>UniversityofCResearchReactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>research_reactor_fuel</val></fuel_incommods>
+            <fuel_inrecipes><val>haleu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>research_reactor_spent_fuel</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>1</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>1</n_assem_core>
+            <cycle_time>365</cycle_time>
+            <refuel_time>1</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CNationalLabResearchReactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>research_reactor_fuel</val></fuel_incommods>
+            <fuel_inrecipes><val>haleu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>research_reactor_spent_fuel</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>1</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>1</n_assem_core>
+            <cycle_time>365</cycle_time>
+            <refuel_time>1</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CTechnicalUniversityResearchReactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>research_reactor_fuel</val></fuel_incommods>
+            <fuel_inrecipes><val>haleu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>research_reactor_spent_fuel</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>1</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>1</n_assem_core>
+            <cycle_time>365</cycle_time>
+            <refuel_time>1</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignAlphaFuelSource</name>
+    <config>
+        <Source>
+            <outcommod>reactor_fuel_alpha</outcommod>
+            <outrecipe>leu_alpha_fuel</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_alpha</val></in_commods>
+            <out_commods><val>reactor_fuel_received_alpha</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_alpha</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_alpha1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_alpha1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_alpha1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_alpha1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_alpha</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_alpha</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_alpha2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_alpha2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_alpha2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_alpha2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_alpha</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>AlphaReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_alpha</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_bravo</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_bravo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_bravo1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_bravo1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_bravo1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_bravo1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_bravo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_bravo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_bravo2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_bravo2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_bravo2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_bravo2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_bravo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoFreshFuelVault3</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_bravo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_bravo3</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactor3</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_bravo3</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_bravo3</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoSpentFuelPool3</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_bravo3</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_bravo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoFreshFuelVault4</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_bravo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_bravo4</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactor4</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_bravo4</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_bravo4</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoSpentFuelPool4</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_bravo4</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_bravo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>BravoReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_bravo</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_charlie</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault3</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie3</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor3</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie3</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie3</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool3</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie3</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault4</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie4</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor4</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie4</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie4</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool4</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie4</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault5</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie5</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor5</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie5</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie5</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool5</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie5</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieFreshFuelVault6</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_charlie</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_charlie6</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactor6</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_charlie6</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_charlie6</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieSpentFuelPool6</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_charlie6</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_charlie</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>CharlieReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_charlie</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_delta</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault3</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta3</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor3</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta3</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta3</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool3</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta3</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault4</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta4</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor4</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta4</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta4</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool4</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta4</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault5</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta5</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor5</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta5</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta5</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool5</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta5</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaFreshFuelVault6</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_delta</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_delta6</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactor6</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_delta6</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_delta6</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaSpentFuelPool6</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_delta6</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_delta</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>DeltaReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_delta</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_echo</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_echo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_echo1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_echo1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_echo1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_echo1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_echo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_echo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_echo2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_echo2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_echo2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_echo2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_echo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoFreshFuelVault3</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_echo</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_echo3</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoReactor3</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_echo3</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_echo3</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoSpentFuelPool3</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_echo3</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_echo</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EchoReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_echo</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FoxtrotReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_foxtrot</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FoxtrotFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_foxtrot</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_foxtrot1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FoxtrotReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_foxtrot1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_foxtrot1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>FoxtrotSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_foxtrot1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_foxtrot</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FoxtrotReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_foxtrot</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel</val></in_commods>
+            <out_commods><val>reactor_fuel_received_golf</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_golf</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_golf1</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_golf1</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_golf1</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_golf1</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_golf</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_fuel_received_golf</val></in_commods>
+            <out_commods><val>reactor_fuel_vault_golf2</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>reactor_fuel_vault_golf2</val></fuel_incommods>
+            <fuel_inrecipes><val>leu_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>reactor_spent_fuel_discharged_golf2</val></fuel_outcommods>
+            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>reactor_spent_fuel_discharged_golf2</val>
+            </in_commods>
+            <out_commods>
+                <val>reactor_spent_fuel_initial_decay_preshipped_golf</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>GolfReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay_preshipped_golf</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+
+<facility>
+    <name>MOXReactorReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_reactor_fuel</val></in_commods>
+            <out_commods><val>mox_fuel_received</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXReactorFreshFuelVault1</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_fuel_received</val></in_commods>
+            <out_commods><val>mox_fuel_vault</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXReactor1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>mox_fuel_vault</val></fuel_incommods>
+            <fuel_inrecipes><val>mox_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>mox_spent_fuel_discharged</val></fuel_outcommods>
+            <fuel_outrecipes><val>mox_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXSpentFuelPool1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>mox_spent_fuel_discharged</val>
+            </in_commods>
+            <out_commods>
+                <val>mox_reactor_spent_fuel_initial_decay_preshipped</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXReactorFreshFuelVault2</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_fuel_received</val></in_commods>
+            <out_commods><val>mox_fuel_vault</val></out_commods>
+            <residence_time>13</residence_time>
+            <throughput>33590</throughput>
+            <max_inv_size>33590</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXReactor2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>mox_fuel_vault</val></fuel_incommods>
+            <fuel_inrecipes><val>mox_fuel</val></fuel_inrecipes>
+            <fuel_prefs><val>1</val></fuel_prefs>
+            <fuel_outcommods><val>mox_spent_fuel_discharged</val></fuel_outcommods>
+            <fuel_outrecipes><val>mox_spent_fuel</val></fuel_outrecipes>
+            <assem_size>615.2</assem_size>
+            <n_assem_batch>52</n_assem_batch>
+            <n_assem_core>156</n_assem_core>
+            <cycle_time>78</cycle_time>
+            <refuel_time>3</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXSpentFuelPool2</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>mox_spent_fuel_discharged</val>
+            </in_commods>
+            <out_commods>
+                <val>mox_reactor_spent_fuel_initial_decay_preshipped</val>
+            </out_commods>
+            <residence_time>260</residence_time>
+            <throughput>95975</throughput>
+            <max_inv_size>635752</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXReactorShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_reactor_spent_fuel_initial_decay_preshipped</val></in_commods>
+            <out_commods><val>mox_reactor_spent_fuel_initial_decay</val></out_commods>
+            <throughput>95975</throughput>
+            <max_inv_size>191950</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>InterimStorageReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_initial_decay</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_received</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>15895</throughput>
+            <max_inv_size>15895</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>InterimStoragePool</name>
+    <config>
+        <Storage>
+            <in_commods><val>reactor_spent_fuel_received</val></in_commods>
+            <out_commods><val>reactor_spent_fuel_interim_cooled</val></out_commods>
+            <residence_time>260</residence_time>
+            <throughput>15895</throughput>
+            <max_inv_size>953630</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>Reprocessing</name>
+    <config>
+        <Separations>
+            <feed_commods>
+                <val>reactor_spent_fuel_interim_cooled</val>
+            </feed_commods>
+            <feed_commod_prefs>
+                <val>5</val>
+            </feed_commod_prefs>
+            <feedbuf_size>620</feedbuf_size>
+            <throughput>310</throughput>
+            <leftover_commod>reprocessing_waste</leftover_commod>
+            <leftoverbuf_size>25</leftoverbuf_size>
+            <streams>
+                <item>
+                    <commod>reprocessed_pu_prestore</commod>
+                    <info>
+                        <buf_size>7</buf_size>
+                        <efficiencies>
+                            <item><comp>Pu</comp><eff>0.99</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <item>
+                    <commod>reprocessed_u</commod>
+                    <info>
+                        <buf_size>600</buf_size>
+                        <efficiencies>
+                            <item><comp>U</comp><eff>0.99</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>ReprocessingPuShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>reprocessed_pu_prestore</val></in_commods>
+            <out_commods><val>reprocessed_pu</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>2230</throughput>
+            <max_inv_size>2230</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXWasteReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_reactor_spent_fuel_initial_decay</val></in_commods>
+            <out_commods><val>mox_reactor_spent_fuel_initial_decay_received</val></out_commods>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>InterimStoragePoolMOX</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_reactor_spent_fuel_initial_decay_received</val></in_commods>
+            <out_commods><val>mox_reactor_spent_fuel_interim_cooled</val></out_commods>
+            <residence_time>260</residence_time>
+            <throughput>15895</throughput>
+            <max_inv_size>953630</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>UsedFuelDisposition</name>
+    <config>
+        <Sink>
+            <in_commods>
+                <val>reprocessed_u</val>
+                <val>reprocessing_waste</val>
+                <val>mox_reactor_spent_fuel_interim_cooled</val>
+            </in_commods>
+            <max_inv_size>1.00E+299</max_inv_size>
+        </Sink>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXFuelFabPuReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>reprocessed_pu</val></in_commods>
+            <out_commods><val>reprocessed_pu_received</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>29</throughput>
+            <max_inv_size>19750</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXFuelFabUReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>tails</val></in_commods>
+            <out_commods><val>tails_received</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>405</throughput>
+            <max_inv_size>26070</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXFuelFab</name>
+    <config>
+        <Mixer>
+            <in_streams>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.819795</mixing_ratio>
+                        <buf_size>4050000</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>tails_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.061887</mixing_ratio>
+                        <buf_size>29</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>reprocessed_pu_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.118318</mixing_ratio>
+                        <buf_size>50</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>oxygen</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+            </in_streams>
+            <out_commod>mox_fuel_prestore</out_commod>
+            <out_buf_size>910</out_buf_size>
+            <throughput>455</throughput>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>MOXFuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>mox_fuel_prestore</val></in_commods>
+            <out_commods><val>mox_reactor_fuel</val></out_commods>
+            <residence_time>1</residence_time>
+            <throughput>455</throughput>
+            <max_inv_size>31980</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<recipe>
+    <name>cl_ore</name>
+    <basis>atom</basis>
+    <nuclide><id>140280000</id><comp>0.26219</comp></nuclide>
+    <nuclide><id>140290000</id><comp>0.01337</comp></nuclide>
+    <nuclide><id>140300000</id><comp>0.00882</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.67557</comp></nuclide>
+    <nuclide><id>922350000</id><comp>0.00028</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.03978</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>u3o8</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.00191</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.27082</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.72727</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>uo2</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.00233</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.33100</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>f</name>
+    <basis>mass</basis>
+    <nuclide><id>090190000</id><comp>1</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>o</name>
+    <basis>mass</basis>
+    <nuclide><id>080160000</id><comp>1</comp></nuclide>
+</recipe>
+
+
+<recipe>
+    <name>UF6_feed</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.00100</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.14186</comp></nuclide>
+    <nuclide><id>090190000</id><comp>0.85714</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>U_enrichment_feed</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.007</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.993</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>leu_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.01133</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.32200</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>dep_uo2</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.001</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.3323</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>puo2</name>
+    <basis>atom</basis>
+    <nuclide> <id>942390000</id> <comp>0.1948</comp> </nuclide>
+    <nuclide> <id>942400000</id> <comp>0.0914</comp> </nuclide>
+    <nuclide> <id>942410000</id> <comp>0.0471</comp> </nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>mox_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.00093</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.30907</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+    <nuclide> <id>942390000</id> <comp>0.0136387</comp> </nuclide>
+    <nuclide> <id>942400000</id> <comp>0.0063962</comp> </nuclide>
+    <nuclide> <id>942410000</id> <comp>0.0032984</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>leu_spent_fuel</name>
+    <basis>mass</basis>
+    <nuclide> <id>922350000</id> <comp>0.0083</comp> </nuclide>
+    <nuclide> <id>922360000</id> <comp>0.0041</comp> </nuclide>
+    <nuclide> <id>922380000</id> <comp>0.9438</comp> </nuclide>
+    <nuclide> <id>942390000</id> <comp>0.0051</comp> </nuclide>
+    <nuclide> <id>942400000</id> <comp>0.0024</comp> </nuclide>
+    <nuclide> <id>942410000</id> <comp>0.0012</comp> </nuclide>
+    <nuclide> <id>441010000</id> <comp>0.0035</comp> </nuclide>
+    <nuclide> <id>601430000</id> <comp>0.0040</comp> </nuclide>
+    <nuclide> <id>541360000</id> <comp>0.0041</comp> </nuclide>
+    <nuclide> <id>430990000</id> <comp>0.0041</comp> </nuclide>
+    <nuclide> <id>531350000</id> <comp>0.0042</comp> </nuclide>
+    <nuclide> <id>551370000</id> <comp>0.0043</comp> </nuclide>
+    <nuclide> <id>551330000</id> <comp>0.0045</comp> </nuclide>
+    <nuclide> <id>541340000</id> <comp>0.0053</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>mox_spent_fuel</name>
+    <basis>mass</basis>
+    <nuclide><id>942380000</id><comp>0.002</comp></nuclide>
+    <nuclide><id>942390000</id><comp>0.0185</comp></nuclide>
+    <nuclide><id>942400000</id><comp>0.016</comp></nuclide>
+    <nuclide><id>942410000</id><comp>0.0008</comp></nuclide>
+    <nuclide><id>942420000</id><comp>0.006</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.9</comp></nuclide>
+    <nuclide><id>441010000</id><comp>0.0063</comp></nuclide>
+    <nuclide><id>430990000</id><comp>0.0065</comp></nuclide>
+    <nuclide><id>531350000</id><comp>0.0069</comp></nuclide>
+    <nuclide><id>551370000</id><comp>0.0070</comp></nuclide>
+    <nuclide><id>541360000</id><comp>0.0072</comp></nuclide>
+    <nuclide><id>441030000</id><comp>0.0073</comp></nuclide>
+    <nuclide><id>551330000</id><comp>0.0074</comp></nuclide>
+    <nuclide><id>541340000</id><comp>0.0080</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>leu_alpha_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.11</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.22333</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>haleu_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.06633</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.267</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.66667</comp></nuclide>
+</recipe>
+
+<region>
+    <name>StateC</name>
+    <config><NullRegion/></config>
+    <institution>
+        <name>Inst</name>
+        <config><NullInst/></config>
+        <initialfacilitylist>
+            <entry><prototype>FSource</prototype><number>1</number></entry>
+            <entry><prototype>OSource</prototype><number>1</number></entry>
+            <entry><prototype>OFSink</prototype><number>1</number></entry>
+            <entry><prototype>ForeignU3O8Source</prototype><number>1</number></entry>
+            <entry><prototype>ConversionReciever</prototype><number>1</number></entry>
+            <entry><prototype>ConversionU</prototype><number>1</number></entry>
+            <entry><prototype>ConversionUF6Mixer</prototype><number>1</number></entry>
+            <entry><prototype>ConversionShipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignUF6Source</prototype><number>1</number></entry>
+            <entry><prototype>EnrichmentReceiver</prototype><number>1</number></entry>
+            <entry><prototype>EnrichmentStripU</prototype><number>1</number></entry>
+            <entry><prototype>Enrichment</prototype><number>1</number></entry>
+            <entry><prototype>EnrichmentUF6Mixer</prototype><number>1</number>
+            </entry>
+            <entry><prototype>EnrichmentShipper</prototype><number>1</number></entry>
+            <entry><prototype>DUTailings</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabReceiver</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabStripU</prototype><number>1</number></entry>
+            <entry><prototype>FuelFab</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignResearchReactorFuelSource</prototype><number>1</number></entry>
+            <entry><prototype>UniversityofCResearchReactor</prototype><number>1</number></entry>
+            <entry><prototype>CNationalLabResearchReactor</prototype><number>1</number></entry>
+            <entry><prototype>CTechnicalUniversityResearchReactor</prototype><number>1</number></entry>
+            <entry><prototype>ForeignAlphaFuelSource</prototype><number>1</number></entry>
+            <entry><prototype>AlphaReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>AlphaFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>AlphaReactor1</prototype><number>1</number></entry>
+            <entry><prototype>AlphaSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>AlphaFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>AlphaReactor2</prototype><number>1</number></entry>
+            <entry><prototype>AlphaSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>AlphaReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>BravoFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactor1</prototype><number>1</number></entry>
+            <entry><prototype>BravoSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>BravoFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactor2</prototype><number>1</number></entry>
+            <entry><prototype>BravoSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>BravoFreshFuelVault3</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactor3</prototype><number>1</number></entry>
+            <entry><prototype>BravoSpentFuelPool3</prototype><number>1</number></entry>
+            <entry><prototype>BravoFreshFuelVault4</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactor4</prototype><number>1</number></entry>
+            <entry><prototype>BravoSpentFuelPool4</prototype><number>1</number></entry>
+            <entry><prototype>BravoReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor1</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor2</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault3</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor3</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool3</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault4</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor4</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool4</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault5</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor5</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool5</prototype><number>1</number></entry>
+            <entry><prototype>CharlieFreshFuelVault6</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactor6</prototype><number>1</number></entry>
+            <entry><prototype>CharlieSpentFuelPool6</prototype><number>1</number></entry>
+            <entry><prototype>CharlieReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor1</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor2</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault3</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor3</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool3</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault4</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor4</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool4</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault5</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor5</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool5</prototype><number>1</number></entry>
+            <entry><prototype>DeltaFreshFuelVault6</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactor6</prototype><number>1</number></entry>
+            <entry><prototype>DeltaSpentFuelPool6</prototype><number>1</number></entry>
+            <entry><prototype>DeltaReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>EchoReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>EchoFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>EchoReactor1</prototype><number>1</number></entry>
+            <entry><prototype>EchoSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>EchoFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>EchoReactor2</prototype><number>1</number></entry>
+            <entry><prototype>EchoSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>EchoFreshFuelVault3</prototype><number>1</number></entry>
+            <entry><prototype>EchoReactor3</prototype><number>1</number></entry>
+            <entry><prototype>EchoSpentFuelPool3</prototype><number>1</number></entry>
+            <entry><prototype>EchoReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>FoxtrotReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>FoxtrotFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>FoxtrotReactor1</prototype><number>1</number></entry>
+            <entry><prototype>FoxtrotSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>FoxtrotReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>GolfReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>GolfFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>GolfReactor1</prototype><number>1</number></entry>
+            <entry><prototype>GolfSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>GolfFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>GolfReactor2</prototype><number>1</number></entry>
+            <entry><prototype>GolfSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>GolfReactorShipper</prototype><number>1</number></entry>
+            <entry><prototype>InterimStorageReceiver</prototype><number>1</number></entry>
+            <entry><prototype>InterimStoragePool</prototype><number>1</number></entry>
+            <entry><prototype>Reprocessing</prototype><number>1</number></entry>
+            <entry><prototype>ReprocessingPuShipper</prototype><number>1</number></entry>
+            <entry><prototype>MOXWasteReceiver</prototype><number>1</number>
+            </entry>
+            <entry><prototype>InterimStoragePoolMOX</prototype><number>1</number></entry>
+            <entry><prototype>UsedFuelDisposition</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactorReceiver</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactorFreshFuelVault1</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactor1</prototype><number>1</number></entry>
+            <entry><prototype>MOXSpentFuelPool1</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactorFreshFuelVault2</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactor2</prototype><number>1</number></entry>
+            <entry><prototype>MOXSpentFuelPool2</prototype><number>1</number></entry>
+            <entry><prototype>MOXReactorShipper</prototype><number>1</number></entry>
+            <!-- <entry><prototype></prototype><number>1</number></entry> -->
+        </initialfacilitylist>
+    </institution>
+</region>
+
+</simulation>
