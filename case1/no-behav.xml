@@ -5,7 +5,7 @@
     <startmonth>1</startmonth>
     <startyear>2025</startyear>
     <dt>86400</dt>
-    <duration>365</duration>
+    <duration>3650</duration>
     <explicit_inventory>0</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
@@ -44,7 +44,6 @@
         <Source>
             <outcommod>natUF6</outcommod>
             <outrecipe>UF6_feed</outrecipe>
-            <package>Type48Y_UF6_cylinder</package>
         </Source>
     </config>
 </facility>
@@ -55,8 +54,6 @@
         <Source>
             <outcommod>Foreign_origin_LEUF6</outcommod>
             <outrecipe>LEU_4-8_UF6</outrecipe>
-            <package>Type30B_UF6_cylinder</package>
-            <transport_unit>Type30B_UF6_flatpack</transport_unit>
         </Source>
     </config>
 </facility>
@@ -69,8 +66,6 @@
             <outcommod>HALEUF6</outcommod>
             <outrecipe>LEU_19-9_UF6</outrecipe>
             <throughput>5084</throughput>
-            <package>Type30B-20_UF6_cylinder</package>
-            <transport_unit>Type30B_UF6_flatpack</transport_unit>
         </Source>
     </config>
 </facility>
@@ -80,10 +75,8 @@
     <config>
         <Sink>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <random_frequency_type>NormalInt</random_frequency_type>
-            <random_frequency_mean>30</random_frequency_mean>
-            <random_frequency_stddev>5</random_frequency_stddev>
-            <capacity>4921.6</capacity>
+            <in_commod_prefs><val>0.1</val></in_commod_prefs>
+            <capacity>164.053333333</capacity>
         </Sink>
     </config>
 </facility>
@@ -93,10 +86,7 @@
     <config>
         <Sink>
             <in_commods><val>HALEUO2_fuel</val></in_commods>
-            <random_frequency_type>UniformInt</random_frequency_type>
-            <random_frequency_min>10</random_frequency_min>
-            <random_frequency_max>18</random_frequency_max>
-            <capacity>3920</capacity>
+            <capacity>217.777777778</capacity>
         </Sink>
     </config>
 </facility>
@@ -113,8 +103,6 @@
             <outcommod>UOC_shipment</outcommod>
             <outrecipe>natural_u3o8</outrecipe>
             <throughput>2740</throughput>
-            <package>UOC_drum</package>
-            <transport_unit>UOC_container</transport_unit>
         </Source>
     </config>
 </facility>
@@ -239,6 +227,18 @@
 </facility>
 
 <facility>
+    <name>EnrichmentShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>LEUF6_mixed</val></in_commods>
+            <out_commods><val>LEUF6</val></out_commods>
+            <throughput>3274.32</throughput>
+            <max_inv_size>49114.79</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
     <name>EnrichmentTailsMixer</name>
     <config>
         <Mixer>
@@ -299,21 +299,6 @@
             <throughput>440</throughput>
             <max_inv_size>27324</max_inv_size>
             <sell_quantity>13662</sell_quantity>
-            <discrete_handling>1</discrete_handling>
-        </Storage>
-    </config>
-</facility>
-
-<facility>
-    <name>EnrichmentShipper</name>
-    <config>
-        <Storage>
-            <in_commods><val>LEUF6_mixed</val></in_commods>
-            <out_commods><val>LEUF6</val></out_commods>
-            <throughput>3274.32</throughput>
-            <max_inv_size>49114.79</max_inv_size>
-            <package>Type30B_UF6_cylinder</package>
-            <transport_unit>Type30B_UF6_flatpack</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -424,8 +409,6 @@
             <out_commods><val>LEUO2_fuel</val></out_commods>
             <throughput>2060</throughput>
             <max_inv_size>64000</max_inv_size>
-            <package>fuel_assembly</package>
-            <transport_unit>fresh_fuel_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -538,7 +521,6 @@
             <residence_time>596</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -552,7 +534,6 @@
             <residence_time>818</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -567,7 +548,6 @@
             <residence_time>1294</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -581,7 +561,6 @@
             <residence_time>2870</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -595,9 +574,6 @@
             <residence_time>1</residence_time>
             <throughput>32000</throughput>
             <max_inv_size>32000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -615,7 +591,6 @@
             <residence_time>2870</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -629,7 +604,6 @@
             <residence_time>2870</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -642,14 +616,7 @@
             <out_commods><val>LEUO2_fuel_B3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31991</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -679,14 +646,7 @@
             <out_commods><val>LEUO2_fuel_B4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31991</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -719,9 +679,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -738,9 +695,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -757,8 +711,6 @@
             <residence_time>1</residence_time>
             <throughput>32000</throughput>
             <max_inv_size>32000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -775,14 +727,7 @@
             <out_commods><val>LEUO2_fuel_C1_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -814,14 +759,7 @@
             <out_commods><val>LEUO2_fuel_C2_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -851,14 +789,7 @@
             <out_commods><val>LEUO2_fuel_C3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -888,14 +819,7 @@
             <out_commods><val>LEUO2_fuel_C4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -929,9 +853,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -948,9 +869,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -967,9 +885,6 @@
             <residence_time>1</residence_time>
             <throughput>32000</throughput>
             <max_inv_size>32000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -986,14 +901,7 @@
             <out_commods><val>LEUO2_fuel_D1_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1023,14 +931,7 @@
             <out_commods><val>LEUO2_fuel_D2_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1060,14 +961,7 @@
             <out_commods><val>LEUO2_fuel_D3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31990.4</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1097,14 +991,7 @@
             <out_commods><val>LEUO2_fuel_D4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <throughput>31991</throughput>
-            <cumulative_cap>31990.400000052</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
+            <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1138,9 +1025,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -1157,9 +1041,6 @@
             <residence_time>3650</residence_time>
             <throughput>64000</throughput>
             <max_inv_size>427000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -1176,9 +1057,6 @@
             <residence_time>1</residence_time>
             <throughput>32000</throughput>
             <max_inv_size>32000</max_inv_size>
-            <discrete_handling>1</discrete_handling>
-            <package>fuel_assembly</package>
-            <transport_unit>used_fuel_multipurpose_canister</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -1209,7 +1087,6 @@
             <residence_time>3650</residence_time>
             <throughput>61.56</throughput>
             <max_inv_size>178.33</max_inv_size>
-            <package>HP_RR_cask</package>
         </Storage>
     </config>
 </facility>
@@ -1222,8 +1099,6 @@
             <out_commods><val>HALEUO2_fuel_RR3</val></out_commods>
             <throughput>22.5</throughput>
             <max_inv_size>22.5</max_inv_size>
-            <reorder_point>4.5</reorder_point>
-            <package>MP_RR</package>
         </Storage>
     </config>
 </facility>
@@ -1254,8 +1129,6 @@
             <out_commods><val>HALEUO2_fuel_RR4</val></out_commods>
             <throughput>22.5</throughput>
             <max_inv_size>22.5</max_inv_size>
-            <reorder_point>4.5</reorder_point>
-            <package>MP_RR</package>
         </Storage>
     </config>
 </facility>
@@ -1286,8 +1159,6 @@
             <out_commods><val>HALEUO2_fuel_RR5</val></out_commods>
             <throughput>53.5</throughput>
             <max_inv_size>53.5</max_inv_size>
-            <reorder_point>10.2</reorder_point>
-            <package>HP_RR</package>
         </Storage>
     </config>
 </facility>
@@ -1363,9 +1234,6 @@
         <Sink>
             <in_commods><val>repository_test_material</val></in_commods>
             <max_inv_size>100</max_inv_size>
-            <random_frequency_type>NormalInt</random_frequency_type>
-            <random_frequency_mean>30</random_frequency_mean>
-            <random_frequency_stddev>7</random_frequency_stddev>
         </Sink>
     </config>
 </facility>
@@ -1392,7 +1260,6 @@
             <out_commods><val>LEUO2_fuel_B3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1405,7 +1272,6 @@
             <out_commods><val>LEUO2_fuel_B4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1418,7 +1284,6 @@
             <out_commods><val>LEUO2_fuel_C1_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1431,7 +1296,6 @@
             <out_commods><val>LEUO2_fuel_C2_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1444,7 +1308,6 @@
             <out_commods><val>LEUO2_fuel_C3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1457,7 +1320,6 @@
             <out_commods><val>LEUO2_fuel_C4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1470,7 +1332,6 @@
             <out_commods><val>LEUO2_fuel_D1_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1483,7 +1344,6 @@
             <out_commods><val>LEUO2_fuel_D2_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1496,7 +1356,6 @@
             <out_commods><val>LEUO2_fuel_D3_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
@@ -1509,7 +1368,6 @@
             <out_commods><val>LEUO2_fuel_D4_FFV</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
-            <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
