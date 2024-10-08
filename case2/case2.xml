@@ -783,7 +783,7 @@
     </facility>
         
     <facility>
-        <name>Rx_B8_Shipper</name>
+        <name>Rx_B_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -1273,7 +1273,7 @@
     </facility>
         
     <facility>
-        <name>Rx_C8_Shipper</name>
+        <name>Rx_C_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -1768,7 +1768,7 @@
     </facility>
         
     <facility>
-        <name>Rx_D8_Shipper</name>
+        <name>Rx_D_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -2257,7 +2257,7 @@
     </facility>
         
     <facility>
-        <name>Rx_E8_Shipper</name>
+        <name>Rx_E_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -2746,7 +2746,7 @@
     </facility>
         
     <facility>
-        <name>Rx_F8_Shipper</name>
+        <name>Rx_F_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -3233,7 +3233,7 @@
     </facility>
         
     <facility>
-        <name>Rx_G8_Shipper</name>
+        <name>Rx_G_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -3722,7 +3722,7 @@
     </facility>
         
     <facility>
-        <name>Rx_H8_Shipper</name>
+        <name>Rx_H_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -4211,7 +4211,7 @@
     </facility>
         
     <facility>
-        <name>Rx_J8_Shipper</name>
+        <name>Rx_J_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -4699,7 +4699,7 @@
     </facility>
         
     <facility>
-        <name>Rx_K8_Shipper</name>
+        <name>Rx_K_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -5186,7 +5186,7 @@
     </facility>
         
     <facility>
-        <name>Rx_L8_Shipper</name>
+        <name>Rx_L_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -5673,7 +5673,7 @@
     </facility>
         
     <facility>
-        <name>Rx_M8_Shipper</name>
+        <name>Rx_M_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -6160,7 +6160,7 @@
     </facility>
         
     <facility>
-        <name>Rx_N8_Shipper</name>
+        <name>Rx_N_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -6648,7 +6648,7 @@
     </facility>
         
     <facility>
-        <name>Rx_P8_Shipper</name>
+        <name>Rx_P_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -7137,7 +7137,7 @@
     </facility>
         
     <facility>
-        <name>Rx_Q8_Shipper</name>
+        <name>Rx_Q_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -7625,7 +7625,7 @@
     </facility>
         
     <facility>
-        <name>Rx_R8_Shipper</name>
+        <name>Rx_R_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -8112,7 +8112,7 @@
     </facility>
         
     <facility>
-        <name>Rx_S8_Shipper</name>
+        <name>Rx_S_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -8599,7 +8599,7 @@
     </facility>
         
     <facility>
-        <name>Rx_T8_Shipper</name>
+        <name>Rx_T_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -9088,7 +9088,7 @@
     </facility>
         
     <facility>
-        <name>Rx_U8_Shipper</name>
+        <name>Rx_U_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -9575,7 +9575,7 @@
     </facility>
         
     <facility>
-        <name>Rx_V8_Shipper</name>
+        <name>Rx_V_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -10062,7 +10062,7 @@
     </facility>
         
     <facility>
-        <name>Rx_W8_Shipper</name>
+        <name>Rx_W_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -10549,7 +10549,7 @@
     </facility>
         
     <facility>
-        <name>Rx_X8_Shipper</name>
+        <name>Rx_X_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
@@ -10715,7 +10715,7 @@
                     <val>Rx_B8_FreshFuelVault</val>
                     <val>Rx_B8_Reactor</val>
                     <val>Rx_B8_SpentFuelPool</val>    
-                    <val>Rx_B8_Shipper</val>
+                    <val>Rx_B_Shipper</val>
                     <val>Rx_C1_FreshFuelVault</val>
                     <val>Rx_C1_Reactor</val>
                     <val>Rx_C1_SpentFuelPool</val>    
@@ -10740,7 +10740,7 @@
                     <val>Rx_C8_FreshFuelVault</val>
                     <val>Rx_C8_Reactor</val>
                     <val>Rx_C8_SpentFuelPool</val>    
-                    <val>Rx_C8_Shipper</val>
+                    <val>Rx_C_Shipper</val>
                     <val>Rx_D1_FreshFuelVault</val>
                     <val>Rx_D1_Reactor</val>
                     <val>Rx_D1_SpentFuelPool</val>    
@@ -10765,7 +10765,7 @@
                     <val>Rx_D8_FreshFuelVault</val>
                     <val>Rx_D8_Reactor</val>
                     <val>Rx_D8_SpentFuelPool</val>    
-                    <val>Rx_D8_Shipper</val>
+                    <val>Rx_D_Shipper</val>
                     <val>Rx_E1_FreshFuelVault</val>
                     <val>Rx_E1_Reactor</val>
                     <val>Rx_E1_SpentFuelPool</val>    
@@ -10790,7 +10790,7 @@
                     <val>Rx_E8_FreshFuelVault</val>
                     <val>Rx_E8_Reactor</val>
                     <val>Rx_E8_SpentFuelPool</val>    
-                    <val>Rx_E8_Shipper</val>
+                    <val>Rx_E_Shipper</val>
                     <val>Rx_F1_FreshFuelVault</val>
                     <val>Rx_F1_Reactor</val>
                     <val>Rx_F1_SpentFuelPool</val>    
@@ -10815,7 +10815,7 @@
                     <val>Rx_F8_FreshFuelVault</val>
                     <val>Rx_F8_Reactor</val>
                     <val>Rx_F8_SpentFuelPool</val>    
-                    <val>Rx_F8_Shipper</val>
+                    <val>Rx_F_Shipper</val>
                     <val>Rx_G1_FreshFuelVault</val>
                     <val>Rx_G1_Reactor</val>
                     <val>Rx_G1_SpentFuelPool</val>    
@@ -10840,7 +10840,7 @@
                     <val>Rx_G8_FreshFuelVault</val>
                     <val>Rx_G8_Reactor</val>
                     <val>Rx_G8_SpentFuelPool</val>    
-                    <val>Rx_G8_Shipper</val>
+                    <val>Rx_G_Shipper</val>
                     <val>Rx_H1_FreshFuelVault</val>
                     <val>Rx_H1_Reactor</val>
                     <val>Rx_H1_SpentFuelPool</val>    
@@ -10865,7 +10865,7 @@
                     <val>Rx_H8_FreshFuelVault</val>
                     <val>Rx_H8_Reactor</val>
                     <val>Rx_H8_SpentFuelPool</val>    
-                    <val>Rx_H8_Shipper</val>
+                    <val>Rx_H_Shipper</val>
                     <val>Rx_J1_FreshFuelVault</val>
                     <val>Rx_J1_Reactor</val>
                     <val>Rx_J1_SpentFuelPool</val>    
@@ -10890,7 +10890,7 @@
                     <val>Rx_J8_FreshFuelVault</val>
                     <val>Rx_J8_Reactor</val>
                     <val>Rx_J8_SpentFuelPool</val>    
-                    <val>Rx_J8_Shipper</val>
+                    <val>Rx_J_Shipper</val>
                     <val>Rx_K1_FreshFuelVault</val>
                     <val>Rx_K1_Reactor</val>
                     <val>Rx_K1_SpentFuelPool</val>    
@@ -10915,7 +10915,7 @@
                     <val>Rx_K8_FreshFuelVault</val>
                     <val>Rx_K8_Reactor</val>
                     <val>Rx_K8_SpentFuelPool</val>    
-                    <val>Rx_K8_Shipper</val>
+                    <val>Rx_K_Shipper</val>
                     <val>Rx_L1_FreshFuelVault</val>
                     <val>Rx_L1_Reactor</val>
                     <val>Rx_L1_SpentFuelPool</val>    
@@ -10940,7 +10940,7 @@
                     <val>Rx_L8_FreshFuelVault</val>
                     <val>Rx_L8_Reactor</val>
                     <val>Rx_L8_SpentFuelPool</val>    
-                    <val>Rx_L8_Shipper</val>
+                    <val>Rx_L_Shipper</val>
                     <val>Rx_M1_FreshFuelVault</val>
                     <val>Rx_M1_Reactor</val>
                     <val>Rx_M1_SpentFuelPool</val>    
@@ -10965,7 +10965,7 @@
                     <val>Rx_M8_FreshFuelVault</val>
                     <val>Rx_M8_Reactor</val>
                     <val>Rx_M8_SpentFuelPool</val>    
-                    <val>Rx_M8_Shipper</val>
+                    <val>Rx_M_Shipper</val>
                     <val>Rx_N1_FreshFuelVault</val>
                     <val>Rx_N1_Reactor</val>
                     <val>Rx_N1_SpentFuelPool</val>    
@@ -10990,7 +10990,7 @@
                     <val>Rx_N8_FreshFuelVault</val>
                     <val>Rx_N8_Reactor</val>
                     <val>Rx_N8_SpentFuelPool</val>    
-                    <val>Rx_N8_Shipper</val>
+                    <val>Rx_N_Shipper</val>
                     <val>Rx_P1_FreshFuelVault</val>
                     <val>Rx_P1_Reactor</val>
                     <val>Rx_P1_SpentFuelPool</val>    
@@ -11015,7 +11015,7 @@
                     <val>Rx_P8_FreshFuelVault</val>
                     <val>Rx_P8_Reactor</val>
                     <val>Rx_P8_SpentFuelPool</val>    
-                    <val>Rx_P8_Shipper</val>
+                    <val>Rx_P_Shipper</val>
                     <val>Rx_Q1_FreshFuelVault</val>
                     <val>Rx_Q1_Reactor</val>
                     <val>Rx_Q1_SpentFuelPool</val>    
@@ -11040,7 +11040,7 @@
                     <val>Rx_Q8_FreshFuelVault</val>
                     <val>Rx_Q8_Reactor</val>
                     <val>Rx_Q8_SpentFuelPool</val>    
-                    <val>Rx_Q8_Shipper</val>
+                    <val>Rx_Q_Shipper</val>
                     <val>Rx_R1_FreshFuelVault</val>
                     <val>Rx_R1_Reactor</val>
                     <val>Rx_R1_SpentFuelPool</val>    
@@ -11065,7 +11065,7 @@
                     <val>Rx_R8_FreshFuelVault</val>
                     <val>Rx_R8_Reactor</val>
                     <val>Rx_R8_SpentFuelPool</val>    
-                    <val>Rx_R8_Shipper</val>
+                    <val>Rx_R_Shipper</val>
                     <val>Rx_S1_FreshFuelVault</val>
                     <val>Rx_S1_Reactor</val>
                     <val>Rx_S1_SpentFuelPool</val>    
@@ -11090,7 +11090,7 @@
                     <val>Rx_S8_FreshFuelVault</val>
                     <val>Rx_S8_Reactor</val>
                     <val>Rx_S8_SpentFuelPool</val>    
-                    <val>Rx_S8_Shipper</val>
+                    <val>Rx_S_Shipper</val>
                     <val>Rx_T1_FreshFuelVault</val>
                     <val>Rx_T1_Reactor</val>
                     <val>Rx_T1_SpentFuelPool</val>    
@@ -11115,7 +11115,7 @@
                     <val>Rx_T8_FreshFuelVault</val>
                     <val>Rx_T8_Reactor</val>
                     <val>Rx_T8_SpentFuelPool</val>    
-                    <val>Rx_T8_Shipper</val>
+                    <val>Rx_T_Shipper</val>
                     <val>Rx_U1_FreshFuelVault</val>
                     <val>Rx_U1_Reactor</val>
                     <val>Rx_U1_SpentFuelPool</val>    
@@ -11140,7 +11140,7 @@
                     <val>Rx_U8_FreshFuelVault</val>
                     <val>Rx_U8_Reactor</val>
                     <val>Rx_U8_SpentFuelPool</val>    
-                    <val>Rx_U8_Shipper</val>
+                    <val>Rx_U_Shipper</val>
                     <val>Rx_V1_FreshFuelVault</val>
                     <val>Rx_V1_Reactor</val>
                     <val>Rx_V1_SpentFuelPool</val>    
@@ -11165,7 +11165,7 @@
                     <val>Rx_V8_FreshFuelVault</val>
                     <val>Rx_V8_Reactor</val>
                     <val>Rx_V8_SpentFuelPool</val>    
-                    <val>Rx_V8_Shipper</val>
+                    <val>Rx_V_Shipper</val>
                     <val>Rx_W1_FreshFuelVault</val>
                     <val>Rx_W1_Reactor</val>
                     <val>Rx_W1_SpentFuelPool</val>    
@@ -11190,7 +11190,7 @@
                     <val>Rx_W8_FreshFuelVault</val>
                     <val>Rx_W8_Reactor</val>
                     <val>Rx_W8_SpentFuelPool</val>    
-                    <val>Rx_W8_Shipper</val>
+                    <val>Rx_W_Shipper</val>
                     <val>Rx_X1_FreshFuelVault</val>
                     <val>Rx_X1_Reactor</val>
                     <val>Rx_X1_SpentFuelPool</val>    
@@ -11215,7 +11215,7 @@
                     <val>Rx_X8_FreshFuelVault</val>
                     <val>Rx_X8_Reactor</val>
                     <val>Rx_X8_SpentFuelPool</val>    
-                    <val>Rx_X8_Shipper</val>
+                    <val>Rx_X_Shipper</val>
                 </prototypes>
                 <build_times>
                     <val>27</val>
