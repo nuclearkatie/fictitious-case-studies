@@ -5,8 +5,8 @@
     <startmonth>1</startmonth>
     <startyear>2025</startyear>
     <dt>86400</dt>
-    <duration>365</duration>
-    <explicit_inventory>0</explicit_inventory>
+    <duration>3650</duration>
+    <explicit_inventory>1</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
 </control>
@@ -54,7 +54,7 @@
     <config>
         <Source>
             <outcommod>Foreign_origin_LEUF6</outcommod>
-            <outrecipe>LEU_4-8_UF6</outrecipe>
+            <outrecipe>LEU_4-5_UF6</outrecipe>
             <package>Type30B_UF6_cylinder</package>
             <transport_unit>Type30B_UF6_flatpack</transport_unit>
         </Source>
@@ -192,7 +192,7 @@
     <config>
         <Storage>
             <in_commods><val>LEU_enr_separated</val></in_commods>
-            <in_recipe>LEU_4-8_U</in_recipe>
+            <in_recipe>LEU_4-5_U</in_recipe>
             <out_commods><val>LEU_enr</val></out_commods>
             <residence_time>7</residence_time>
             <throughput>1107.039</throughput>
@@ -284,7 +284,7 @@
             <residence_time>1</residence_time>
             <throughput>14216</throughput>
             <max_inv_size>28432</max_inv_size>
-            <!-- <package>Type48Y_UF6_cylinder</package> -->
+            <package>Type48Y_UF6_cylinder</package>
         </Storage>
     </config>
 </facility>
@@ -405,17 +405,6 @@
     </config>
 </facility>
 
-<!-- <facility>
-    <name>FuelFabMixer</name>
-    <config>
-        <Source>
-            <outcommod>LEUO2_process</outcommod>
-            <outrecipe>LEU_4-8_UO2_fuel</outrecipe>
-            <throughput>2060</throughput>
-        </Source>
-    </config>
-</facility> -->
-
 <facility>
     <name>FuelFabShipper</name>
     <config>
@@ -423,7 +412,7 @@
             <in_commods><val>LEUO2_process</val></in_commods>
             <out_commods><val>LEUO2_fuel</val></out_commods>
             <throughput>2060</throughput>
-            <max_inv_size>64000</max_inv_size>
+            <max_inv_size>63980.800000104</max_inv_size>
             <package>fuel_assembly</package>
             <transport_unit>fresh_fuel_canister</transport_unit>
         </Storage>
@@ -578,7 +567,7 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>2870</residence_time>
+            <residence_time>1443</residence_time>
             <throughput>7382.4</throughput>
             <max_inv_size>214000</max_inv_size>
             <package>fuel_assembly</package>
@@ -639,12 +628,12 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_B3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_B3_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31991</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
             <dormant_buying_min>448</dormant_buying_min>
             <dormant_buying_max>538</dormant_buying_max>
@@ -658,15 +647,33 @@
     <name>RxB3Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_B3_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_B3_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_B3_FFV_initial</val>
+                <val>LEUO2_fuel_B3_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_B3_spent</val>
+                <val>LEUO2_fuel_B3_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
+            <power_name>power</power_name>
         </Reactor>
     </config>
 </facility>
@@ -676,15 +683,15 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_B4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_B4_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31991</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
+            <dormant_buying_min>503</dormant_buying_min>
+            <dormant_buying_max>593</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
@@ -695,15 +702,32 @@
     <name>RxB4Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_B4_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_B4_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_B4_FFV_initial</val>
+                <val>LEUO2_fuel_B4_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_B4_spent</val>
+                <val>LEUO2_fuel_B4_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -772,36 +796,51 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C1_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C1_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>448</dormant_buying_min>
-            <dormant_buying_max>538</dormant_buying_max>
+            <dormant_buying_min>518</dormant_buying_min>
+            <dormant_buying_max>578</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
     </config>
 </facility>
 
-
-
 <facility>
     <name>RxC1Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_C1_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_C1_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_C1_FFV_initial</val>
+                <val>LEUO2_fuel_C1_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_C1_spent</val>
+                <val>LEUO2_fuel_C1_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -811,12 +850,12 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C2_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C2_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
             <dormant_buying_min>448</dormant_buying_min>
             <dormant_buying_max>538</dormant_buying_max>
@@ -830,15 +869,32 @@
     <name>RxC2Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_C2_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_C2_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_C2_FFV_initial</val>
+                <val>LEUO2_fuel_C2_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_C2_spent</val>
+                <val>LEUO2_fuel_C2_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -848,12 +904,12 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C3_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
             <dormant_buying_min>448</dormant_buying_min>
             <dormant_buying_max>538</dormant_buying_max>
@@ -867,15 +923,32 @@
     <name>RxC3Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_C3_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_C3_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_C3_FFV_initial</val>
+                <val>LEUO2_fuel_C3_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_C3_spent</val>
+                <val>LEUO2_fuel_C3_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -885,12 +958,12 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C4_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>503</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
             <dormant_buying_min>448</dormant_buying_min>
             <dormant_buying_max>538</dormant_buying_max>
@@ -904,15 +977,32 @@
     <name>RxC4Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_C4_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_C4_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_C4_FFV_initial</val>
+                <val>LEUO2_fuel_C4_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_C4_spent</val>
+                <val>LEUO2_fuel_C4_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
             <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -983,15 +1073,15 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D1_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D1_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
+            <dormant_buying_min>448</dormant_buying_min>
+            <dormant_buying_max>538</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
@@ -1002,15 +1092,32 @@
     <name>RxD1Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_D1_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_D1_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_D1_FFV_initial</val>
+                <val>LEUO2_fuel_D1_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_D1_spent</val>
+                <val>LEUO2_fuel_D1_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
+            <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -1020,15 +1127,15 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D2_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D2_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
+            <dormant_buying_min>448</dormant_buying_min>
+            <dormant_buying_max>538</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
@@ -1039,15 +1146,32 @@
     <name>RxD2Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_D2_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_D2_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_D2_FFV_initial</val>
+                <val>LEUO2_fuel_D2_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_D2_spent</val>
+                <val>LEUO2_fuel_D2_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
+            <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -1057,15 +1181,15 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D3_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
+            <dormant_buying_min>448</dormant_buying_min>
+            <dormant_buying_max>538</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
@@ -1076,15 +1200,32 @@
     <name>RxD3Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_D3_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_D3_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_D3_FFV_initial</val>
+                <val>LEUO2_fuel_D3_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_D3_spent</val>
+                <val>LEUO2_fuel_D3_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
+            <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -1094,15 +1235,15 @@
     <config>
         <Storage>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D4_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31991</throughput>
+            <throughput>4921.600000008</throughput>
             <cumulative_cap>31990.400000052</cumulative_cap>
             <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>685</dormant_buying_mean>
+            <dormant_buying_mean>547</dormant_buying_mean>
             <dormant_buying_stddev>10</dormant_buying_stddev>
-            <dormant_buying_min>630</dormant_buying_min>
-            <dormant_buying_max>720</dormant_buying_max>
+            <dormant_buying_min>448</dormant_buying_min>
+            <dormant_buying_max>538</dormant_buying_max>
             <discrete_handling>1</discrete_handling>
             <package>fuel_assembly</package>
         </Storage>
@@ -1113,15 +1254,32 @@
     <name>RxD4Reactor</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>LEUO2_fuel_D4_FFV</val></fuel_incommods>
-            <fuel_inrecipes><val>LEU_4-8_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>LEUO2_fuel_D4_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>leu_spent_fuel</val></fuel_outrecipes>
+            <fuel_incommods>
+                <val>LEUO2_fuel_D4_FFV_initial</val>
+                <val>LEUO2_fuel_D4_FFV_equilibrium</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>LEU_4-8_UO2_fuel</val>
+                <val>LEU_4-5_UO2_fuel</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>LEUO2_fuel_D4_spent</val>
+                <val>LEUO2_fuel_D4_spent</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>leu_spent_fuel</val>
+                <val>leu_spent_fuel</val>
+            </fuel_outrecipes>
+            <fuel_prefs>
+                <val>1</val>
+                <val>10</val>
+            </fuel_prefs>
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
+            <cycle_time>527</cycle_time>
             <refuel_time>21</refuel_time>
+            <power_cap>1000</power_cap>
         </Reactor>
     </config>
 </facility>
@@ -1362,10 +1520,11 @@
     <config>
         <Sink>
             <in_commods><val>repository_test_material</val></in_commods>
-            <max_inv_size>100</max_inv_size>
+            <max_inv_size>1</max_inv_size>
+            <capacity>0.1</capacity>
             <random_frequency_type>NormalInt</random_frequency_type>
-            <random_frequency_mean>30</random_frequency_mean>
-            <random_frequency_stddev>7</random_frequency_stddev>
+            <random_frequency_mean>182.5</random_frequency_mean>
+            <random_frequency_stddev>30</random_frequency_stddev>
         </Sink>
     </config>
 </facility>
@@ -1389,7 +1548,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_B3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_B3_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1402,7 +1561,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_B4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_B4_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1415,7 +1574,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C1_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C1_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1428,7 +1587,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C2_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C2_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1441,7 +1600,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C3_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1454,7 +1613,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_C4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_C4_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1467,7 +1626,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D1_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D1_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1480,7 +1639,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D2_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D2_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1493,7 +1652,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D3_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D3_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1506,7 +1665,7 @@
     <config>
         <Storage>
             <in_commods><val>startup_LEUO2_fuel</val></in_commods>
-            <out_commods><val>LEUO2_fuel_D4_FFV</val></out_commods>
+            <out_commods><val>LEUO2_fuel_D4_FFV_initial</val></out_commods>
             <residence_time>0</residence_time>
             <max_inv_size>95972</max_inv_size>
             <package>fuel_assembly</package>
@@ -1607,10 +1766,25 @@
 </recipe>
 
 <recipe>
+    <name>LEU_4-5_U</name>
+    <basis>mass</basis>
+    <nuclide><id>922350000</id><comp>0.045</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.955</comp></nuclide>
+</recipe>
+
+<recipe>
     <name>LEU_4-8_U</name>
-    <basis>atom</basis>
+    <basis>mass</basis>
     <nuclide><id>922350000</id><comp>0.048</comp></nuclide>
     <nuclide><id>922380000</id><comp>0.952</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>LEU_4-5_UF6</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.006507</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.136350</comp></nuclide>
+    <nuclide><id>090190000</id><comp>0.857143</comp></nuclide>
 </recipe>
 
 <recipe>
@@ -1627,6 +1801,14 @@
     <nuclide><id>922350000</id><comp>0.028719</comp></nuclide>
     <nuclide><id>922380000</id><comp>0.114138</comp></nuclide>
     <nuclide><id>090190000</id><comp>0.857143</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>LEU_4-5_UO2_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.015183</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.318150</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.666667</comp></nuclide>
 </recipe>
 
 <recipe>
@@ -1796,7 +1978,7 @@
             <entry><prototype>HALEUFuelFabMixer</prototype><number>1</number></entry>
             <entry><prototype>HALEUFuelFabShipper</prototype><number>1</number></entry>
             <entry><prototype>ForeignLEUO2Receiver</prototype><number>1</number></entry>
-            <entry><prototype>ForeignHALEUO2Reciver</prototype><number>1</number></entry>
+            <!-- <entry><prototype>ForeignHALEUO2Reciver</prototype><number>1</number></entry> -->
             <entry><prototype>RxA1Storage</prototype><number>1</number></entry>
             <entry><prototype>RxA2Storage</prototype><number>1</number></entry>
             <entry><prototype>RxA3Storage</prototype><number>1</number></entry>
@@ -1866,34 +2048,44 @@
                     <val>StartupFreshFuel</val>
                 </prototypes>
                 <build_times>
-                    <val>1167</val>
+                <!-- B3 -->
+                    <val>1146</val>
                     <val>657</val>
                     <val>664</val>
-                    <val>605</val>
+                <!-- B4 -->
+                    <val>584</val>
                     <val>95</val>
                     <val>102</val>
-                    <val>626</val>
+                <!-- C1 -->
+                    <val>605</val>
                     <val>116</val>
                     <val>123</val>
-                    <val>816</val>
+                <!-- C2 -->
+                    <val>795</val>
                     <val>306</val>
                     <val>313</val>
-                    <val>955</val>
+                <!-- C3 -->
+                    <val>934</val>
                     <val>445</val>
                     <val>452</val>
-                    <val>1125</val>
+                <!-- C4 -->
+                    <val>1104</val>
                     <val>615</val>
                     <val>622</val>
-                    <val>773</val>
+                <!-- D1 -->
+                    <val>570</val>
                     <val>81</val>
                     <val>88</val>
-                    <val>970</val>
+                <!-- D2 -->
+                    <val>767</val>
                     <val>278</val>
                     <val>285</val>
-                    <val>1177</val>
+                <!-- D3 -->
+                    <val>974</val>
                     <val>485</val>
                     <val>492</val>
-                    <val>1301</val>
+                <!-- D4 -->
+                    <val>1098</val>
                     <val>609</val>
                     <val>616</val>
                     <val>-1</val>

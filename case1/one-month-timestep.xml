@@ -4,8 +4,8 @@
 <control>
     <startmonth>1</startmonth>
     <startyear>2025</startyear>
-    <dt>86400</dt>
-    <duration>3650</duration>
+    <dt>2592000</dt>
+    <duration>120</duration>
     <explicit_inventory>1</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
@@ -75,8 +75,8 @@
     <config>
         <Sink>
             <in_commods><val>LEUO2_fuel</val></in_commods>
-            <in_commod_prefs><val>0.1</val></in_commod_prefs>
-            <capacity>164.053333333</capacity>
+            <random_frequency_type>NormalInt</random_frequency_type>
+            <capacity>4921.6</capacity>
         </Sink>
     </config>
 </facility>
@@ -86,7 +86,8 @@
     <config>
         <Sink>
             <in_commods><val>HALEUO2_fuel</val></in_commods>
-            <capacity>217.777777778</capacity>
+            <random_frequency_type>UniformInt</random_frequency_type>
+            <capacity>8400</capacity>
         </Sink>
     </config>
 </facility>
@@ -102,7 +103,7 @@
         <Source>
             <outcommod>UOC_shipment</outcommod>
             <outrecipe>natural_u3o8</outrecipe>
-            <throughput>2740</throughput>
+            <throughput>82200</throughput>
         </Source>
     </config>
 </facility>
@@ -123,8 +124,8 @@
                 <val>natUF6_received</val>
             </out_commods>
             <residence_time>0</residence_time>
-            <throughput>37788</throughput>
-            <max_inv_size>188941</max_inv_size>
+            <throughput>1133640</throughput>
+            <max_inv_size>2267280</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -136,15 +137,15 @@
             <feed_commods>
                 <val>natUF6_received</val>
             </feed_commods>
-            <feedbuf_size>188941</feedbuf_size>
-            <throughput>37788</throughput>
+            <feedbuf_size>1133640</feedbuf_size>
+            <throughput>1133640</throughput>
             <leftover_commod>fluorine</leftover_commod>
             <leftoverbuf_size>1.00E+99</leftoverbuf_size>
             <streams>
                 <item>
                     <commod>natU_separated</commod>
                     <info>
-                        <buf_size>63862</buf_size>
+                        <buf_size>1915860</buf_size>
                         <efficiencies>
                             <item>
                                 <comp>U</comp>
@@ -168,9 +169,9 @@
             <tails_commod>DU_separated</tails_commod>
             <tails_assay>0.0025</tails_assay>
             <initial_feed>0</initial_feed>
-            <max_feed_inventory>21434.162</max_feed_inventory>
+            <max_feed_inventory>643024.86</max_feed_inventory>
             <max_enrich>0.05</max_enrich>
-            <swu_capacity>8219</swu_capacity>
+            <swu_capacity>246570</swu_capacity>
         </Enrichment>
     </config>
 </facility>
@@ -182,9 +183,9 @@
             <in_commods><val>LEU_enr_separated</val></in_commods>
             <in_recipe>LEU_4-5_U</in_recipe>
             <out_commods><val>LEU_enr</val></out_commods>
-            <residence_time>7</residence_time>
-            <throughput>1107.039</throughput>
-            <max_inv_size>11070.391</max_inv_size>
+            <residence_time>1</residence_time>
+            <throughput>33211.17</throughput>
+            <max_inv_size>33211.17</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -197,7 +198,7 @@
             <stream>
                 <info>
                     <mixing_ratio>0.676</mixing_ratio>
-                    <buf_size>5535</buf_size>
+                    <buf_size>98229.6</buf_size>
                 </info>
                 <commodities>
                     <item>
@@ -220,21 +221,9 @@
             </stream>
         </in_streams>
         <out_commod>LEUF6_mixed</out_commod>
-        <out_buf_size>3274.32</out_buf_size>
-        <throughput>3274.32</throughput>
+        <out_buf_size>98229.6</out_buf_size>
+        <throughput>98229.6</throughput>
         </Mixer>
-    </config>
-</facility>
-
-<facility>
-    <name>EnrichmentShipper</name>
-    <config>
-        <Storage>
-            <in_commods><val>LEUF6_mixed</val></in_commods>
-            <out_commods><val>LEUF6</val></out_commods>
-            <throughput>3274.32</throughput>
-            <max_inv_size>49114.79</max_inv_size>
-        </Storage>
     </config>
 </facility>
 
@@ -246,7 +235,7 @@
             <stream>
                 <info>
                     <mixing_ratio>0.676</mixing_ratio>
-                    <buf_size>48050</buf_size>
+                    <buf_size>1441500</buf_size>
                 </info>
                 <commodities>
                     <item>
@@ -269,8 +258,8 @@
             </stream>
         </in_streams>
         <out_commod>DUF6_mixed</out_commod>
-        <out_buf_size>28432</out_buf_size>
-        <throughput>14216</throughput>
+        <out_buf_size>426480</out_buf_size>
+        <throughput>426480</throughput>
         </Mixer>
     </config>
 </facility>
@@ -281,9 +270,9 @@
         <Storage>
             <in_commods><val>DUF6_mixed</val></in_commods>
             <out_commods><val>DUF6_packaged</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>14216</throughput>
-            <max_inv_size>28432</max_inv_size>
+            <residence_time>0</residence_time>
+            <throughput>426480</throughput>
+            <max_inv_size>852960</max_inv_size>
             <!-- <package>Type48Y_UF6_cylinder</package> -->
         </Storage>
     </config>
@@ -295,10 +284,21 @@
         <Storage>
             <in_commods><val>DUF6_packaged</val></in_commods>
             <out_commods><val>DUF6</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>440</throughput>
-            <max_inv_size>27324</max_inv_size>
-            <sell_quantity>13662</sell_quantity>
+            <residence_time>0</residence_time>
+            <throughput>13200</throughput>
+            <max_inv_size>819720</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>LEUF6_mixed</val></in_commods>
+            <out_commods><val>LEUF6</val></out_commods>
+            <throughput>98229.6</throughput>
+            <max_inv_size>98229.6</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -320,8 +320,8 @@
                 <val>1</val>
             </in_commod_prefs>
             <out_commods><val>LEUF6_received</val></out_commods>
-            <throughput>10745</throughput>
-            <max_inv_size>10745</max_inv_size>
+            <throughput>322350</throughput>
+            <max_inv_size>322350</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -331,15 +331,15 @@
     <config>
         <Separations>
             <feed_commods><val>LEUF6_received</val></feed_commods>
-            <feedbuf_size>26861</feedbuf_size>
-            <throughput>5372.30</throughput>
+            <feedbuf_size>161169</feedbuf_size>
+            <throughput>161169</throughput>
             <leftover_commod>extra_fluorine</leftover_commod>
             <leftoverbuf_size>1e99</leftoverbuf_size>
             <streams>
                 <item>
                     <commod>LEU_ff_separated</commod>
                     <info>
-                        <buf_size>10745</buf_size>
+                        <buf_size>161169</buf_size>
                         <efficiencies>
                             <item>
                                 <comp>U</comp>
@@ -361,7 +361,7 @@
                 <stream>
                     <info>
                         <mixing_ratio>0.8815</mixing_ratio>
-                        <buf_size>3631.67</buf_size>
+                        <buf_size>61800</buf_size>
                     </info>
                     <commodities>
                         <item>
@@ -383,23 +383,12 @@
                     </commodities>
                 </stream>
             </in_streams>
-            <throughput>2060</throughput>
-            <out_buf_size>4120</out_buf_size>
+            <throughput>61800</throughput>
+            <out_buf_size>61800</out_buf_size>
             <out_commod>LEUO2_process</out_commod>
         </Mixer>
     </config>
 </facility>
-
-<!-- <facility>
-    <name>FuelFabMixer</name>
-    <config>
-        <Source>
-            <outcommod>LEUO2_process</outcommod>
-            <outrecipe>LEU_4-8_UO2_fuel</outrecipe>
-            <throughput>2060</throughput>
-        </Source>
-    </config>
-</facility> -->
 
 <facility>
     <name>FuelFabShipper</name>
@@ -407,8 +396,8 @@
         <Storage>
             <in_commods><val>LEUO2_process</val></in_commods>
             <out_commods><val>LEUO2_fuel</val></out_commods>
-            <throughput>2060</throughput>
-            <max_inv_size>63980.800000104</max_inv_size>
+            <throughput>61800</throughput>
+            <max_inv_size>63980.8</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -420,8 +409,8 @@
             <in_commods><val>HALEUF6</val></in_commods>
             <out_commods><val>HALEUF6_received</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>5084</throughput>
-            <max_inv_size>7626</max_inv_size>
+            <throughput>152520</throughput>
+            <max_inv_size>228780</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -431,15 +420,15 @@
     <config>
         <Separations>
             <feed_commods><val>HALEUF6_received</val></feed_commods>
-            <feedbuf_size>3651</feedbuf_size>
-            <throughput>730.22</throughput>
+            <feedbuf_size>109530</feedbuf_size>
+            <throughput>21906.62</throughput>
             <leftover_commod>extra_fluorine</leftover_commod>
             <leftoverbuf_size>1e199</leftoverbuf_size>
             <streams>
                 <item>
                     <commod>HALEU_ff_separated</commod>
                     <info>
-                        <buf_size>1460</buf_size>
+                        <buf_size>43800</buf_size>
                         <efficiencies>
                             <item>
                                 <comp>U</comp>
@@ -461,7 +450,7 @@
                 <stream>
                     <info>
                         <mixing_ratio>0.8815</mixing_ratio>
-                        <buf_size>493.63</buf_size>
+                        <buf_size>14808.9</buf_size>
                     </info>
                     <commodities>
                         <item>
@@ -483,8 +472,8 @@
                     </commodities>
                 </stream>
             </in_streams>
-            <throughput>280</throughput>
-            <out_buf_size>560</out_buf_size>
+            <throughput>8400</throughput>
+            <out_buf_size>16800</out_buf_size>
             <out_commod>HALEUO2_process</out_commod>
         </Mixer>
     </config>
@@ -496,8 +485,8 @@
         <Storage>
             <in_commods><val>HALEUO2_process</val></in_commods>
             <out_commods><val>HALEUO2_fuel</val></out_commods>
-            <throughput>280</throughput>
-            <max_inv_size>8400</max_inv_size>
+            <throughput>8400</throughput>
+            <max_inv_size>252000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -518,9 +507,9 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>596</residence_time>
-            <throughput>7382.4</throughput>
-            <max_inv_size>214000</max_inv_size>
+            <residence_time>20</residence_time>
+            <throughput>221472.4</throughput>
+            <max_inv_size>6420000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -531,9 +520,9 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>818</residence_time>
-            <throughput>7382.4</throughput>
-            <max_inv_size>214000</max_inv_size>
+            <residence_time>27</residence_time>
+            <throughput>221472.4</throughput>
+            <max_inv_size>6420000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -545,9 +534,9 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>1294</residence_time>
-            <throughput>7382.4</throughput>
-            <max_inv_size>214000</max_inv_size>
+            <residence_time>43</residence_time>
+            <throughput>221472.4</throughput>
+            <max_inv_size>6420000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -558,9 +547,9 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>2870</residence_time>
-            <throughput>7382.4</throughput>
-            <max_inv_size>214000</max_inv_size>
+            <residence_time>48</residence_time>
+            <throughput>221472.4</throughput>
+            <max_inv_size>6420000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -571,9 +560,9 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent_stored</val></in_commods>
             <out_commods><val>LEUO2_fuel_A_spent_cooled</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>32000</throughput>
-            <max_inv_size>32000</max_inv_size>
+            <residence_time>0</residence_time>
+            <throughput>960000</throughput>
+            <max_inv_size>960000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -588,8 +577,8 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>2870</residence_time>
-            <throughput>7382.4</throughput>
+            <residence_time>96</residence_time>
+            <throughput>221472</throughput>
             <max_inv_size>214000</max_inv_size>
         </Storage>
     </config>
@@ -601,8 +590,8 @@
         <Storage>
             <in_commods><val>LEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>LEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>2870</residence_time>
-            <throughput>7382.4</throughput>
+            <residence_time>96</residence_time>
+            <throughput>221472</throughput>
             <max_inv_size>214000</max_inv_size>
         </Storage>
     </config>
@@ -648,8 +637,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -695,8 +684,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -710,9 +699,9 @@
                 <val>LEUO2_fuel_generic_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_B12_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -726,9 +715,9 @@
                 <val>LEUO2_fuel_B4_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_B34_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -742,9 +731,9 @@
                 <val>LEUO2_fuel_B34_spent_cooled</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_B_spent_cooled</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>32000</throughput>
-            <max_inv_size>32000</max_inv_size>
+            <residence_time>0</residence_time>
+            <throughput>960000</throughput>
+            <max_inv_size>960000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -760,7 +749,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_C1_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -795,8 +784,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -809,7 +798,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_C2_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -842,8 +831,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -856,7 +845,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_C3_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -889,8 +878,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -903,7 +892,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_C4_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -936,8 +925,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>527</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -952,9 +941,9 @@
                 <val>LEUO2_fuel_C2_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_C12_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -968,9 +957,9 @@
                 <val>LEUO2_fuel_C4_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_C34_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -984,9 +973,9 @@
                 <val>LEUO2_fuel_C34_spent_cooled</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_C_spent_cooled</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>32000</throughput>
-            <max_inv_size>32000</max_inv_size>
+            <residence_time>0</residence_time>
+            <throughput>960000</throughput>
+            <max_inv_size>960000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1002,7 +991,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_D1_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -1035,8 +1024,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -1049,7 +1038,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_D2_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -1082,8 +1071,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -1096,7 +1085,7 @@
             <in_commods><val>LEUO2_fuel</val></in_commods>
             <out_commods><val>LEUO2_fuel_D3_FFV_equilibrium</val></out_commods>
             <residence_time>0</residence_time>
-            <throughput>31990.4</throughput>
+            <throughput>31991</throughput>
             <max_inv_size>31991</max_inv_size>
         </Storage>
     </config>
@@ -1129,8 +1118,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -1176,8 +1165,8 @@
             <assem_size>615.2</assem_size>
             <n_assem_batch>52</n_assem_batch>
             <n_assem_core>156</n_assem_core>
-            <cycle_time>709</cycle_time>
-            <refuel_time>21</refuel_time>
+            <cycle_time>17</cycle_time>
+            <refuel_time>1</refuel_time>
             <power_cap>1000</power_cap>
         </Reactor>
     </config>
@@ -1192,9 +1181,9 @@
                 <val>LEUO2_fuel_D2_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_D12_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1208,9 +1197,9 @@
                 <val>LEUO2_fuel_D4_spent</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_D34_spent_cooled</val></out_commods>
-            <residence_time>3650</residence_time>
-            <throughput>64000</throughput>
-            <max_inv_size>427000</max_inv_size>
+            <residence_time>120</residence_time>
+            <throughput>1920000</throughput>
+            <max_inv_size>12810000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1224,9 +1213,9 @@
                 <val>LEUO2_fuel_D34_spent_cooled</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_D_spent_cooled</val></out_commods>
-            <residence_time>1</residence_time>
-            <throughput>32000</throughput>
-            <max_inv_size>32000</max_inv_size>
+            <residence_time>0</residence_time>
+            <throughput>960000</throughput>
+            <max_inv_size>960000</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -1241,7 +1230,7 @@
         <Storage>
             <in_commods><val>HALEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>HALEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>3650</residence_time>
+            <residence_time>120</residence_time>
             <throughput>22.5</throughput>
             <max_inv_size>45</max_inv_size>
         </Storage>
@@ -1254,7 +1243,7 @@
         <Storage>
             <in_commods><val>HALEUO2_fuel_generic_spent</val></in_commods>
             <out_commods><val>HALEUO2_fuel_generic_spent_stored</val></out_commods>
-            <residence_time>3650</residence_time>
+            <residence_time>120</residence_time>
             <throughput>61.56</throughput>
             <max_inv_size>178.33</max_inv_size>
         </Storage>
@@ -1284,8 +1273,8 @@
             <assem_size>2.25</assem_size>
             <n_assem_batch>1</n_assem_batch>
             <n_assem_core>57</n_assem_core>
-            <cycle_time>729</cycle_time>
-            <refuel_time>1</refuel_time>
+            <cycle_time>18</cycle_time>
+            <refuel_time>0</refuel_time>
             <n_assem_spent>45</n_assem_spent>
         </Reactor>
     </config>
@@ -1314,8 +1303,8 @@
             <assem_size>2.25</assem_size>
             <n_assem_batch>1</n_assem_batch>
             <n_assem_core>57</n_assem_core>
-            <cycle_time>729</cycle_time>
-            <refuel_time>1</refuel_time>
+            <cycle_time>18</cycle_time>
+            <refuel_time>0</refuel_time>
             <n_assem_spent>45</n_assem_spent>
         </Reactor>
     </config>
@@ -1344,8 +1333,8 @@
             <assem_size>1.71</assem_size>
             <n_assem_batch>3</n_assem_batch>
             <n_assem_core>28</n_assem_core>
-            <cycle_time>21</cycle_time>
-            <refuel_time>14</refuel_time>
+            <cycle_time>1</cycle_time>
+            <refuel_time>1</refuel_time>
         </Reactor>
     </config>
 </facility>
@@ -1364,7 +1353,7 @@
                 <val>LEUO2_fuel_B_spent_cooled</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_spent_consolidated_cooled</val></out_commods>
-            <residence_time>18250</residence_time>
+            <residence_time>600</residence_time>
         </Storage>
     </config>
 </facility>
@@ -1378,7 +1367,7 @@
                 <val>LEUO2_fuel_D_spent_cooled</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_spent_consolidated_cooled</val></out_commods>
-            <residence_time>18250</residence_time>
+            <residence_time>600</residence_time>
         </Storage>
     </config>
 </facility>
@@ -1403,7 +1392,8 @@
     <config>
         <Sink>
             <in_commods><val>repository_test_material</val></in_commods>
-            <max_inv_size>100</max_inv_size>
+            <max_inv_size>1</max_inv_size>
+            <capacity>0.1</capacity>
         </Sink>
     </config>
 </facility>
@@ -1722,94 +1712,6 @@
 </recipe>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<!--               Packages and Transport Units                   -->
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<package>
-    <name>UOC_drum</name>
-    <fill_min>315</fill_min>
-    <fill_max>350</fill_max>
-    <strategy>equal</strategy>
-</package>
-
-<transportunit>
-    <name>UOC_container</name>
-    <fill_min>36</fill_min>
-    <fill_max>48</fill_max>
-    <strategy>hybrid</strategy>
-</transportunit>
-
-<package>
-    <name>Type48Y_UF6_cylinder</name>
-    <fill_min>11250.9</fill_min>
-    <fill_max>12501</fill_max>
-    <strategy>first</strategy>
-</package>
-
-<package>
-    <name>Type30B_UF6_cylinder</name>
-    <fill_min>2049.30</fill_min>
-    <fill_max>2277</fill_max>
-    <strategy>equal</strategy>
-</package>
-
-<package>
-    <name>Type30B-20_UF6_cylinder</name>
-    <fill_min>1143.9</fill_min>
-    <fill_max>1271</fill_max>
-    <strategy>equal</strategy>
-</package>
-
-<transportunit>
-    <name>Type30B_UF6_flatpack</name>
-    <fill_min>4</fill_min>
-    <fill_max>4</fill_max>
-    <strategy>first</strategy>
-</transportunit>
-
-<package>
-    <name>fuel_assembly</name>
-    <fill_min>615.20000000100</fill_min>
-    <fill_max>615.20000000100</fill_max>
-    <strategy>first</strategy>
-</package>
-
-<transportunit>
-    <name>fresh_fuel_canister</name>
-    <fill_min>1</fill_min>
-    <fill_max>8</fill_max>
-    <strategy>hybrid</strategy>
-</transportunit>
-
-<transportunit>
-    <name>used_fuel_multipurpose_canister</name>
-    <fill_min>24</fill_min>
-    <fill_max>24</fill_max>
-    <strategy>first</strategy>
-</transportunit>
-
-<package>
-    <name>MP_RR</name>
-    <fill_min>2.25</fill_min>
-    <fill_max>2.25</fill_max>
-    <strategy>first</strategy>
-</package>
-
-<package>
-    <name>HP_RR</name>
-    <fill_min>1.71</fill_min>
-    <fill_max>1.71</fill_max>
-    <strategy>first</strategy>
-</package>
-
-<package>
-    <name>HP_RR_cask</name>
-    <fill_min>61.56</fill_min>
-    <fill_max>61.56</fill_max>
-    <strategy>first</strategy>
-</package>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                         Regions                              -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -1918,45 +1820,45 @@
                 </prototypes>
                 <build_times>
                 <!-- B3 -->
-                    <val>1146</val>
-                    <val>657</val>
-                    <val>664</val>
+                    <val>39</val>
+                    <val>21</val>
+                    <val>22</val>
                 <!-- B4 -->
-                    <val>584</val>
-                    <val>95</val>
-                    <val>102</val>
+                    <val>19</val>
+                    <val>2</val>
+                    <val>3</val>
                 <!-- C1 -->
-                    <val>605</val>
-                    <val>116</val>
-                    <val>123</val>
+                    <val>20</val>
+                    <val>3</val>
+                    <val>4</val>
                 <!-- C2 -->
-                    <val>795</val>
-                    <val>306</val>
-                    <val>313</val>
+                    <val>26</val>
+                    <val>10</val>
+                    <val>11</val>
                 <!-- C3 -->
-                    <val>934</val>
-                    <val>445</val>
-                    <val>452</val>
+                    <val>31</val>
+                    <val>14</val>
+                    <val>15</val>
                 <!-- C4 -->
-                    <val>1104</val>
-                    <val>615</val>
-                    <val>622</val>
+                    <val>37</val>
+                    <val>20</val>
+                    <val>21</val>
                 <!-- D1 -->
-                    <val>570</val>
-                    <val>81</val>
-                    <val>88</val>
+                    <val>19</val>
+                    <val>2</val>
+                    <val>3</val>
                 <!-- D2 -->
-                    <val>767</val>
-                    <val>278</val>
-                    <val>285</val>
+                    <val>25</val>
+                    <val>9</val>
+                    <val>10</val>
                 <!-- D3 -->
-                    <val>974</val>
-                    <val>485</val>
-                    <val>492</val>
+                    <val>32</val>
+                    <val>16</val>
+                    <val>17</val>
                 <!-- D4 -->
-                    <val>1098</val>
-                    <val>609</val>
-                    <val>616</val>
+                    <val>36</val>
+                    <val>20</val>
+                    <val>21</val>
                     <val>-1</val>
                 </build_times>
                 <n_build>
@@ -1993,37 +1895,47 @@
                     <val>1</val>
                 </n_build>
                 <lifetimes>
+                <!-- B3 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- B4 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- C1 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- C2 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- C3 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- C4 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- D1 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- D2 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- D3 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
+                <!-- D4 -->
                     <val>-1</val>
-                    <val>10</val>
+                    <val>3</val>
                     <val>-1</val>
-                    <val>670</val>
+                    <val>23</val>
                 </lifetimes>
             </DeployInst>
         </config>
