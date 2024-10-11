@@ -5,7 +5,7 @@
     <startyear>2025</startyear>
     <dt>86400</dt>
     <!-- <duration>3650</duration> -->
-    <duration>365</duration>
+    <duration>36</duration>
     <explicit_inventory>0</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
@@ -10607,7 +10607,49 @@
 <recipe>
     <name>NatU_spent_fuel</name>
     <basis>mass</basis>
-    <nuclide><id>10010000</id><comp>1</comp></nuclide>
+    <nuclide><id>am241</id><comp>0.0000472210932365405</comp></nuclide>
+    <nuclide><id>am243</id><comp>0.00000272656969235697</comp></nuclide>
+    <nuclide><id>np237</id><comp>0.0000308216268615624</comp></nuclide>
+    <nuclide><id>pu238</id><comp>0.00000386118259825823</comp></nuclide>
+    <nuclide><id>pu239</id><comp>0.00257384834271922</comp></nuclide>
+    <nuclide><id>pu240</id><comp>0.00100565643456198</comp></nuclide>
+    <nuclide><id>pu241</id><comp>0.000166637206193575</comp></nuclide>
+    <nuclide><id>pu242</id><comp>0.0000590388191018547</comp></nuclide>
+    <nuclide><id>u234</id><comp>0.0000428756012224195</comp></nuclide>
+    <nuclide><id>u235</id><comp>0.00222347642066734</comp></nuclide>
+    <nuclide><id>u236</id><comp>0.000765216078541506</comp></nuclide>
+    <nuclide><id>u238</id><comp>0.985360268297991</comp></nuclide>
+    <nuclide><id>xe136</id><comp>0.000587463590675756</comp></nuclide>
+    <nuclide><id>xe134</id><comp>0.00034435668728391</comp></nuclide>
+    <nuclide><id>ba138</id><comp>0.000291662870642576</comp></nuclide>
+    <nuclide><id>cs133</id><comp>0.000282931078237458</comp></nuclide>
+    <nuclide><id>nd144</id><comp>0.000276975855788423</comp></nuclide>
+    <nuclide><id>la139</id><comp>0.000273790201858263</comp></nuclide>
+    <nuclide><id>ce140</id><comp>0.000270368499473622</comp></nuclide>
+    <nuclide><id>ce142</id><comp>0.000253679073577654</comp></nuclide>
+    <nuclide><id>pr141</id><comp>0.000252318794348449</comp></nuclide>
+    <nuclide><id>cs137</id><comp>0.000250543429913273</comp></nuclide>
+    <nuclide><id>xe132</id><comp>0.000224327048386291</comp></nuclide>
+    <nuclide><id>mo100</id><comp>0.000212317583161978</comp></nuclide>
+    <nuclide><id>tc99</id><comp>0.000197886620868616</comp></nuclide>
+    <nuclide><id>nd143</id><comp>0.000190684142391038</comp></nuclide>
+    <nuclide><id>mo98</id><comp>0.000185929166320714</comp></nuclide>
+    <nuclide><id>mo97</id><comp>0.000183754719964617</comp></nuclide>
+    <nuclide><id>ru101</id><comp>0.000182515465578598</comp></nuclide>
+    <nuclide><id>zr96</id><comp>0.000179779904040454</comp></nuclide>
+    <nuclide><id>mo95</id><comp>0.000176410212332225</comp></nuclide>
+    <nuclide><id>ru102</id><comp>0.000173781672762849</comp></nuclide>
+    <nuclide><id>zr94</id><comp>0.000168696628938379</comp></nuclide>
+    <nuclide><id>nd145</id><comp>0.000159110661193745</comp></nuclide>
+    <nuclide><id>zr93</id><comp>0.000158638564284786</comp></nuclide>
+    <nuclide><id>rh103</id><comp>0.000145779924747535</comp></nuclide>
+    <nuclide><id>nd146</id><comp>0.000143460448620677</comp></nuclide>
+    <nuclide><id>zr92</id><comp>0.00014160606796557</comp></nuclide>
+    <nuclide><id>zr91</id><comp>0.000129697623478131</comp></nuclide>
+    <nuclide><id>ru104</id><comp>0.000128917463331969</comp></nuclide>
+    <nuclide><id>xe131</id><comp>0.000125596781684204</comp></nuclide>
+    <nuclide><id>sr90</id><comp>0.000107164998128474</comp></nuclide>
+
 </recipe>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
