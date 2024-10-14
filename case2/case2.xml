@@ -71,6 +71,8 @@
     <config>
         <Source>
             <outcommod>yellowcake</outcommod>
+            <package>UOC_drum</package>\
+            <transport_unit>UOC_shipment</transport_unit>
         </Source>
     </config>
 </facility>
@@ -91,8 +93,8 @@
                 <val>yellowcake_received</val>
             </out_commods>
             <residence_time>0</residence_time>
-            <throughput>8570</throughput>
-            <max_inv_size>14532</max_inv_size>
+            <throughput>82200</throughput>
+            <max_inv_size>138918</max_inv_size>
         </Storage>
     </config>
 </facility>
@@ -105,15 +107,15 @@
                 <val>yellowcake_received</val>
             </feed_commods>
             <feed_recipe>natural_u3o8</feed_recipe>
-            <feedbuf_size>17140</feedbuf_size>
-            <throughput>8570</throughput>
+            <feedbuf_size>138918</feedbuf_size>
+            <throughput>82200</throughput>
             <leftover_commod>extra_oxygen</leftover_commod>
             <leftoverbuf_size>1e199</leftoverbuf_size>
             <streams>
                 <item>
                     <commod>natural_u</commod>
                     <info>
-                        <buf_size>14532</buf_size>
+                        <buf_size>138918</buf_size>
                         <efficiencies>
                             <item>
                                 <comp>U</comp>
@@ -128,14 +130,14 @@
 </facility>
 
 <facility>
-    <name>ConversionUF6Mixer</name>
+    <name>ConversionUO2Mixer</name>
     <config>
         <Mixer>
         <in_streams>
             <stream>
                 <info>
-                    <mixing_ratio>0.676</mixing_ratio>
-                    <buf_size>1e10</buf_size>
+                    <mixing_ratio>0.8815</mixing_ratio>
+                    <buf_size>181143</buf_size>
                 </info>
                 <commodities>
                     <item>
@@ -146,20 +148,20 @@
             </stream>
             <stream>
                 <info>
-                    <mixing_ratio>0.324</mixing_ratio>
-                    <buf_size>1e10</buf_size>
+                    <mixing_ratio>0.1185</mixing_ratio>
+                    <buf_size>1E+99</buf_size>
                 </info>
                 <commodities>
                     <item>
-                        <commodity>fluorine</commodity>
+                        <commodity>oxygen</commodity>
                         <pref>1</pref>
                     </item>
                 </commodities>
             </stream>
         </in_streams>
-        <out_commod>UF6_preshipped</out_commod>
-        <out_buf_size>1e10</out_buf_size>
-        <throughput>12501</throughput>
+        <out_commod>UO2_preshipped</out_commod>
+        <out_buf_size>8.22E+04</out_buf_size>
+        <throughput>41100</throughput>
         </Mixer>
     </config>
 </facility>
@@ -169,15 +171,16 @@
     <config>
         <Storage>
             <in_commods>
-                <val>UF6_preshipped</val>
+                <val>UO2_preshipped</val>
             </in_commods>
             <out_commods>
-                <val>UF6</val>
+                <val>UO2</val>
             </out_commods>
             <residence_time>0</residence_time>
-            <throughput>12501</throughput>
-            <max_inv_size>25002</max_inv_size>
-            <sell_quantity>12501</sell_quantity>
+            <throughput>4110000</throughput>
+            <max_inv_size>4110000</max_inv_size>
+            <package>NatUO2_package</package>
+            <transport_unit>NatUO2_transport_unit</transport_unit>
         </Storage>
     </config>
 </facility>
@@ -10575,10 +10578,30 @@
         </config>
     </facility>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                         Unphysical                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>OSource</name>
+    <config>
+        <Source>
+            <outcommod>oxygen</outcommod>
+            <outrecipe>o</outrecipe>
+        </Source>
+    </config>
+</facility>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                            Recipes                           -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<recipe>
+    <name>o</name>
+    <basis>atom</basis>
+    <nuclide><id>080160000</id><comp>1</comp></nuclide>
+</recipe>
 
 <recipe>
     <name>natural_u3o8</name>
@@ -10586,14 +10609,6 @@
     <nuclide><id>922350000</id><comp>0.001964</comp></nuclide>
     <nuclide><id>922380000</id><comp>0.270764</comp></nuclide>
     <nuclide><id>080160000</id><comp>0.727273</comp></nuclide>
-</recipe>
-
-<recipe>
-    <name>UF6_feed</name>
-    <basis>atom</basis>
-    <nuclide><id>922350000</id><comp>0.001029</comp></nuclide>
-    <nuclide><id>922380000</id><comp>0.141829</comp></nuclide>
-    <nuclide><id>090190000</id><comp>0.857143</comp></nuclide>
 </recipe>
 
 <recipe>
@@ -10671,11 +10686,18 @@
 </transportunit>
 
 <package>
-    <name>Type48Y_UF6_cylinder</name>
-    <fill_min>11250.9</fill_min>
-    <fill_max>12501</fill_max>
+    <name>NatUO2_package</name>
+    <fill_min>486</fill_min>
+    <fill_max>540</fill_max>
     <strategy>first</strategy>
 </package>
+
+<transportunit>
+    <name>NatUO2_transport_unit</name>
+    <fill_min>9</fill_min>
+    <fill_max>9</fill_max>
+    <strategy>first</strategy>
+</transportunit>
 
 <package>
     <name>fuel_assembly</name>
@@ -10715,7 +10737,7 @@
             <entry><prototype>Mill</prototype><number>1</number></entry>
             <entry><prototype>ConversionReciever</prototype><number>1</number></entry>
             <entry><prototype>ConversionU</prototype><number>1</number></entry>
-            <entry><prototype>ConversionUF6Mixer</prototype><number>1</number></entry>
+            <entry><prototype>ConversionUO2Mixer</prototype><number>1</number></entry>
             <entry><prototype>ConversionShipper</prototype><number>1</number></entry>
             <entry><prototype>RxA1Storage</prototype><number>1</number></entry>
             <entry><prototype>RxA2Storage</prototype><number>1</number></entry>
