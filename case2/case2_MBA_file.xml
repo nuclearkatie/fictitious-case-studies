@@ -1,101 +1,78 @@
 <data>
     <MBA>
-        <name>DD</name>
-        <country>CC</country>
-        <facility>CCO-</facility>
-        <agents></agents>
-        <generate_reports></generate_reports>
-    </MBA>
-
-    <MBA>
-        <name>DDA1</name>
-        <country>DD</country>
-        <facility>DDA-</facility>
-        <agents></agents>
-        <reactor_agents></reactor_agents>
-        <inventory_KMPs>
-            <KMP>
-                <name></name>
-                <agent></agent>
-            </KMP>    
-        </inventory_KMPs>
-        <generate_reports></generate_reports>
-    </MBA>
-
-    <MBA>
         <name>DDB1</name>
         <country>DD</country>
         <facility>DDB-</facility>
         <agents>
-            <agent>Rx_B1_FreshFuelVault</agent>
-            <agent>Rx_B1_Reactor</agent>
-            <agent>Rx_B1_SpentFuelPool</agent>
-            <agent>Rx_B2_FreshFuelVault</agent>
-            <agent>Rx_B2_Reactor</agent>
-            <agent>Rx_B2_SpentFuelPool</agent>
-            <agent>Rx_B3_FreshFuelVault</agent>
-            <agent>Rx_B3_Reactor</agent>
-            <agent>Rx_B3_SpentFuelPool</agent>
-            <agent>Rx_B4_FreshFuelVault</agent>
-            <agent>Rx_B4_Reactor</agent>
-            <agent>Rx_B4_SpentFuelPool</agent>
-            <agent>Rx_B5_FreshFuelVault</agent>
-            <agent>Rx_B5_Reactor</agent>
-            <agent>Rx_B5_SpentFuelPool</agent>
-            <agent>Rx_B6_FreshFuelVault</agent>
-            <agent>Rx_B6_Reactor</agent>
-            <agent>Rx_B6_SpentFuelPool</agent>
-            <agent>Rx_B7_FreshFuelVault</agent>
-            <agent>Rx_B7_Reactor</agent>
-            <agent>Rx_B7_SpentFuelPool</agent>
-            <agent>Rx_B8_FreshFuelVault</agent>
-            <agent>Rx_B8_Reactor</agent>
-            <agent>Rx_B8_SpentFuelPool</agent>
-            <agent>Rx_B_Shipper</agent>
+            <agent>Rx_B1_FreshFuelVault_Id1140</agent>
+            <agent>Rx_B1_Reactor_Id1141</agent>
+            <agent>Rx_B1_SpentFuelPool_Id1142</agent>
+            <agent>Rx_B2_FreshFuelVault_Id1197</agent>
+            <agent>Rx_B2_Reactor_Id1198</agent>
+            <agent>Rx_B2_SpentFuelPool_Id1199</agent>
+            <agent>Rx_B3_FreshFuelVault_Id1260</agent>
+            <agent>Rx_B3_Reactor_Id1261</agent>
+            <agent>Rx_B3_SpentFuelPool_Id1262</agent>
+            <agent>Rx_B4_FreshFuelVault_Id1311</agent>
+            <agent>Rx_B4_Reactor_Id1312</agent>
+            <agent>Rx_B4_SpentFuelPool_Id1313</agent>
+            <agent>Rx_B5_FreshFuelVault_Id1386</agent>
+            <agent>Rx_B5_Reactor_Id1387</agent>
+            <agent>Rx_B5_SpentFuelPool_Id1388</agent>
+            <agent>Rx_B6_FreshFuelVault_Id1443</agent>
+            <agent>Rx_B6_Reactor_Id1444</agent>
+            <agent>Rx_B6_SpentFuelPool_Id1445</agent>
+            <agent>Rx_B7_FreshFuelVault_Id1529</agent>
+            <agent>Rx_B7_Reactor_Id1530</agent>
+            <agent>Rx_B7_SpentFuelPool_Id1531</agent>
+            <agent>Rx_B8_FreshFuelVault_Id1610</agent>
+            <agent>Rx_B8_Reactor_Id1611</agent>
+            <agent>Rx_B8_SpentFuelPool_Id1612</agent>
+            <agent>Rx_B_Shipper_Id1613</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_B1_Reactor</agent>
-            <agent>Rx_B2_Reactor</agent>
-            <agent>Rx_B3_Reactor</agent>
-            <agent>Rx_B4_Reactor</agent>
-            <agent>Rx_B5_Reactor</agent>
-            <agent>Rx_B6_Reactor</agent>
-            <agent>Rx_B7_Reactor</agent>
-            <agent>Rx_B8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_B1_Reactor_Id1141</agent>
+            <agent>Rx_B2_Reactor_Id1198</agent>
+            <agent>Rx_B3_Reactor_Id1261</agent>
+            <agent>Rx_B4_Reactor_Id1312</agent>
+            <agent>Rx_B5_Reactor_Id1387</agent>
+            <agent>Rx_B6_Reactor_Id1444</agent>
+            <agent>Rx_B7_Reactor_Id1530</agent>
+            <agent>Rx_B8_Reactor_Id1611</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_B1_FreshFuelVault</agent>
-                <agent>Rx_B2_FreshFuelVault</agent>
-                <agent>Rx_B3_FreshFuelVault</agent>
-                <agent>Rx_B4_FreshFuelVault</agent>
-                <agent>Rx_B5_FreshFuelVault</agent>
-                <agent>Rx_B6_FreshFuelVault</agent>
-                <agent>Rx_B7_FreshFuelVault</agent>
-                <agent>Rx_B8_FreshFuelVault</agent>
+                <agent>Rx_B1_FreshFuelVault_Id1140</agent>
+                <agent>Rx_B2_FreshFuelVault_Id1197</agent>
+                <agent>Rx_B3_FreshFuelVault_Id1260</agent>
+                <agent>Rx_B4_FreshFuelVault_Id1311</agent>
+                <agent>Rx_B5_FreshFuelVault_Id1386</agent>
+                <agent>Rx_B6_FreshFuelVault_Id1443</agent>
+                <agent>Rx_B7_FreshFuelVault_Id1529</agent>
+                <agent>Rx_B8_FreshFuelVault_Id1610</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_B1_Reactor</agent>
-                <agent>Rx_B2_Reactor</agent>
-                <agent>Rx_B3_Reactor</agent>
-                <agent>Rx_B4_Reactor</agent>
-                <agent>Rx_B5_Reactor</agent>
-                <agent>Rx_B6_Reactor</agent>
-                <agent>Rx_B7_Reactor</agent>
-                <agent>Rx_B8_Reactor</agent>
+                <agent>Rx_B1_Reactor_Id1141</agent>
+                <agent>Rx_B2_Reactor_Id1198</agent>
+                <agent>Rx_B3_Reactor_Id1261</agent>
+                <agent>Rx_B4_Reactor_Id1312</agent>
+                <agent>Rx_B5_Reactor_Id1387</agent>
+                <agent>Rx_B6_Reactor_Id1444</agent>
+                <agent>Rx_B7_Reactor_Id1530</agent>
+                <agent>Rx_B8_Reactor_Id1611</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_B1_SpentFuelPool</agent>
-                <agent>Rx_B2_SpentFuelPool</agent>
-                <agent>Rx_B3_SpentFuelPool</agent>
-                <agent>Rx_B4_SpentFuelPool</agent>
-                <agent>Rx_B5_SpentFuelPool</agent>
-                <agent>Rx_B6_SpentFuelPool</agent>
-                <agent>Rx_B7_SpentFuelPool</agent>
-                <agent>Rx_B8_SpentFuelPool</agent>
+                <agent>Rx_B1_SpentFuelPool_Id1142</agent>
+                <agent>Rx_B2_SpentFuelPool_Id1199</agent>
+                <agent>Rx_B3_SpentFuelPool_Id1262</agent>
+                <agent>Rx_B4_SpentFuelPool_Id1313</agent>
+                <agent>Rx_B5_SpentFuelPool_Id1388</agent>
+                <agent>Rx_B6_SpentFuelPool_Id1445</agent>
+                <agent>Rx_B7_SpentFuelPool_Id1531</agent>
+                <agent>Rx_B8_SpentFuelPool_Id1612</agent>
             </KMP>
         </inventory_KMPs>
         <generate_reports>True</generate_reports>
@@ -106,78 +83,78 @@
         <country>DD</country>
         <facility>DDC-</facility>
         <agents>
-            <agent>Rx_C1_FreshFuelVault</agent>
-            <agent>Rx_C1_Reactor</agent>
-            <agent>Rx_C1_SpentFuelPool</agent>
-            <agent>Rx_C2_FreshFuelVault</agent>
-            <agent>Rx_C2_Reactor</agent>
-            <agent>Rx_C2_SpentFuelPool</agent>
-            <agent>Rx_C3_FreshFuelVault</agent>
-            <agent>Rx_C3_Reactor</agent>
-            <agent>Rx_C3_SpentFuelPool</agent>
-            <agent>Rx_C4_FreshFuelVault</agent>
-            <agent>Rx_C4_Reactor</agent>
-            <agent>Rx_C4_SpentFuelPool</agent>
-            <agent>Rx_C5_FreshFuelVault</agent>
-            <agent>Rx_C5_Reactor</agent>
-            <agent>Rx_C5_SpentFuelPool</agent>
-            <agent>Rx_C6_FreshFuelVault</agent>
-            <agent>Rx_C6_Reactor</agent>
-            <agent>Rx_C6_SpentFuelPool</agent>
-            <agent>Rx_C7_FreshFuelVault</agent>
-            <agent>Rx_C7_Reactor</agent>
-            <agent>Rx_C7_SpentFuelPool</agent>
-            <agent>Rx_C8_FreshFuelVault</agent>
-            <agent>Rx_C8_Reactor</agent>
-            <agent>Rx_C8_SpentFuelPool</agent>
-            <agent>Rx_C_Shipper</agent>
+            <agent>Rx_C1_FreshFuelVault_Id1158</agent>
+            <agent>Rx_C1_Reactor_Id1159</agent>
+            <agent>Rx_C1_SpentFuelPool_Id1160</agent>
+            <agent>Rx_C2_FreshFuelVault_Id1194</agent>
+            <agent>Rx_C2_Reactor_Id1195</agent>
+            <agent>Rx_C2_SpentFuelPool_Id1196</agent>
+            <agent>Rx_C3_FreshFuelVault_Id1257</agent>
+            <agent>Rx_C3_Reactor_Id1258</agent>
+            <agent>Rx_C3_SpentFuelPool_Id1259</agent>
+            <agent>Rx_C4_FreshFuelVault_Id1272</agent>
+            <agent>Rx_C4_Reactor_Id1273</agent>
+            <agent>Rx_C4_SpentFuelPool_Id1274</agent>
+            <agent>Rx_C5_FreshFuelVault_Id1389</agent>
+            <agent>Rx_C5_Reactor_Id1390</agent>
+            <agent>Rx_C5_SpentFuelPool_Id1391</agent>
+            <agent>Rx_C6_FreshFuelVault_Id1404</agent>
+            <agent>Rx_C6_Reactor_Id1405</agent>
+            <agent>Rx_C6_SpentFuelPool_Id1406</agent>
+            <agent>Rx_C7_FreshFuelVault_Id1532</agent>
+            <agent>Rx_C7_Reactor_Id1533</agent>
+            <agent>Rx_C7_SpentFuelPool_Id1534</agent>
+            <agent>Rx_C8_FreshFuelVault_Id1606</agent>
+            <agent>Rx_C8_Reactor_Id1607</agent>
+            <agent>Rx_C8_SpentFuelPool_Id1608</agent>
+            <agent>Rx_C_Shipper_Id1609</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_C1_Reactor</agent>
-            <agent>Rx_C2_Reactor</agent>
-            <agent>Rx_C3_Reactor</agent>
-            <agent>Rx_C4_Reactor</agent>
-            <agent>Rx_C5_Reactor</agent>
-            <agent>Rx_C6_Reactor</agent>
-            <agent>Rx_C7_Reactor</agent>
-            <agent>Rx_C8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_C1_Reactor_Id1159</agent>
+            <agent>Rx_C2_Reactor_Id1195</agent>
+            <agent>Rx_C3_Reactor_Id1258</agent>
+            <agent>Rx_C4_Reactor_Id1273</agent>
+            <agent>Rx_C5_Reactor_Id1390</agent>
+            <agent>Rx_C6_Reactor_Id1405</agent>
+            <agent>Rx_C7_Reactor_Id1533</agent>
+            <agent>Rx_C8_Reactor_Id1607</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_C1_FreshFuelVault</agent>
-                <agent>Rx_C2_FreshFuelVault</agent>
-                <agent>Rx_C3_FreshFuelVault</agent>
-                <agent>Rx_C4_FreshFuelVault</agent>
-                <agent>Rx_C5_FreshFuelVault</agent>
-                <agent>Rx_C6_FreshFuelVault</agent>
-                <agent>Rx_C7_FreshFuelVault</agent>
-                <agent>Rx_C8_FreshFuelVault</agent>
+                <agent>Rx_C1_FreshFuelVault_Id1158</agent>
+                <agent>Rx_C2_FreshFuelVault_Id1194</agent>
+                <agent>Rx_C3_FreshFuelVault_Id1257</agent>
+                <agent>Rx_C4_FreshFuelVault_Id1272</agent>
+                <agent>Rx_C5_FreshFuelVault_Id1389</agent>
+                <agent>Rx_C6_FreshFuelVault_Id1404</agent>
+                <agent>Rx_C7_FreshFuelVault_Id1532</agent>
+                <agent>Rx_C8_FreshFuelVault_Id1606</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_C1_Reactor</agent>
-                <agent>Rx_C2_Reactor</agent>
-                <agent>Rx_C3_Reactor</agent>
-                <agent>Rx_C4_Reactor</agent>
-                <agent>Rx_C5_Reactor</agent>
-                <agent>Rx_C6_Reactor</agent>
-                <agent>Rx_C7_Reactor</agent>
-                <agent>Rx_C8_Reactor</agent>
+                <agent>Rx_C1_Reactor_Id1159</agent>
+                <agent>Rx_C2_Reactor_Id1195</agent>
+                <agent>Rx_C3_Reactor_Id1258</agent>
+                <agent>Rx_C4_Reactor_Id1273</agent>
+                <agent>Rx_C5_Reactor_Id1390</agent>
+                <agent>Rx_C6_Reactor_Id1405</agent>
+                <agent>Rx_C7_Reactor_Id1533</agent>
+                <agent>Rx_C8_Reactor_Id1607</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_C1_SpentFuelPool</agent>
-                <agent>Rx_C2_SpentFuelPool</agent>
-                <agent>Rx_C3_SpentFuelPool</agent>
-                <agent>Rx_C4_SpentFuelPool</agent>
-                <agent>Rx_C5_SpentFuelPool</agent>
-                <agent>Rx_C6_SpentFuelPool</agent>
-                <agent>Rx_C7_SpentFuelPool</agent>
-                <agent>Rx_C8_SpentFuelPool</agent>
+                <agent>Rx_C1_SpentFuelPool_Id1160</agent>
+                <agent>Rx_C2_SpentFuelPool_Id1196</agent>
+                <agent>Rx_C3_SpentFuelPool_Id1259</agent>
+                <agent>Rx_C4_SpentFuelPool_Id1274</agent>
+                <agent>Rx_C5_SpentFuelPool_Id1391</agent>
+                <agent>Rx_C6_SpentFuelPool_Id1406</agent>
+                <agent>Rx_C7_SpentFuelPool_Id1534</agent>
+                <agent>Rx_C8_SpentFuelPool_Id1608</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -185,78 +162,78 @@
         <country>DD</country>
         <facility>DDD-</facility>
         <agents>
-            <agent>Rx_D1_FreshFuelVault</agent>
-            <agent>Rx_D1_Reactor</agent>
-            <agent>Rx_D1_SpentFuelPool</agent>
-            <agent>Rx_D2_FreshFuelVault</agent>
-            <agent>Rx_D2_Reactor</agent>
-            <agent>Rx_D2_SpentFuelPool</agent>
-            <agent>Rx_D3_FreshFuelVault</agent>
-            <agent>Rx_D3_Reactor</agent>
-            <agent>Rx_D3_SpentFuelPool</agent>
-            <agent>Rx_D4_FreshFuelVault</agent>
-            <agent>Rx_D4_Reactor</agent>
-            <agent>Rx_D4_SpentFuelPool</agent>
-            <agent>Rx_D5_FreshFuelVault</agent>
-            <agent>Rx_D5_Reactor</agent>
-            <agent>Rx_D5_SpentFuelPool</agent>
-            <agent>Rx_D6_FreshFuelVault</agent>
-            <agent>Rx_D6_Reactor</agent>
-            <agent>Rx_D6_SpentFuelPool</agent>
-            <agent>Rx_D7_FreshFuelVault</agent>
-            <agent>Rx_D7_Reactor</agent>
-            <agent>Rx_D7_SpentFuelPool</agent>
-            <agent>Rx_D8_FreshFuelVault</agent>
-            <agent>Rx_D8_Reactor</agent>
-            <agent>Rx_D8_SpentFuelPool</agent>
-            <agent>Rx_D_Shipper</agent>
+            <agent>Rx_D1_FreshFuelVault_Id1209</agent>
+            <agent>Rx_D1_Reactor_Id1210</agent>
+            <agent>Rx_D1_SpentFuelPool_Id1211</agent>
+            <agent>Rx_D2_FreshFuelVault_Id1212</agent>
+            <agent>Rx_D2_Reactor_Id1213</agent>
+            <agent>Rx_D2_SpentFuelPool_Id1214</agent>
+            <agent>Rx_D3_FreshFuelVault_Id1242</agent>
+            <agent>Rx_D3_Reactor_Id1243</agent>
+            <agent>Rx_D3_SpentFuelPool_Id1244</agent>
+            <agent>Rx_D4_FreshFuelVault_Id1362</agent>
+            <agent>Rx_D4_Reactor_Id1363</agent>
+            <agent>Rx_D4_SpentFuelPool_Id1364</agent>
+            <agent>Rx_D5_FreshFuelVault_Id1374</agent>
+            <agent>Rx_D5_Reactor_Id1375</agent>
+            <agent>Rx_D5_SpentFuelPool_Id1376</agent>
+            <agent>Rx_D6_FreshFuelVault_Id1449</agent>
+            <agent>Rx_D6_Reactor_Id1450</agent>
+            <agent>Rx_D6_SpentFuelPool_Id1451</agent>
+            <agent>Rx_D7_FreshFuelVault_Id1552</agent>
+            <agent>Rx_D7_Reactor_Id1553</agent>
+            <agent>Rx_D7_SpentFuelPool_Id1554</agent>
+            <agent>Rx_D8_FreshFuelVault_Id1572</agent>
+            <agent>Rx_D8_Reactor_Id1573</agent>
+            <agent>Rx_D8_SpentFuelPool_Id1574</agent>
+            <agent>Rx_D_Shipper_Id1575</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_D1_Reactor</agent>
-            <agent>Rx_D2_Reactor</agent>
-            <agent>Rx_D3_Reactor</agent>
-            <agent>Rx_D4_Reactor</agent>
-            <agent>Rx_D5_Reactor</agent>
-            <agent>Rx_D6_Reactor</agent>
-            <agent>Rx_D7_Reactor</agent>
-            <agent>Rx_D8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_D1_Reactor_Id1210</agent>
+            <agent>Rx_D2_Reactor_Id1213</agent>
+            <agent>Rx_D3_Reactor_Id1243</agent>
+            <agent>Rx_D4_Reactor_Id1363</agent>
+            <agent>Rx_D5_Reactor_Id1375</agent>
+            <agent>Rx_D6_Reactor_Id1450</agent>
+            <agent>Rx_D7_Reactor_Id1553</agent>
+            <agent>Rx_D8_Reactor_Id1573</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_D1_FreshFuelVault</agent>
-                <agent>Rx_D2_FreshFuelVault</agent>
-                <agent>Rx_D3_FreshFuelVault</agent>
-                <agent>Rx_D4_FreshFuelVault</agent>
-                <agent>Rx_D5_FreshFuelVault</agent>
-                <agent>Rx_D6_FreshFuelVault</agent>
-                <agent>Rx_D7_FreshFuelVault</agent>
-                <agent>Rx_D8_FreshFuelVault</agent>
+                <agent>Rx_D1_FreshFuelVault_Id1209</agent>
+                <agent>Rx_D2_FreshFuelVault_Id1212</agent>
+                <agent>Rx_D3_FreshFuelVault_Id1242</agent>
+                <agent>Rx_D4_FreshFuelVault_Id1362</agent>
+                <agent>Rx_D5_FreshFuelVault_Id1374</agent>
+                <agent>Rx_D6_FreshFuelVault_Id1449</agent>
+                <agent>Rx_D7_FreshFuelVault_Id1552</agent>
+                <agent>Rx_D8_FreshFuelVault_Id1572</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_D1_Reactor</agent>
-                <agent>Rx_D2_Reactor</agent>
-                <agent>Rx_D3_Reactor</agent>
-                <agent>Rx_D4_Reactor</agent>
-                <agent>Rx_D5_Reactor</agent>
-                <agent>Rx_D6_Reactor</agent>
-                <agent>Rx_D7_Reactor</agent>
-                <agent>Rx_D8_Reactor</agent>
+                <agent>Rx_D1_Reactor_Id1210</agent>
+                <agent>Rx_D2_Reactor_Id1213</agent>
+                <agent>Rx_D3_Reactor_Id1243</agent>
+                <agent>Rx_D4_Reactor_Id1363</agent>
+                <agent>Rx_D5_Reactor_Id1375</agent>
+                <agent>Rx_D6_Reactor_Id1450</agent>
+                <agent>Rx_D7_Reactor_Id1553</agent>
+                <agent>Rx_D8_Reactor_Id1573</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_D1_SpentFuelPool</agent>
-                <agent>Rx_D2_SpentFuelPool</agent>
-                <agent>Rx_D3_SpentFuelPool</agent>
-                <agent>Rx_D4_SpentFuelPool</agent>
-                <agent>Rx_D5_SpentFuelPool</agent>
-                <agent>Rx_D6_SpentFuelPool</agent>
-                <agent>Rx_D7_SpentFuelPool</agent>
-                <agent>Rx_D8_SpentFuelPool</agent>
+                <agent>Rx_D1_SpentFuelPool_Id1211</agent>
+                <agent>Rx_D2_SpentFuelPool_Id1214</agent>
+                <agent>Rx_D3_SpentFuelPool_Id1244</agent>
+                <agent>Rx_D4_SpentFuelPool_Id1364</agent>
+                <agent>Rx_D5_SpentFuelPool_Id1376</agent>
+                <agent>Rx_D6_SpentFuelPool_Id1451</agent>
+                <agent>Rx_D7_SpentFuelPool_Id1554</agent>
+                <agent>Rx_D8_SpentFuelPool_Id1574</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -264,78 +241,78 @@
         <country>DD</country>
         <facility>DDE-</facility>
         <agents>
-            <agent>Rx_E1_FreshFuelVault</agent>
-            <agent>Rx_E1_Reactor</agent>
-            <agent>Rx_E1_SpentFuelPool</agent>
-            <agent>Rx_E2_FreshFuelVault</agent>
-            <agent>Rx_E2_Reactor</agent>
-            <agent>Rx_E2_SpentFuelPool</agent>
-            <agent>Rx_E3_FreshFuelVault</agent>
-            <agent>Rx_E3_Reactor</agent>
-            <agent>Rx_E3_SpentFuelPool</agent>
-            <agent>Rx_E4_FreshFuelVault</agent>
-            <agent>Rx_E4_Reactor</agent>
-            <agent>Rx_E4_SpentFuelPool</agent>
-            <agent>Rx_E5_FreshFuelVault</agent>
-            <agent>Rx_E5_Reactor</agent>
-            <agent>Rx_E5_SpentFuelPool</agent>
-            <agent>Rx_E6_FreshFuelVault</agent>
-            <agent>Rx_E6_Reactor</agent>
-            <agent>Rx_E6_SpentFuelPool</agent>
-            <agent>Rx_E7_FreshFuelVault</agent>
-            <agent>Rx_E7_Reactor</agent>
-            <agent>Rx_E7_SpentFuelPool</agent>
-            <agent>Rx_E8_FreshFuelVault</agent>
-            <agent>Rx_E8_Reactor</agent>
-            <agent>Rx_E8_SpentFuelPool</agent>
-            <agent>Rx_E_Shipper</agent>
+            <agent>Rx_E1_FreshFuelVault_Id1188</agent>
+            <agent>Rx_E1_Reactor_Id1189</agent>
+            <agent>Rx_E1_SpentFuelPool_Id1190</agent>
+            <agent>Rx_E2_FreshFuelVault_Id1191</agent>
+            <agent>Rx_E2_Reactor_Id1192</agent>
+            <agent>Rx_E2_SpentFuelPool_Id1193</agent>
+            <agent>Rx_E3_FreshFuelVault_Id1305</agent>
+            <agent>Rx_E3_Reactor_Id1306</agent>
+            <agent>Rx_E3_SpentFuelPool_Id1307</agent>
+            <agent>Rx_E4_FreshFuelVault_Id1323</agent>
+            <agent>Rx_E4_Reactor_Id1324</agent>
+            <agent>Rx_E4_SpentFuelPool_Id1325</agent>
+            <agent>Rx_E5_FreshFuelVault_Id1380</agent>
+            <agent>Rx_E5_Reactor_Id1381</agent>
+            <agent>Rx_E5_SpentFuelPool_Id1382</agent>
+            <agent>Rx_E6_FreshFuelVault_Id1455</agent>
+            <agent>Rx_E6_Reactor_Id1456</agent>
+            <agent>Rx_E6_SpentFuelPool_Id1457</agent>
+            <agent>Rx_E7_FreshFuelVault_Id1562</agent>
+            <agent>Rx_E7_Reactor_Id1563</agent>
+            <agent>Rx_E7_SpentFuelPool_Id1564</agent>
+            <agent>Rx_E8_FreshFuelVault_Id1630</agent>
+            <agent>Rx_E8_Reactor_Id1631</agent>
+            <agent>Rx_E8_SpentFuelPool_Id1632</agent>
+            <agent>Rx_E_Shipper_Id1633</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_E1_Reactor</agent>
-            <agent>Rx_E2_Reactor</agent>
-            <agent>Rx_E3_Reactor</agent>
-            <agent>Rx_E4_Reactor</agent>
-            <agent>Rx_E5_Reactor</agent>
-            <agent>Rx_E6_Reactor</agent>
-            <agent>Rx_E7_Reactor</agent>
-            <agent>Rx_E8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_E1_Reactor_Id1189</agent>
+            <agent>Rx_E2_Reactor_Id1192</agent>
+            <agent>Rx_E3_Reactor_Id1306</agent>
+            <agent>Rx_E4_Reactor_Id1324</agent>
+            <agent>Rx_E5_Reactor_Id1381</agent>
+            <agent>Rx_E6_Reactor_Id1456</agent>
+            <agent>Rx_E7_Reactor_Id1563</agent>
+            <agent>Rx_E8_Reactor_Id1631</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_E1_FreshFuelVault</agent>
-                <agent>Rx_E2_FreshFuelVault</agent>
-                <agent>Rx_E3_FreshFuelVault</agent>
-                <agent>Rx_E4_FreshFuelVault</agent>
-                <agent>Rx_E5_FreshFuelVault</agent>
-                <agent>Rx_E6_FreshFuelVault</agent>
-                <agent>Rx_E7_FreshFuelVault</agent>
-                <agent>Rx_E8_FreshFuelVault</agent>
+                <agent>Rx_E1_FreshFuelVault_Id1188</agent>
+                <agent>Rx_E2_FreshFuelVault_Id1191</agent>
+                <agent>Rx_E3_FreshFuelVault_Id1305</agent>
+                <agent>Rx_E4_FreshFuelVault_Id1323</agent>
+                <agent>Rx_E5_FreshFuelVault_Id1380</agent>
+                <agent>Rx_E6_FreshFuelVault_Id1455</agent>
+                <agent>Rx_E7_FreshFuelVault_Id1562</agent>
+                <agent>Rx_E8_FreshFuelVault_Id1630</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_E1_Reactor</agent>
-                <agent>Rx_E2_Reactor</agent>
-                <agent>Rx_E3_Reactor</agent>
-                <agent>Rx_E4_Reactor</agent>
-                <agent>Rx_E5_Reactor</agent>
-                <agent>Rx_E6_Reactor</agent>
-                <agent>Rx_E7_Reactor</agent>
-                <agent>Rx_E8_Reactor</agent>
+                <agent>Rx_E1_Reactor_Id1189</agent>
+                <agent>Rx_E2_Reactor_Id1192</agent>
+                <agent>Rx_E3_Reactor_Id1306</agent>
+                <agent>Rx_E4_Reactor_Id1324</agent>
+                <agent>Rx_E5_Reactor_Id1381</agent>
+                <agent>Rx_E6_Reactor_Id1456</agent>
+                <agent>Rx_E7_Reactor_Id1563</agent>
+                <agent>Rx_E8_Reactor_Id1631</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_E1_SpentFuelPool</agent>
-                <agent>Rx_E2_SpentFuelPool</agent>
-                <agent>Rx_E3_SpentFuelPool</agent>
-                <agent>Rx_E4_SpentFuelPool</agent>
-                <agent>Rx_E5_SpentFuelPool</agent>
-                <agent>Rx_E6_SpentFuelPool</agent>
-                <agent>Rx_E7_SpentFuelPool</agent>
-                <agent>Rx_E8_SpentFuelPool</agent>
+                <agent>Rx_E1_SpentFuelPool_Id1190</agent>
+                <agent>Rx_E2_SpentFuelPool_Id1193</agent>
+                <agent>Rx_E3_SpentFuelPool_Id1307</agent>
+                <agent>Rx_E4_SpentFuelPool_Id1325</agent>
+                <agent>Rx_E5_SpentFuelPool_Id1382</agent>
+                <agent>Rx_E6_SpentFuelPool_Id1457</agent>
+                <agent>Rx_E7_SpentFuelPool_Id1564</agent>
+                <agent>Rx_E8_SpentFuelPool_Id1632</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -343,78 +320,78 @@
         <country>DD</country>
         <facility>DDF-</facility>
         <agents>
-            <agent>Rx_F1_FreshFuelVault</agent>
-            <agent>Rx_F1_Reactor</agent>
-            <agent>Rx_F1_SpentFuelPool</agent>
-            <agent>Rx_F2_FreshFuelVault</agent>
-            <agent>Rx_F2_Reactor</agent>
-            <agent>Rx_F2_SpentFuelPool</agent>
-            <agent>Rx_F3_FreshFuelVault</agent>
-            <agent>Rx_F3_Reactor</agent>
-            <agent>Rx_F3_SpentFuelPool</agent>
-            <agent>Rx_F4_FreshFuelVault</agent>
-            <agent>Rx_F4_Reactor</agent>
-            <agent>Rx_F4_SpentFuelPool</agent>
-            <agent>Rx_F5_FreshFuelVault</agent>
-            <agent>Rx_F5_Reactor</agent>
-            <agent>Rx_F5_SpentFuelPool</agent>
-            <agent>Rx_F6_FreshFuelVault</agent>
-            <agent>Rx_F6_Reactor</agent>
-            <agent>Rx_F6_SpentFuelPool</agent>
-            <agent>Rx_F7_FreshFuelVault</agent>
-            <agent>Rx_F7_Reactor</agent>
-            <agent>Rx_F7_SpentFuelPool</agent>
-            <agent>Rx_F8_FreshFuelVault</agent>
-            <agent>Rx_F8_Reactor</agent>
-            <agent>Rx_F8_SpentFuelPool</agent>
-            <agent>Rx_F_Shipper</agent>
+            <agent>Rx_F1_FreshFuelVault_Id1131</agent>
+            <agent>Rx_F1_Reactor_Id1132</agent>
+            <agent>Rx_F1_SpentFuelPool_Id1133</agent>
+            <agent>Rx_F2_FreshFuelVault_Id1170</agent>
+            <agent>Rx_F2_Reactor_Id1171</agent>
+            <agent>Rx_F2_SpentFuelPool_Id1172</agent>
+            <agent>Rx_F3_FreshFuelVault_Id1326</agent>
+            <agent>Rx_F3_Reactor_Id1327</agent>
+            <agent>Rx_F3_SpentFuelPool_Id1328</agent>
+            <agent>Rx_F4_FreshFuelVault_Id1266</agent>
+            <agent>Rx_F4_Reactor_Id1267</agent>
+            <agent>Rx_F4_SpentFuelPool_Id1268</agent>
+            <agent>Rx_F5_FreshFuelVault_Id1395</agent>
+            <agent>Rx_F5_Reactor_Id1396</agent>
+            <agent>Rx_F5_SpentFuelPool_Id1397</agent>
+            <agent>Rx_F6_FreshFuelVault_Id1470</agent>
+            <agent>Rx_F6_Reactor_Id1471</agent>
+            <agent>Rx_F6_SpentFuelPool_Id1472</agent>
+            <agent>Rx_F7_FreshFuelVault_Id1509</agent>
+            <agent>Rx_F7_Reactor_Id1510</agent>
+            <agent>Rx_F7_SpentFuelPool_Id1511</agent>
+            <agent>Rx_F8_FreshFuelVault_Id1541</agent>
+            <agent>Rx_F8_Reactor_Id1542</agent>
+            <agent>Rx_F8_SpentFuelPool_Id1543</agent>
+            <agent>Rx_F_Shipper_Id1544</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_F1_Reactor</agent>
-            <agent>Rx_F2_Reactor</agent>
-            <agent>Rx_F3_Reactor</agent>
-            <agent>Rx_F4_Reactor</agent>
-            <agent>Rx_F5_Reactor</agent>
-            <agent>Rx_F6_Reactor</agent>
-            <agent>Rx_F7_Reactor</agent>
-            <agent>Rx_F8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_F1_Reactor_Id1132</agent>
+            <agent>Rx_F2_Reactor_Id1171</agent>
+            <agent>Rx_F3_Reactor_Id1327</agent>
+            <agent>Rx_F4_Reactor_Id1267</agent>
+            <agent>Rx_F5_Reactor_Id1396</agent>
+            <agent>Rx_F6_Reactor_Id1471</agent>
+            <agent>Rx_F7_Reactor_Id1510</agent>
+            <agent>Rx_F8_Reactor_Id1542</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_F1_FreshFuelVault</agent>
-                <agent>Rx_F2_FreshFuelVault</agent>
-                <agent>Rx_F3_FreshFuelVault</agent>
-                <agent>Rx_F4_FreshFuelVault</agent>
-                <agent>Rx_F5_FreshFuelVault</agent>
-                <agent>Rx_F6_FreshFuelVault</agent>
-                <agent>Rx_F7_FreshFuelVault</agent>
-                <agent>Rx_F8_FreshFuelVault</agent>
+                <agent>Rx_F1_FreshFuelVault_Id1131</agent>
+                <agent>Rx_F2_FreshFuelVault_Id1170</agent>
+                <agent>Rx_F3_FreshFuelVault_Id1326</agent>
+                <agent>Rx_F4_FreshFuelVault_Id1266</agent>
+                <agent>Rx_F5_FreshFuelVault_Id1395</agent>
+                <agent>Rx_F6_FreshFuelVault_Id1470</agent>
+                <agent>Rx_F7_FreshFuelVault_Id1509</agent>
+                <agent>Rx_F8_FreshFuelVault_Id1541</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_F1_Reactor</agent>
-                <agent>Rx_F2_Reactor</agent>
-                <agent>Rx_F3_Reactor</agent>
-                <agent>Rx_F4_Reactor</agent>
-                <agent>Rx_F5_Reactor</agent>
-                <agent>Rx_F6_Reactor</agent>
-                <agent>Rx_F7_Reactor</agent>
-                <agent>Rx_F8_Reactor</agent>
+                <agent>Rx_F1_Reactor_Id1132</agent>
+                <agent>Rx_F2_Reactor_Id1171</agent>
+                <agent>Rx_F3_Reactor_Id1327</agent>
+                <agent>Rx_F4_Reactor_Id1267</agent>
+                <agent>Rx_F5_Reactor_Id1396</agent>
+                <agent>Rx_F6_Reactor_Id1471</agent>
+                <agent>Rx_F7_Reactor_Id1510</agent>
+                <agent>Rx_F8_Reactor_Id1542</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_F1_SpentFuelPool</agent>
-                <agent>Rx_F2_SpentFuelPool</agent>
-                <agent>Rx_F3_SpentFuelPool</agent>
-                <agent>Rx_F4_SpentFuelPool</agent>
-                <agent>Rx_F5_SpentFuelPool</agent>
-                <agent>Rx_F6_SpentFuelPool</agent>
-                <agent>Rx_F7_SpentFuelPool</agent>
-                <agent>Rx_F8_SpentFuelPool</agent>
+                <agent>Rx_F1_SpentFuelPool_Id1133</agent>
+                <agent>Rx_F2_SpentFuelPool_Id1172</agent>
+                <agent>Rx_F3_SpentFuelPool_Id1328</agent>
+                <agent>Rx_F4_SpentFuelPool_Id1268</agent>
+                <agent>Rx_F5_SpentFuelPool_Id1397</agent>
+                <agent>Rx_F6_SpentFuelPool_Id1472</agent>
+                <agent>Rx_F7_SpentFuelPool_Id1511</agent>
+                <agent>Rx_F8_SpentFuelPool_Id1543</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -422,78 +399,78 @@
         <country>DD</country>
         <facility>DDG-</facility>
         <agents>
-            <agent>Rx_G1_FreshFuelVault</agent>
-            <agent>Rx_G1_Reactor</agent>
-            <agent>Rx_G1_SpentFuelPool</agent>
-            <agent>Rx_G2_FreshFuelVault</agent>
-            <agent>Rx_G2_Reactor</agent>
-            <agent>Rx_G2_SpentFuelPool</agent>
-            <agent>Rx_G3_FreshFuelVault</agent>
-            <agent>Rx_G3_Reactor</agent>
-            <agent>Rx_G3_SpentFuelPool</agent>
-            <agent>Rx_G4_FreshFuelVault</agent>
-            <agent>Rx_G4_Reactor</agent>
-            <agent>Rx_G4_SpentFuelPool</agent>
-            <agent>Rx_G5_FreshFuelVault</agent>
-            <agent>Rx_G5_Reactor</agent>
-            <agent>Rx_G5_SpentFuelPool</agent>
-            <agent>Rx_G6_FreshFuelVault</agent>
-            <agent>Rx_G6_Reactor</agent>
-            <agent>Rx_G6_SpentFuelPool</agent>
-            <agent>Rx_G7_FreshFuelVault</agent>
-            <agent>Rx_G7_Reactor</agent>
-            <agent>Rx_G7_SpentFuelPool</agent>
-            <agent>Rx_G8_FreshFuelVault</agent>
-            <agent>Rx_G8_Reactor</agent>
-            <agent>Rx_G8_SpentFuelPool</agent>
-            <agent>Rx_G_Shipper</agent>
+            <agent>Rx_G1_FreshFuelVault_Id1143</agent>
+            <agent>Rx_G1_Reactor_Id1144</agent>
+            <agent>Rx_G1_SpentFuelPool_Id1145</agent>
+            <agent>Rx_G2_FreshFuelVault_Id1176</agent>
+            <agent>Rx_G2_Reactor_Id1177</agent>
+            <agent>Rx_G2_SpentFuelPool_Id1178</agent>
+            <agent>Rx_G3_FreshFuelVault_Id1254</agent>
+            <agent>Rx_G3_Reactor_Id1255</agent>
+            <agent>Rx_G3_SpentFuelPool_Id1256</agent>
+            <agent>Rx_G4_FreshFuelVault_Id1347</agent>
+            <agent>Rx_G4_Reactor_Id1348</agent>
+            <agent>Rx_G4_SpentFuelPool_Id1349</agent>
+            <agent>Rx_G5_FreshFuelVault_Id1413</agent>
+            <agent>Rx_G5_Reactor_Id1414</agent>
+            <agent>Rx_G5_SpentFuelPool_Id1415</agent>
+            <agent>Rx_G6_FreshFuelVault_Id1473</agent>
+            <agent>Rx_G6_Reactor_Id1474</agent>
+            <agent>Rx_G6_SpentFuelPool_Id1475</agent>
+            <agent>Rx_G7_FreshFuelVault_Id1538</agent>
+            <agent>Rx_G7_Reactor_Id1539</agent>
+            <agent>Rx_G7_SpentFuelPool_Id1540</agent>
+            <agent>Rx_G8_FreshFuelVault_Id1580</agent>
+            <agent>Rx_G8_Reactor_Id1581</agent>
+            <agent>Rx_G8_SpentFuelPool_Id1582</agent>
+            <agent>Rx_G_Shipper_Id1583</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_G1_Reactor</agent>
-            <agent>Rx_G2_Reactor</agent>
-            <agent>Rx_G3_Reactor</agent>
-            <agent>Rx_G4_Reactor</agent>
-            <agent>Rx_G5_Reactor</agent>
-            <agent>Rx_G6_Reactor</agent>
-            <agent>Rx_G7_Reactor</agent>
-            <agent>Rx_G8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_G1_Reactor_Id1144</agent>
+            <agent>Rx_G2_Reactor_Id1177</agent>
+            <agent>Rx_G3_Reactor_Id1255</agent>
+            <agent>Rx_G4_Reactor_Id1348</agent>
+            <agent>Rx_G5_Reactor_Id1414</agent>
+            <agent>Rx_G6_Reactor_Id1474</agent>
+            <agent>Rx_G7_Reactor_Id1539</agent>
+            <agent>Rx_G8_Reactor_Id1581</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_G1_FreshFuelVault</agent>
-                <agent>Rx_G2_FreshFuelVault</agent>
-                <agent>Rx_G3_FreshFuelVault</agent>
-                <agent>Rx_G4_FreshFuelVault</agent>
-                <agent>Rx_G5_FreshFuelVault</agent>
-                <agent>Rx_G6_FreshFuelVault</agent>
-                <agent>Rx_G7_FreshFuelVault</agent>
-                <agent>Rx_G8_FreshFuelVault</agent>
+                <agent>Rx_G1_FreshFuelVault_Id1143</agent>
+                <agent>Rx_G2_FreshFuelVault_Id1176</agent>
+                <agent>Rx_G3_FreshFuelVault_Id1254</agent>
+                <agent>Rx_G4_FreshFuelVault_Id1347</agent>
+                <agent>Rx_G5_FreshFuelVault_Id1413</agent>
+                <agent>Rx_G6_FreshFuelVault_Id1473</agent>
+                <agent>Rx_G7_FreshFuelVault_Id1538</agent>
+                <agent>Rx_G8_FreshFuelVault_Id1580</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_G1_Reactor</agent>
-                <agent>Rx_G2_Reactor</agent>
-                <agent>Rx_G3_Reactor</agent>
-                <agent>Rx_G4_Reactor</agent>
-                <agent>Rx_G5_Reactor</agent>
-                <agent>Rx_G6_Reactor</agent>
-                <agent>Rx_G7_Reactor</agent>
-                <agent>Rx_G8_Reactor</agent>
+                <agent>Rx_G1_Reactor_Id1144</agent>
+                <agent>Rx_G2_Reactor_Id1177</agent>
+                <agent>Rx_G3_Reactor_Id1255</agent>
+                <agent>Rx_G4_Reactor_Id1348</agent>
+                <agent>Rx_G5_Reactor_Id1414</agent>
+                <agent>Rx_G6_Reactor_Id1474</agent>
+                <agent>Rx_G7_Reactor_Id1539</agent>
+                <agent>Rx_G8_Reactor_Id1581</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_G1_SpentFuelPool</agent>
-                <agent>Rx_G2_SpentFuelPool</agent>
-                <agent>Rx_G3_SpentFuelPool</agent>
-                <agent>Rx_G4_SpentFuelPool</agent>
-                <agent>Rx_G5_SpentFuelPool</agent>
-                <agent>Rx_G6_SpentFuelPool</agent>
-                <agent>Rx_G7_SpentFuelPool</agent>
-                <agent>Rx_G8_SpentFuelPool</agent>
+                <agent>Rx_G1_SpentFuelPool_Id1145</agent>
+                <agent>Rx_G2_SpentFuelPool_Id1178</agent>
+                <agent>Rx_G3_SpentFuelPool_Id1256</agent>
+                <agent>Rx_G4_SpentFuelPool_Id1349</agent>
+                <agent>Rx_G5_SpentFuelPool_Id1415</agent>
+                <agent>Rx_G6_SpentFuelPool_Id1475</agent>
+                <agent>Rx_G7_SpentFuelPool_Id1540</agent>
+                <agent>Rx_G8_SpentFuelPool_Id1582</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -501,78 +478,78 @@
         <country>DD</country>
         <facility>DDH-</facility>
         <agents>
-            <agent>Rx_H1_FreshFuelVault</agent>
-            <agent>Rx_H1_Reactor</agent>
-            <agent>Rx_H1_SpentFuelPool</agent>
-            <agent>Rx_H2_FreshFuelVault</agent>
-            <agent>Rx_H2_Reactor</agent>
-            <agent>Rx_H2_SpentFuelPool</agent>
-            <agent>Rx_H3_FreshFuelVault</agent>
-            <agent>Rx_H3_Reactor</agent>
-            <agent>Rx_H3_SpentFuelPool</agent>
-            <agent>Rx_H4_FreshFuelVault</agent>
-            <agent>Rx_H4_Reactor</agent>
-            <agent>Rx_H4_SpentFuelPool</agent>
-            <agent>Rx_H5_FreshFuelVault</agent>
-            <agent>Rx_H5_Reactor</agent>
-            <agent>Rx_H5_SpentFuelPool</agent>
-            <agent>Rx_H6_FreshFuelVault</agent>
-            <agent>Rx_H6_Reactor</agent>
-            <agent>Rx_H6_SpentFuelPool</agent>
-            <agent>Rx_H7_FreshFuelVault</agent>
-            <agent>Rx_H7_Reactor</agent>
-            <agent>Rx_H7_SpentFuelPool
-            <agent>Rx_H8_FreshFuelVault</agent>
-            <agent>Rx_H8_Reactor</agent>
-            <agent>Rx_H8_SpentFuelPool</agent>
-            <agent>Rx_H_Shipper</agent>
+            <agent>Rx_H1_FreshFuelVault_Id1128</agent>
+            <agent>Rx_H1_Reactor_Id1129</agent>
+            <agent>Rx_H1_SpentFuelPool_Id1130</agent>
+            <agent>Rx_H2_FreshFuelVault_Id1164</agent>
+            <agent>Rx_H2_Reactor_Id1165</agent>
+            <agent>Rx_H2_SpentFuelPool_Id1166</agent>
+            <agent>Rx_H3_FreshFuelVault_Id1278</agent>
+            <agent>Rx_H3_Reactor_Id1279</agent>
+            <agent>Rx_H3_SpentFuelPool_Id1280</agent>
+            <agent>Rx_H4_FreshFuelVault_Id1308</agent>
+            <agent>Rx_H4_Reactor_Id1309</agent>
+            <agent>Rx_H4_SpentFuelPool_Id1310</agent>
+            <agent>Rx_H5_FreshFuelVault_Id1383</agent>
+            <agent>Rx_H5_Reactor_Id1384</agent>
+            <agent>Rx_H5_SpentFuelPool_Id1385</agent>
+            <agent>Rx_H6_FreshFuelVault_Id1476</agent>
+            <agent>Rx_H6_Reactor_Id1477</agent>
+            <agent>Rx_H6_SpentFuelPool_Id1478</agent>
+            <agent>Rx_H7_FreshFuelVault_Id1526</agent>
+            <agent>Rx_H7_Reactor_Id1527</agent>
+            <agent>Rx_H7_SpentFuelPool_Id1528</agent>
+            <agent>Rx_H8_FreshFuelVault_Id1634</agent>
+            <agent>Rx_H8_Reactor_Id1635</agent>
+            <agent>Rx_H8_SpentFuelPool_Id1636</agent>
+            <agent>Rx_H_Shipper_Id1637</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_H1_Reactor</agent>
-            <agent>Rx_H2_Reactor</agent>
-            <agent>Rx_H3_Reactor</agent>
-            <agent>Rx_H4_Reactor</agent>
-            <agent>Rx_H5_Reactor</agent>
-            <agent>Rx_H6_Reactor</agent>
-            <agent>Rx_H7_Reactor</agent>
-            <agent>Rx_H8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_H1_Reactor_Id1129</agent>
+            <agent>Rx_H2_Reactor_Id1165</agent>
+            <agent>Rx_H3_Reactor_Id1279</agent>
+            <agent>Rx_H4_Reactor_Id1309</agent>
+            <agent>Rx_H5_Reactor_Id1384</agent>
+            <agent>Rx_H6_Reactor_Id1477</agent>
+            <agent>Rx_H7_Reactor_Id1527</agent>
+            <agent>Rx_H8_Reactor_Id1635</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_H1_FreshFuelVault</agent>
-                <agent>Rx_H2_FreshFuelVault</agent>
-                <agent>Rx_H3_FreshFuelVault</agent>
-                <agent>Rx_H4_FreshFuelVault</agent>
-                <agent>Rx_H5_FreshFuelVault</agent>
-                <agent>Rx_H6_FreshFuelVault</agent>
-                <agent>Rx_H7_FreshFuelVault</agent>
-                <agent>Rx_H8_FreshFuelVault</agent>
+                <agent>Rx_H1_FreshFuelVault_Id1128</agent>
+                <agent>Rx_H2_FreshFuelVault_Id1164</agent>
+                <agent>Rx_H3_FreshFuelVault_Id1278</agent>
+                <agent>Rx_H4_FreshFuelVault_Id1308</agent>
+                <agent>Rx_H5_FreshFuelVault_Id1383</agent>
+                <agent>Rx_H6_FreshFuelVault_Id1476</agent>
+                <agent>Rx_H7_FreshFuelVault_Id1526</agent>
+                <agent>Rx_H8_FreshFuelVault_Id1634</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_H1_Reactor</agent>
-                <agent>Rx_H2_Reactor</agent>
-                <agent>Rx_H3_Reactor</agent>
-                <agent>Rx_H4_Reactor</agent>
-                <agent>Rx_H5_Reactor</agent>
-                <agent>Rx_H6_Reactor</agent>
-                <agent>Rx_H7_Reactor</agent>
-                <agent>Rx_H8_Reactor</agent>
+                <agent>Rx_H1_Reactor_Id1129</agent>
+                <agent>Rx_H2_Reactor_Id1165</agent>
+                <agent>Rx_H3_Reactor_Id1279</agent>
+                <agent>Rx_H4_Reactor_Id1309</agent>
+                <agent>Rx_H5_Reactor_Id1384</agent>
+                <agent>Rx_H6_Reactor_Id1477</agent>
+                <agent>Rx_H7_Reactor_Id1527</agent>
+                <agent>Rx_H8_Reactor_Id1635</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_H1_SpentFuelPool</agent>
-                <agent>Rx_H2_SpentFuelPool</agent>
-                <agent>Rx_H3_SpentFuelPool</agent>
-                <agent>Rx_H4_SpentFuelPool</agent>
-                <agent>Rx_H5_SpentFuelPool</agent>
-                <agent>Rx_H6_SpentFuelPool</agent>
-                <agent>Rx_H7_SpentFuelPool</agent>
-                <agent>Rx_H8_SpentFuelPool</agent>
+                <agent>Rx_H1_SpentFuelPool_Id1130</agent>
+                <agent>Rx_H2_SpentFuelPool_Id1166</agent>
+                <agent>Rx_H3_SpentFuelPool_Id1280</agent>
+                <agent>Rx_H4_SpentFuelPool_Id1310</agent>
+                <agent>Rx_H5_SpentFuelPool_Id1385</agent>
+                <agent>Rx_H6_SpentFuelPool_Id1478</agent>
+                <agent>Rx_H7_SpentFuelPool_Id1528</agent>
+                <agent>Rx_H8_SpentFuelPool_Id1636</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -580,78 +557,78 @@
         <country>DD</country>
         <facility>DDJ-</facility>
         <agents>
-            <agent>Rx_J1_FreshFuelVault</agent>
-            <agent>Rx_J1_Reactor</agent>
-            <agent>Rx_J1_SpentFuelPool</agent>
-            <agent>Rx_J2_FreshFuelVault</agent>
-            <agent>Rx_J2_Reactor</agent>
-            <agent>Rx_J2_SpentFuelPool</agent>
-            <agent>Rx_J3_FreshFuelVault</agent>
-            <agent>Rx_J3_Reactor</agent>
-            <agent>Rx_J3_SpentFuelPool</agent>
-            <agent>Rx_J4_FreshFuelVault</agent>
-            <agent>Rx_J4_Reactor</agent>
-            <agent>Rx_J4_SpentFuelPool</agent>
-            <agent>Rx_J5_FreshFuelVault</agent>
-            <agent>Rx_J5_Reactor</agent>
-            <agent>Rx_J5_SpentFuelPool</agent>
-            <agent>Rx_J6_FreshFuelVault</agent>
-            <agent>Rx_J6_Reactor</agent>
-            <agent>Rx_J6_SpentFuelPool</agent>
-            <agent>Rx_J7_FreshFuelVault</agent>
-            <agent>Rx_J7_Reactor</agent>
-            <agent>Rx_J7_SpentFuelPool</agent>
-            <agent>Rx_J8_FreshFuelVault</agent>
-            <agent>Rx_J8_Reactor</agent>
-            <agent>Rx_J8_SpentFuelPool</agent>
-            <agent>Rx_J_Shipper</agent>
+            <agent>Rx_J1_FreshFuelVault_Id1113</agent>
+            <agent>Rx_J1_Reactor_Id1114</agent>
+            <agent>Rx_J1_SpentFuelPool_Id1115</agent>
+            <agent>Rx_J2_FreshFuelVault_Id1182</agent>
+            <agent>Rx_J2_Reactor_Id1183</agent>
+            <agent>Rx_J2_SpentFuelPool_Id1184</agent>
+            <agent>Rx_J3_FreshFuelVault_Id1245</agent>
+            <agent>Rx_J3_Reactor_Id1246</agent>
+            <agent>Rx_J3_SpentFuelPool_Id1247</agent>
+            <agent>Rx_J4_FreshFuelVault_Id1338</agent>
+            <agent>Rx_J4_Reactor_Id1339</agent>
+            <agent>Rx_J4_SpentFuelPool_Id1340</agent>
+            <agent>Rx_J5_FreshFuelVault_Id1377</agent>
+            <agent>Rx_J5_Reactor_Id1378</agent>
+            <agent>Rx_J5_SpentFuelPool_Id1379</agent>
+            <agent>Rx_J6_FreshFuelVault_Id1479</agent>
+            <agent>Rx_J6_Reactor_Id1480</agent>
+            <agent>Rx_J6_SpentFuelPool_Id1481</agent>
+            <agent>Rx_J7_FreshFuelVault_Id1494</agent>
+            <agent>Rx_J7_Reactor_Id1495</agent>
+            <agent>Rx_J7_SpentFuelPool_Id1496</agent>
+            <agent>Rx_J8_FreshFuelVault_Id1548</agent>
+            <agent>Rx_J8_Reactor_Id1549</agent>
+            <agent>Rx_J8_SpentFuelPool_Id1550</agent>
+            <agent>Rx_J_Shipper_Id1551</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_J1_Reactor</agent>
-            <agent>Rx_J2_Reactor</agent>
-            <agent>Rx_J3_Reactor</agent>
-            <agent>Rx_J4_Reactor</agent>
-            <agent>Rx_J5_Reactor</agent>
-            <agent>Rx_J6_Reactor</agent>
-            <agent>Rx_J7_Reactor</agent>
-            <agent>Rx_J8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_J1_Reactor_Id1114</agent>
+            <agent>Rx_J2_Reactor_Id1183</agent>
+            <agent>Rx_J3_Reactor_Id1246</agent>
+            <agent>Rx_J4_Reactor_Id1339</agent>
+            <agent>Rx_J5_Reactor_Id1378</agent>
+            <agent>Rx_J6_Reactor_Id1480</agent>
+            <agent>Rx_J7_Reactor_Id1495</agent>
+            <agent>Rx_J8_Reactor_Id1549</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_J1_FreshFuelVault</agent>
-                <agent>Rx_J2_FreshFuelVault</agent>
-                <agent>Rx_J3_FreshFuelVault</agent>
-                <agent>Rx_J4_FreshFuelVault</agent>
-                <agent>Rx_J5_FreshFuelVault</agent>
-                <agent>Rx_J6_FreshFuelVault</agent>
-                <agent>Rx_J7_FreshFuelVault</agent>
-                <agent>Rx_J8_FreshFuelVault</agent>
+                <agent>Rx_J1_FreshFuelVault_Id1113</agent>
+                <agent>Rx_J2_FreshFuelVault_Id1182</agent>
+                <agent>Rx_J3_FreshFuelVault_Id1245</agent>
+                <agent>Rx_J4_FreshFuelVault_Id1338</agent>
+                <agent>Rx_J5_FreshFuelVault_Id1377</agent>
+                <agent>Rx_J6_FreshFuelVault_Id1479</agent>
+                <agent>Rx_J7_FreshFuelVault_Id1494</agent>
+                <agent>Rx_J8_FreshFuelVault_Id1548</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_J1_Reactor</agent>
-                <agent>Rx_J2_Reactor</agent>
-                <agent>Rx_J3_Reactor</agent>
-                <agent>Rx_J4_Reactor</agent>
-                <agent>Rx_J5_Reactor</agent>
-                <agent>Rx_J6_Reactor</agent>
-                <agent>Rx_J7_Reactor</agent>
-                <agent>Rx_J8_Reactor</agent>
+                <agent>Rx_J1_Reactor_Id1114</agent>
+                <agent>Rx_J2_Reactor_Id1183</agent>
+                <agent>Rx_J3_Reactor_Id1246</agent>
+                <agent>Rx_J4_Reactor_Id1339</agent>
+                <agent>Rx_J5_Reactor_Id1378</agent>
+                <agent>Rx_J6_Reactor_Id1480</agent>
+                <agent>Rx_J7_Reactor_Id1495</agent>
+                <agent>Rx_J8_Reactor_Id1549</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_J1_SpentFuelPool</agent>
-                <agent>Rx_J2_SpentFuelPool</agent>
-                <agent>Rx_J3_SpentFuelPool</agent>
-                <agent>Rx_J4_SpentFuelPool</agent>
-                <agent>Rx_J5_SpentFuelPool</agent>
-                <agent>Rx_J6_SpentFuelPool</agent>
-                <agent>Rx_J7_SpentFuelPool</agent>
-                <agent>Rx_J8_SpentFuelPool</agent>
+                <agent>Rx_J1_SpentFuelPool_Id1115</agent>
+                <agent>Rx_J2_SpentFuelPool_Id1184</agent>
+                <agent>Rx_J3_SpentFuelPool_Id1247</agent>
+                <agent>Rx_J4_SpentFuelPool_Id1340</agent>
+                <agent>Rx_J5_SpentFuelPool_Id1379</agent>
+                <agent>Rx_J6_SpentFuelPool_Id1481</agent>
+                <agent>Rx_J7_SpentFuelPool_Id1496</agent>
+                <agent>Rx_J8_SpentFuelPool_Id1550</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -659,78 +636,78 @@
         <country>DD</country>
         <facility>DDK-</facility>
         <agents>
-            <agent>Rx_K1_FreshFuelVault</agent>
-            <agent>Rx_K1_Reactor</agent>
-            <agent>Rx_K1_SpentFuelPool</agent>
-            <agent>Rx_K2_FreshFuelVault</agent>
-            <agent>Rx_K2_Reactor</agent>
-            <agent>Rx_K2_SpentFuelPool</agent>
-            <agent>Rx_K3_FreshFuelVault</agent>
-            <agent>Rx_K3_Reactor</agent>
-            <agent>Rx_K3_SpentFuelPool</agent>
-            <agent>Rx_K4_FreshFuelVault</agent>
-            <agent>Rx_K4_Reactor</agent>
-            <agent>Rx_K4_SpentFuelPool</agent>
-            <agent>Rx_K5_FreshFuelVault</agent>
-            <agent>Rx_K5_Reactor</agent>
-            <agent>Rx_K5_SpentFuelPool</agent>
-            <agent>Rx_K6_FreshFuelVault</agent>
-            <agent>Rx_K6_Reactor</agent>
-            <agent>Rx_K6_SpentFuelPool</agent>
-            <agent>Rx_K7_FreshFuelVault</agent>
-            <agent>Rx_K7_Reactor</agent>
-            <agent>Rx_K7_SpentFuelPool</agent>
-            <agent>Rx_K8_FreshFuelVault</agent>
-            <agent>Rx_K8_Reactor</agent>
-            <agent>Rx_K8_SpentFuelPool</agent>
-            <agent>Rx_K_Shipper</agent>
+            <agent>Rx_K1_FreshFuelVault_Id1152</agent>
+            <agent>Rx_K1_Reactor_Id1153</agent>
+            <agent>Rx_K1_SpentFuelPool_Id1154</agent>
+            <agent>Rx_K2_FreshFuelVault_Id1200</agent>
+            <agent>Rx_K2_Reactor_Id1201</agent>
+            <agent>Rx_K2_SpentFuelPool_Id1202</agent>
+            <agent>Rx_K3_FreshFuelVault_Id1293</agent>
+            <agent>Rx_K3_Reactor_Id1294</agent>
+            <agent>Rx_K3_SpentFuelPool_Id1295</agent>
+            <agent>Rx_K4_FreshFuelVault_Id1350</agent>
+            <agent>Rx_K4_Reactor_Id1351</agent>
+            <agent>Rx_K4_SpentFuelPool_Id1352</agent>
+            <agent>Rx_K5_FreshFuelVault_Id1416</agent>
+            <agent>Rx_K5_Reactor_Id1417</agent>
+            <agent>Rx_K5_SpentFuelPool_Id1418</agent>
+            <agent>Rx_K6_FreshFuelVault_Id1461</agent>
+            <agent>Rx_K6_Reactor_Id1462</agent>
+            <agent>Rx_K6_SpentFuelPool_Id1463</agent>
+            <agent>Rx_K7_FreshFuelVault_Id1512</agent>
+            <agent>Rx_K7_Reactor_Id1513</agent>
+            <agent>Rx_K7_SpentFuelPool_Id1514</agent>
+            <agent>Rx_K8_FreshFuelVault_Id1518</agent>
+            <agent>Rx_K8_Reactor_Id1519</agent>
+            <agent>Rx_K8_SpentFuelPool_Id1520</agent>
+            <agent>Rx_K_Shipper_Id1521</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_K1_Reactor</agent>
-            <agent>Rx_K2_Reactor</agent>
-            <agent>Rx_K3_Reactor</agent>
-            <agent>Rx_K4_Reactor</agent>
-            <agent>Rx_K5_Reactor</agent>
-            <agent>Rx_K6_Reactor</agent>
-            <agent>Rx_K7_Reactor</agent>
-            <agent>Rx_K8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_K1_Reactor_Id1153</agent>
+            <agent>Rx_K2_Reactor_Id1201</agent>
+            <agent>Rx_K3_Reactor_Id1294</agent>
+            <agent>Rx_K4_Reactor_Id1351</agent>
+            <agent>Rx_K5_Reactor_Id1417</agent>
+            <agent>Rx_K6_Reactor_Id1462</agent>
+            <agent>Rx_K7_Reactor_Id1513</agent>
+            <agent>Rx_K8_Reactor_Id1519</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_K1_FreshFuelVault</agent>
-                <agent>Rx_K2_FreshFuelVault</agent>
-                <agent>Rx_K3_FreshFuelVault</agent>
-                <agent>Rx_K4_FreshFuelVault</agent>
-                <agent>Rx_K5_FreshFuelVault</agent>
-                <agent>Rx_K6_FreshFuelVault</agent>
-                <agent>Rx_K7_FreshFuelVault</agent>
-                <agent>Rx_K8_FreshFuelVault</agent>
+                <agent>Rx_K1_FreshFuelVault_Id1152</agent>
+                <agent>Rx_K2_FreshFuelVault_Id1200</agent>
+                <agent>Rx_K3_FreshFuelVault_Id1293</agent>
+                <agent>Rx_K4_FreshFuelVault_Id1350</agent>
+                <agent>Rx_K5_FreshFuelVault_Id1416</agent>
+                <agent>Rx_K6_FreshFuelVault_Id1461</agent>
+                <agent>Rx_K7_FreshFuelVault_Id1512</agent>
+                <agent>Rx_K8_FreshFuelVault_Id1518</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_K1_Reactor</agent>
-                <agent>Rx_K2_Reactor</agent>
-                <agent>Rx_K3_Reactor</agent>
-                <agent>Rx_K4_Reactor</agent>
-                <agent>Rx_K5_Reactor</agent>
-                <agent>Rx_K6_Reactor</agent>
-                <agent>Rx_K7_Reactor</agent>
-                <agent>Rx_K8_Reactor</agent>
+                <agent>Rx_K1_Reactor_Id1153</agent>
+                <agent>Rx_K2_Reactor_Id1201</agent>
+                <agent>Rx_K3_Reactor_Id1294</agent>
+                <agent>Rx_K4_Reactor_Id1351</agent>
+                <agent>Rx_K5_Reactor_Id1417</agent>
+                <agent>Rx_K6_Reactor_Id1462</agent>
+                <agent>Rx_K7_Reactor_Id1513</agent>
+                <agent>Rx_K8_Reactor_Id1519</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_K1_SpentFuelPool</agent>
-                <agent>Rx_K2_SpentFuelPool</agent>
-                <agent>Rx_K3_SpentFuelPool</agent>
-                <agent>Rx_K4_SpentFuelPool</agent>
-                <agent>Rx_K5_SpentFuelPool</agent>
-                <agent>Rx_K6_SpentFuelPool</agent>
-                <agent>Rx_K7_SpentFuelPool</agent>
-                <agent>Rx_K8_SpentFuelPool</agent>
+                <agent>Rx_K1_SpentFuelPool_Id1154</agent>
+                <agent>Rx_K2_SpentFuelPool_Id1202</agent>
+                <agent>Rx_K3_SpentFuelPool_Id1295</agent>
+                <agent>Rx_K4_SpentFuelPool_Id1352</agent>
+                <agent>Rx_K5_SpentFuelPool_Id1418</agent>
+                <agent>Rx_K6_SpentFuelPool_Id1463</agent>
+                <agent>Rx_K7_SpentFuelPool_Id1514</agent>
+                <agent>Rx_K8_SpentFuelPool_Id1520</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -738,78 +715,78 @@
         <country>DD</country>
         <facility>DDL-</facility>
         <agents>
-            <agent>Rx_L1_FreshFuelVault</agent>
-            <agent>Rx_L1_Reactor</agent>
-            <agent>Rx_L1_SpentFuelPool</agent>
-            <agent>Rx_L2_FreshFuelVault</agent>
-            <agent>Rx_L2_Reactor</agent>
-            <agent>Rx_L2_SpentFuelPool</agent>
-            <agent>Rx_L3_FreshFuelVault</agent>
-            <agent>Rx_L3_Reactor</agent>
-            <agent>Rx_L3_SpentFuelPool</agent>
-            <agent>Rx_L4_FreshFuelVault</agent>
-            <agent>Rx_L4_Reactor</agent>
-            <agent>Rx_L4_SpentFuelPool</agent>
-            <agent>Rx_L5_FreshFuelVault</agent>
-            <agent>Rx_L5_Reactor</agent>
-            <agent>Rx_L5_SpentFuelPool</agent>
-            <agent>Rx_L6_FreshFuelVault</agent>
-            <agent>Rx_L6_Reactor</agent>
-            <agent>Rx_L6_SpentFuelPool</agent>
-            <agent>Rx_L7_FreshFuelVault</agent>
-            <agent>Rx_L7_Reactor</agent>
-            <agent>Rx_L7_SpentFuelPool</agent>
-            <agent>Rx_L8_FreshFuelVault</agent>
-            <agent>Rx_L8_Reactor</agent>
-            <agent>Rx_L8_SpentFuelPool</agent>
-            <agent>Rx_L_Shipper</agent>
+            <agent>Rx_L1_FreshFuelVault_Id1122</agent>
+            <agent>Rx_L1_Reactor_Id1123</agent>
+            <agent>Rx_L1_SpentFuelPool_Id1124</agent>
+            <agent>Rx_L2_FreshFuelVault_Id1218</agent>
+            <agent>Rx_L2_Reactor_Id1219</agent>
+            <agent>Rx_L2_SpentFuelPool_Id1220</agent>
+            <agent>Rx_L3_FreshFuelVault_Id1239</agent>
+            <agent>Rx_L3_Reactor_Id1240</agent>
+            <agent>Rx_L3_SpentFuelPool_Id1241</agent>
+            <agent>Rx_L4_FreshFuelVault_Id1317</agent>
+            <agent>Rx_L4_Reactor_Id1318</agent>
+            <agent>Rx_L4_SpentFuelPool_Id1319</agent>
+            <agent>Rx_L5_FreshFuelVault_Id1368</agent>
+            <agent>Rx_L5_Reactor_Id1369</agent>
+            <agent>Rx_L5_SpentFuelPool_Id1370</agent>
+            <agent>Rx_L6_FreshFuelVault_Id1407</agent>
+            <agent>Rx_L6_Reactor_Id1408</agent>
+            <agent>Rx_L6_SpentFuelPool_Id1409</agent>
+            <agent>Rx_L7_FreshFuelVault_Id1584</agent>
+            <agent>Rx_L7_Reactor_Id1585</agent>
+            <agent>Rx_L7_SpentFuelPool_Id1586</agent>
+            <agent>Rx_L8_FreshFuelVault_Id1598</agent>
+            <agent>Rx_L8_Reactor_Id1599</agent>
+            <agent>Rx_L8_SpentFuelPool_Id1600</agent>
+            <agent>Rx_L_Shipper_Id1601</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_L1_Reactor</agent>
-            <agent>Rx_L2_Reactor</agent>
-            <agent>Rx_L3_Reactor</agent>
-            <agent>Rx_L4_Reactor</agent>
-            <agent>Rx_L5_Reactor</agent>
-            <agent>Rx_L6_Reactor</agent>
-            <agent>Rx_L7_Reactor</agent>
-            <agent>Rx_L8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_L1_Reactor_Id1123</agent>
+            <agent>Rx_L2_Reactor_Id1219</agent>
+            <agent>Rx_L3_Reactor_Id1240</agent>
+            <agent>Rx_L4_Reactor_Id1318</agent>
+            <agent>Rx_L5_Reactor_Id1369</agent>
+            <agent>Rx_L6_Reactor_Id1408</agent>
+            <agent>Rx_L7_Reactor_Id1585</agent>
+            <agent>Rx_L8_Reactor_Id1599</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_L1_FreshFuelVault</agent>
-                <agent>Rx_L2_FreshFuelVault</agent>
-                <agent>Rx_L3_FreshFuelVault</agent>
-                <agent>Rx_L4_FreshFuelVault</agent>
-                <agent>Rx_L5_FreshFuelVault</agent>
-                <agent>Rx_L6_FreshFuelVault</agent>
-                <agent>Rx_L7_FreshFuelVault</agent>
-                <agent>Rx_L8_FreshFuelVault</agent>
+                <agent>Rx_L1_FreshFuelVault_Id1122</agent>
+                <agent>Rx_L2_FreshFuelVault_Id1218</agent>
+                <agent>Rx_L3_FreshFuelVault_Id1239</agent>
+                <agent>Rx_L4_FreshFuelVault_Id1317</agent>
+                <agent>Rx_L5_FreshFuelVault_Id1368</agent>
+                <agent>Rx_L6_FreshFuelVault_Id1407</agent>
+                <agent>Rx_L7_FreshFuelVault_Id1584</agent>
+                <agent>Rx_L8_FreshFuelVault_Id1598</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_L1_Reactor</agent>
-                <agent>Rx_L2_Reactor</agent>
-                <agent>Rx_L3_Reactor</agent>
-                <agent>Rx_L4_Reactor</agent>
-                <agent>Rx_L5_Reactor</agent>
-                <agent>Rx_L6_Reactor</agent>
-                <agent>Rx_L7_Reactor</agent>
-                <agent>Rx_L8_Reactor</agent>
+                <agent>Rx_L1_Reactor_Id1123</agent>
+                <agent>Rx_L2_Reactor_Id1219</agent>
+                <agent>Rx_L3_Reactor_Id1240</agent>
+                <agent>Rx_L4_Reactor_Id1318</agent>
+                <agent>Rx_L5_Reactor_Id1369</agent>
+                <agent>Rx_L6_Reactor_Id1408</agent>
+                <agent>Rx_L7_Reactor_Id1585</agent>
+                <agent>Rx_L8_Reactor_Id1599</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_L1_SpentFuelPool</agent>
-                <agent>Rx_L2_SpentFuelPool</agent>
-                <agent>Rx_L3_SpentFuelPool</agent>
-                <agent>Rx_L4_SpentFuelPool</agent>
-                <agent>Rx_L5_SpentFuelPool</agent>
-                <agent>Rx_L6_SpentFuelPool</agent>
-                <agent>Rx_L7_SpentFuelPool</agent>
-                <agent>Rx_L8_SpentFuelPool</agent>
+                <agent>Rx_L1_SpentFuelPool_Id1124</agent>
+                <agent>Rx_L2_SpentFuelPool_Id1220</agent>
+                <agent>Rx_L3_SpentFuelPool_Id1241</agent>
+                <agent>Rx_L4_SpentFuelPool_Id1319</agent>
+                <agent>Rx_L5_SpentFuelPool_Id1370</agent>
+                <agent>Rx_L6_SpentFuelPool_Id1409</agent>
+                <agent>Rx_L7_SpentFuelPool_Id1586</agent>
+                <agent>Rx_L8_SpentFuelPool_Id1600</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -817,78 +794,78 @@
         <country>DD</country>
         <facility>DDM-</facility>
         <agents>
-            <agent>Rx_M1_FreshFuelVault</agent>
-            <agent>Rx_M1_Reactor</agent>
-            <agent>Rx_M1_SpentFuelPool</agent>
-            <agent>Rx_M2_FreshFuelVault</agent>
-            <agent>Rx_M2_Reactor</agent>
-            <agent>Rx_M2_SpentFuelPool</agent>
-            <agent>Rx_M3_FreshFuelVault</agent>
-            <agent>Rx_M3_Reactor</agent>
-            <agent>Rx_M3_SpentFuelPool</agent>
-            <agent>Rx_M4_FreshFuelVault</agent>
-            <agent>Rx_M4_Reactor</agent>
-            <agent>Rx_M4_SpentFuelPool</agent>
-            <agent>Rx_M5_FreshFuelVault</agent>
-            <agent>Rx_M5_Reactor</agent>
-            <agent>Rx_M5_SpentFuelPool</agent>
-            <agent>Rx_M6_FreshFuelVault</agent>
-            <agent>Rx_M6_Reactor</agent>
-            <agent>Rx_M6_SpentFuelPool</agent>
-            <agent>Rx_M7_FreshFuelVault</agent>
-            <agent>Rx_M7_Reactor</agent>
-            <agent>Rx_M7_SpentFuelPool</agent>
-            <agent>Rx_M8_FreshFuelVault</agent>
-            <agent>Rx_M8_Reactor</agent>
-            <agent>Rx_M8_SpentFuelPool</agent>
-            <agent>Rx_M_Shipper</agent>
+            <agent>Rx_M1_FreshFuelVault_Id1146</agent>
+            <agent>Rx_M1_Reactor_Id1147</agent>
+            <agent>Rx_M1_SpentFuelPool_Id1148</agent>
+            <agent>Rx_M2_FreshFuelVault_Id1221</agent>
+            <agent>Rx_M2_Reactor_Id1222</agent>
+            <agent>Rx_M2_SpentFuelPool_Id1223</agent>
+            <agent>Rx_M3_FreshFuelVault_Id1287</agent>
+            <agent>Rx_M3_Reactor_Id1288</agent>
+            <agent>Rx_M3_SpentFuelPool_Id1289</agent>
+            <agent>Rx_M4_FreshFuelVault_Id1344</agent>
+            <agent>Rx_M4_Reactor_Id1345</agent>
+            <agent>Rx_M4_SpentFuelPool_Id1346</agent>
+            <agent>Rx_M5_FreshFuelVault_Id1425</agent>
+            <agent>Rx_M5_Reactor_Id1426</agent>
+            <agent>Rx_M5_SpentFuelPool_Id1427</agent>
+            <agent>Rx_M6_FreshFuelVault_Id1437</agent>
+            <agent>Rx_M6_Reactor_Id1438</agent>
+            <agent>Rx_M6_SpentFuelPool_Id1439</agent>
+            <agent>Rx_M7_FreshFuelVault_Id1503</agent>
+            <agent>Rx_M7_Reactor_Id1504</agent>
+            <agent>Rx_M7_SpentFuelPool_Id1505</agent>
+            <agent>Rx_M8_FreshFuelVault_Id1568</agent>
+            <agent>Rx_M8_Reactor_Id1569</agent>
+            <agent>Rx_M8_SpentFuelPool_Id1570</agent>
+            <agent>Rx_M_Shipper_Id1571</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_M1_Reactor</agent>
-            <agent>Rx_M2_Reactor</agent>
-            <agent>Rx_M3_Reactor</agent>
-            <agent>Rx_M4_Reactor</agent>
-            <agent>Rx_M5_Reactor</agent>
-            <agent>Rx_M6_Reactor</agent>
-            <agent>Rx_M7_Reactor</agent>
-            <agent>Rx_M8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_M1_Reactor_Id1147</agent>
+            <agent>Rx_M2_Reactor_Id1222</agent>
+            <agent>Rx_M3_Reactor_Id1288</agent>
+            <agent>Rx_M4_Reactor_Id1345</agent>
+            <agent>Rx_M5_Reactor_Id1426</agent>
+            <agent>Rx_M6_Reactor_Id1438</agent>
+            <agent>Rx_M7_Reactor_Id1504</agent>
+            <agent>Rx_M8_Reactor_Id1569</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_M1_FreshFuelVault</agent>
-                <agent>Rx_M2_FreshFuelVault</agent>
-                <agent>Rx_M3_FreshFuelVault</agent>
-                <agent>Rx_M4_FreshFuelVault</agent>
-                <agent>Rx_M5_FreshFuelVault</agent>
-                <agent>Rx_M6_FreshFuelVault</agent>
-                <agent>Rx_M7_FreshFuelVault</agent>
-                <agent>Rx_M8_FreshFuelVault</agent>
+                <agent>Rx_M1_FreshFuelVault_Id1146</agent>
+                <agent>Rx_M2_FreshFuelVault_Id1221</agent>
+                <agent>Rx_M3_FreshFuelVault_Id1287</agent>
+                <agent>Rx_M4_FreshFuelVault_Id1344</agent>
+                <agent>Rx_M5_FreshFuelVault_Id1425</agent>
+                <agent>Rx_M6_FreshFuelVault_Id1437</agent>
+                <agent>Rx_M7_FreshFuelVault_Id1503</agent>
+                <agent>Rx_M8_FreshFuelVault_Id1568</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_M1_Reactor</agent>
-                <agent>Rx_M2_Reactor</agent>
-                <agent>Rx_M3_Reactor</agent>
-                <agent>Rx_M4_Reactor</agent>
-                <agent>Rx_M5_Reactor</agent>
-                <agent>Rx_M6_Reactor</agent>
-                <agent>Rx_M7_Reactor</agent>
-                <agent>Rx_M8_Reactor</agent>
+                <agent>Rx_M1_Reactor_Id1147</agent>
+                <agent>Rx_M2_Reactor_Id1222</agent>
+                <agent>Rx_M3_Reactor_Id1288</agent>
+                <agent>Rx_M4_Reactor_Id1345</agent>
+                <agent>Rx_M5_Reactor_Id1426</agent>
+                <agent>Rx_M6_Reactor_Id1438</agent>
+                <agent>Rx_M7_Reactor_Id1504</agent>
+                <agent>Rx_M8_Reactor_Id1569</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_M1_SpentFuelPool</agent>
-                <agent>Rx_M2_SpentFuelPool</agent>
-                <agent>Rx_M3_SpentFuelPool</agent>
-                <agent>Rx_M4_SpentFuelPool</agent>
-                <agent>Rx_M5_SpentFuelPool</agent>
-                <agent>Rx_M6_SpentFuelPool</agent>
-                <agent>Rx_M7_SpentFuelPool</agent>
-                <agent>Rx_M8_SpentFuelPool</agent>
+                <agent>Rx_M1_SpentFuelPool_Id1148</agent>
+                <agent>Rx_M2_SpentFuelPool_Id1223</agent>
+                <agent>Rx_M3_SpentFuelPool_Id1289</agent>
+                <agent>Rx_M4_SpentFuelPool_Id1346</agent>
+                <agent>Rx_M5_SpentFuelPool_Id1427</agent>
+                <agent>Rx_M6_SpentFuelPool_Id1439</agent>
+                <agent>Rx_M7_SpentFuelPool_Id1505</agent>
+                <agent>Rx_M8_SpentFuelPool_Id1570</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -896,78 +873,78 @@
         <country>DD</country>
         <facility>DDN-</facility>
         <agents>
-            <agent>Rx_N1_FreshFuelVault</agent>
-            <agent>Rx_N1_Reactor</agent>
-            <agent>Rx_N1_SpentFuelPool</agent>
-            <agent>Rx_N2_FreshFuelVault</agent>
-            <agent>Rx_N2_Reactor</agent>
-            <agent>Rx_N2_SpentFuelPool</agent>
-            <agent>Rx_N3_FreshFuelVault</agent>
-            <agent>Rx_N3_Reactor</agent>
-            <agent>Rx_N3_SpentFuelPool</agent>
-            <agent>Rx_N4_FreshFuelVault</agent>
-            <agent>Rx_N4_Reactor</agent>
-            <agent>Rx_N4_SpentFuelPool</agent>
-            <agent>Rx_N5_FreshFuelVault</agent>
-            <agent>Rx_N5_Reactor</agent>
-            <agent>Rx_N5_SpentFuelPool</agent>
-            <agent>Rx_N6_FreshFuelVault</agent>
-            <agent>Rx_N6_Reactor</agent>
-            <agent>Rx_N6_SpentFuelPool</agent>
-            <agent>Rx_N7_FreshFuelVault</agent>
-            <agent>Rx_N7_Reactor</agent>
-            <agent>Rx_N7_SpentFuelPool</agent>
-            <agent>Rx_N8_FreshFuelVault</agent>
-            <agent>Rx_N8_Reactor</agent>
-            <agent>Rx_N8_SpentFuelPool</agent>
-            <agent>Rx_N_Shipper</agent>
+            <agent>Rx_N1_FreshFuelVault_Id1173</agent>
+            <agent>Rx_N1_Reactor_Id1174</agent>
+            <agent>Rx_N1_SpentFuelPool_Id1175</agent>
+            <agent>Rx_N2_FreshFuelVault_Id1215</agent>
+            <agent>Rx_N2_Reactor_Id1216</agent>
+            <agent>Rx_N2_SpentFuelPool_Id1217</agent>
+            <agent>Rx_N3_FreshFuelVault_Id1302</agent>
+            <agent>Rx_N3_Reactor_Id1303</agent>
+            <agent>Rx_N3_SpentFuelPool_Id1304</agent>
+            <agent>Rx_N4_FreshFuelVault_Id1320</agent>
+            <agent>Rx_N4_Reactor_Id1321</agent>
+            <agent>Rx_N4_SpentFuelPool_Id1322</agent>
+            <agent>Rx_N5_FreshFuelVault_Id1365</agent>
+            <agent>Rx_N5_Reactor_Id1366</agent>
+            <agent>Rx_N5_SpentFuelPool_Id1367</agent>
+            <agent>Rx_N6_FreshFuelVault_Id1452</agent>
+            <agent>Rx_N6_Reactor_Id1453</agent>
+            <agent>Rx_N6_SpentFuelPool_Id1454</agent>
+            <agent>Rx_N7_FreshFuelVault_Id1545</agent>
+            <agent>Rx_N7_Reactor_Id1546</agent>
+            <agent>Rx_N7_SpentFuelPool_Id1547</agent>
+            <agent>Rx_N8_FreshFuelVault_Id1602</agent>
+            <agent>Rx_N8_Reactor_Id1603</agent>
+            <agent>Rx_N8_SpentFuelPool_Id1604</agent>
+            <agent>Rx_N_Shipper_Id1605</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_N1_Reactor</agent>
-            <agent>Rx_N2_Reactor</agent>
-            <agent>Rx_N3_Reactor</agent>
-            <agent>Rx_N4_Reactor</agent>
-            <agent>Rx_N5_Reactor</agent>
-            <agent>Rx_N6_Reactor</agent>
-            <agent>Rx_N7_Reactor</agent>
-            <agent>Rx_N8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_N1_Reactor_Id1174</agent>
+            <agent>Rx_N2_Reactor_Id1216</agent>
+            <agent>Rx_N3_Reactor_Id1303</agent>
+            <agent>Rx_N4_Reactor_Id1321</agent>
+            <agent>Rx_N5_Reactor_Id1366</agent>
+            <agent>Rx_N6_Reactor_Id1453</agent>
+            <agent>Rx_N7_Reactor_Id1546</agent>
+            <agent>Rx_N8_Reactor_Id1603</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_N1_FreshFuelVault</agent>
-                <agent>Rx_N2_FreshFuelVault</agent>
-                <agent>Rx_N3_FreshFuelVault</agent>
-                <agent>Rx_N4_FreshFuelVault</agent>
-                <agent>Rx_N5_FreshFuelVault</agent>
-                <agent>Rx_N6_FreshFuelVault</agent>
-                <agent>Rx_N7_FreshFuelVault</agent>
-                <agent>Rx_N8_FreshFuelVault</agent>
+                <agent>Rx_N1_FreshFuelVault_Id1173</agent>
+                <agent>Rx_N2_FreshFuelVault_Id1215</agent>
+                <agent>Rx_N3_FreshFuelVault_Id1302</agent>
+                <agent>Rx_N4_FreshFuelVault_Id1320</agent>
+                <agent>Rx_N5_FreshFuelVault_Id1365</agent>
+                <agent>Rx_N6_FreshFuelVault_Id1452</agent>
+                <agent>Rx_N7_FreshFuelVault_Id1545</agent>
+                <agent>Rx_N8_FreshFuelVault_Id1602</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_N1_Reactor</agent>
-                <agent>Rx_N2_Reactor</agent>
-                <agent>Rx_N3_Reactor</agent>
-                <agent>Rx_N4_Reactor</agent>
-                <agent>Rx_N5_Reactor</agent>
-                <agent>Rx_N6_Reactor</agent>
-                <agent>Rx_N7_Reactor</agent>
-                <agent>Rx_N8_Reactor</agent>
+                <agent>Rx_N1_Reactor_Id1174</agent>
+                <agent>Rx_N2_Reactor_Id1216</agent>
+                <agent>Rx_N3_Reactor_Id1303</agent>
+                <agent>Rx_N4_Reactor_Id1321</agent>
+                <agent>Rx_N5_Reactor_Id1366</agent>
+                <agent>Rx_N6_Reactor_Id1453</agent>
+                <agent>Rx_N7_Reactor_Id1546</agent>
+                <agent>Rx_N8_Reactor_Id1603</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_N1_SpentFuelPool</agent>
-                <agent>Rx_N2_SpentFuelPool</agent>
-                <agent>Rx_N3_SpentFuelPool</agent>
-                <agent>Rx_N4_SpentFuelPool</agent>
-                <agent>Rx_N5_SpentFuelPool</agent>
-                <agent>Rx_N6_SpentFuelPool</agent>
-                <agent>Rx_N7_SpentFuelPool</agent>
-                <agent>Rx_N8_SpentFuelPool</agent>
+                <agent>Rx_N1_SpentFuelPool_Id1175</agent>
+                <agent>Rx_N2_SpentFuelPool_Id1217</agent>
+                <agent>Rx_N3_SpentFuelPool_Id1304</agent>
+                <agent>Rx_N4_SpentFuelPool_Id1322</agent>
+                <agent>Rx_N5_SpentFuelPool_Id1367</agent>
+                <agent>Rx_N6_SpentFuelPool_Id1454</agent>
+                <agent>Rx_N7_SpentFuelPool_Id1547</agent>
+                <agent>Rx_N8_SpentFuelPool_Id1604</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -975,78 +952,78 @@
         <country>DD</country>
         <facility>DDP-</facility>
         <agents>
-            <agent>Rx_P1_FreshFuelVault</agent>
-            <agent>Rx_P1_Reactor</agent>
-            <agent>Rx_P1_SpentFuelPool</agent>
-            <agent>Rx_P2_FreshFuelVault</agent>
-            <agent>Rx_P2_Reactor</agent>
-            <agent>Rx_P2_SpentFuelPool</agent>
-            <agent>Rx_P3_FreshFuelVault</agent>
-            <agent>Rx_P3_Reactor</agent>
-            <agent>Rx_P3_SpentFuelPool</agent>
-            <agent>Rx_P4_FreshFuelVault</agent>
-            <agent>Rx_P4_Reactor</agent>
-            <agent>Rx_P4_SpentFuelPool</agent>
-            <agent>Rx_P5_FreshFuelVault</agent>
-            <agent>Rx_P5_Reactor</agent>
-            <agent>Rx_P5_SpentFuelPool</agent>
-            <agent>Rx_P6_FreshFuelVault</agent>
-            <agent>Rx_P6_Reactor</agent>
-            <agent>Rx_P6_SpentFuelPool</agent>
-            <agent>Rx_P7_FreshFuelVault</agent>
-            <agent>Rx_P7_Reactor</agent>
-            <agent>Rx_P7_SpentFuelPool</agent>
-            <agent>Rx_P8_FreshFuelVault</agent>
-            <agent>Rx_P8_Reactor</agent>
-            <agent>Rx_P8_SpentFuelPool</agent>
-            <agent>Rx_P_Shipper</agent>
+            <agent>Rx_P1_FreshFuelVault_Id1134</agent>
+            <agent>Rx_P1_Reactor_Id1135</agent>
+            <agent>Rx_P1_SpentFuelPool_Id1136</agent>
+            <agent>Rx_P2_FreshFuelVault_Id1230</agent>
+            <agent>Rx_P2_Reactor_Id1231</agent>
+            <agent>Rx_P2_SpentFuelPool_Id1232</agent>
+            <agent>Rx_P3_FreshFuelVault_Id1251</agent>
+            <agent>Rx_P3_Reactor_Id1252</agent>
+            <agent>Rx_P3_SpentFuelPool_Id1253</agent>
+            <agent>Rx_P4_FreshFuelVault_Id1284</agent>
+            <agent>Rx_P4_Reactor_Id1285</agent>
+            <agent>Rx_P4_SpentFuelPool_Id1286</agent>
+            <agent>Rx_P5_FreshFuelVault_Id1410</agent>
+            <agent>Rx_P5_Reactor_Id1411</agent>
+            <agent>Rx_P5_SpentFuelPool_Id1412</agent>
+            <agent>Rx_P6_FreshFuelVault_Id1482</agent>
+            <agent>Rx_P6_Reactor_Id1483</agent>
+            <agent>Rx_P6_SpentFuelPool_Id1484</agent>
+            <agent>Rx_P7_FreshFuelVault_Id1500</agent>
+            <agent>Rx_P7_Reactor_Id1501</agent>
+            <agent>Rx_P7_SpentFuelPool_Id1502</agent>
+            <agent>Rx_P8_FreshFuelVault_Id1522</agent>
+            <agent>Rx_P8_Reactor_Id1523</agent>
+            <agent>Rx_P8_SpentFuelPool_Id1524</agent>
+            <agent>Rx_P_Shipper_Id1525</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_P1_Reactor</agent>
-            <agent>Rx_P2_Reactor</agent>
-            <agent>Rx_P3_Reactor</agent>
-            <agent>Rx_P4_Reactor</agent>
-            <agent>Rx_P5_Reactor</agent>
-            <agent>Rx_P6_Reactor</agent>
-            <agent>Rx_P7_Reactor</agent>
-            <agent>Rx_P8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_P1_Reactor_Id1135</agent>
+            <agent>Rx_P2_Reactor_Id1231</agent>
+            <agent>Rx_P3_Reactor_Id1252</agent>
+            <agent>Rx_P4_Reactor_Id1285</agent>
+            <agent>Rx_P5_Reactor_Id1411</agent>
+            <agent>Rx_P6_Reactor_Id1483</agent>
+            <agent>Rx_P7_Reactor_Id1501</agent>
+            <agent>Rx_P8_Reactor_Id1523</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_P1_FreshFuelVault</agent>
-                <agent>Rx_P2_FreshFuelVault</agent>
-                <agent>Rx_P3_FreshFuelVault</agent>
-                <agent>Rx_P4_FreshFuelVault</agent>
-                <agent>Rx_P5_FreshFuelVault</agent>
-                <agent>Rx_P6_FreshFuelVault</agent>
-                <agent>Rx_P7_FreshFuelVault</agent>
-                <agent>Rx_P8_FreshFuelVault</agent>
+                <agent>Rx_P1_FreshFuelVault_Id1134</agent>
+                <agent>Rx_P2_FreshFuelVault_Id1230</agent>
+                <agent>Rx_P3_FreshFuelVault_Id1251</agent>
+                <agent>Rx_P4_FreshFuelVault_Id1284</agent>
+                <agent>Rx_P5_FreshFuelVault_Id1410</agent>
+                <agent>Rx_P6_FreshFuelVault_Id1482</agent>
+                <agent>Rx_P7_FreshFuelVault_Id1500</agent>
+                <agent>Rx_P8_FreshFuelVault_Id1522</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_P1_Reactor</agent>
-                <agent>Rx_P2_Reactor</agent>
-                <agent>Rx_P3_Reactor</agent>
-                <agent>Rx_P4_Reactor</agent>
-                <agent>Rx_P5_Reactor</agent>
-                <agent>Rx_P6_Reactor</agent>
-                <agent>Rx_P7_Reactor</agent>
-                <agent>Rx_P8_Reactor</agent>
+                <agent>Rx_P1_Reactor_Id1135</agent>
+                <agent>Rx_P2_Reactor_Id1231</agent>
+                <agent>Rx_P3_Reactor_Id1252</agent>
+                <agent>Rx_P4_Reactor_Id1285</agent>
+                <agent>Rx_P5_Reactor_Id1411</agent>
+                <agent>Rx_P6_Reactor_Id1483</agent>
+                <agent>Rx_P7_Reactor_Id1501</agent>
+                <agent>Rx_P8_Reactor_Id1523</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_P1_SpentFuelPool</agent>
-                <agent>Rx_P2_SpentFuelPool</agent>
-                <agent>Rx_P3_SpentFuelPool</agent>
-                <agent>Rx_P4_SpentFuelPool</agent>
-                <agent>Rx_P5_SpentFuelPool</agent>
-                <agent>Rx_P6_SpentFuelPool</agent>
-                <agent>Rx_P7_SpentFuelPool</agent>
-                <agent>Rx_P8_SpentFuelPool</agent>
+                <agent>Rx_P1_SpentFuelPool_Id1136</agent>
+                <agent>Rx_P2_SpentFuelPool_Id1232</agent>
+                <agent>Rx_P3_SpentFuelPool_Id1253</agent>
+                <agent>Rx_P4_SpentFuelPool_Id1286</agent>
+                <agent>Rx_P5_SpentFuelPool_Id1412</agent>
+                <agent>Rx_P6_SpentFuelPool_Id1484</agent>
+                <agent>Rx_P7_SpentFuelPool_Id1502</agent>
+                <agent>Rx_P8_SpentFuelPool_Id1524</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1054,78 +1031,78 @@
         <country>DD</country>
         <facility>DDQ-</facility>
         <agents>
-            <agent>Rx_Q1_FreshFuelVault</agent>
-            <agent>Rx_Q1_Reactor</agent>
-            <agent>Rx_Q1_SpentFuelPool</agent>
-            <agent>Rx_Q2_FreshFuelVault</agent>
-            <agent>Rx_Q2_Reactor</agent>
-            <agent>Rx_Q2_SpentFuelPool</agent>
-            <agent>Rx_Q3_FreshFuelVault</agent>
-            <agent>Rx_Q3_Reactor</agent>
-            <agent>Rx_Q3_SpentFuelPool</agent>
-            <agent>Rx_Q4_FreshFuelVault</agent>
-            <agent>Rx_Q4_Reactor</agent>
-            <agent>Rx_Q4_SpentFuelPool</agent>
-            <agent>Rx_Q5_FreshFuelVault</agent>
-            <agent>Rx_Q5_Reactor</agent>
-            <agent>Rx_Q5_SpentFuelPool</agent>
-            <agent>Rx_Q6_FreshFuelVault</agent>
-            <agent>Rx_Q6_Reactor</agent>
-            <agent>Rx_Q6_SpentFuelPool</agent>
-            <agent>Rx_Q7_FreshFuelVault</agent>
-            <agent>Rx_Q7_Reactor</agent>
-            <agent>Rx_Q7_SpentFuelPool</agent>
-            <agent>Rx_Q8_FreshFuelVault</agent>
-            <agent>Rx_Q8_Reactor</agent>
-            <agent>Rx_Q8_SpentFuelPool</agent>
-            <agent>Rx_Q_Shipper</agent>
+            <agent>Rx_Q1_FreshFuelVault_Id1206</agent>
+            <agent>Rx_Q1_Reactor_Id1207</agent>
+            <agent>Rx_Q1_SpentFuelPool_Id1208</agent>
+            <agent>Rx_Q2_FreshFuelVault_Id1236</agent>
+            <agent>Rx_Q2_Reactor_Id1237</agent>
+            <agent>Rx_Q2_SpentFuelPool_Id1238</agent>
+            <agent>Rx_Q3_FreshFuelVault_Id1335</agent>
+            <agent>Rx_Q3_Reactor_Id1336</agent>
+            <agent>Rx_Q3_SpentFuelPool_Id1337</agent>
+            <agent>Rx_Q4_FreshFuelVault_Id1359</agent>
+            <agent>Rx_Q4_Reactor_Id1360</agent>
+            <agent>Rx_Q4_SpentFuelPool_Id1361</agent>
+            <agent>Rx_Q5_FreshFuelVault_Id1401</agent>
+            <agent>Rx_Q5_Reactor_Id1402</agent>
+            <agent>Rx_Q5_SpentFuelPool_Id1403</agent>
+            <agent>Rx_Q6_FreshFuelVault_Id1446</agent>
+            <agent>Rx_Q6_Reactor_Id1447</agent>
+            <agent>Rx_Q6_SpentFuelPool_Id1448</agent>
+            <agent>Rx_Q7_FreshFuelVault_Id1535</agent>
+            <agent>Rx_Q7_Reactor_Id1536</agent>
+            <agent>Rx_Q7_SpentFuelPool_Id1537</agent>
+            <agent>Rx_Q8_FreshFuelVault_Id1590</agent>
+            <agent>Rx_Q8_Reactor_Id1591</agent>
+            <agent>Rx_Q8_SpentFuelPool_Id1592</agent>
+            <agent>Rx_Q_Shipper_Id1593</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_Q1_Reactor</agent>
-            <agent>Rx_Q2_Reactor</agent>
-            <agent>Rx_Q3_Reactor</agent>
-            <agent>Rx_Q4_Reactor</agent>
-            <agent>Rx_Q5_Reactor</agent>
-            <agent>Rx_Q6_Reactor</agent>
-            <agent>Rx_Q7_Reactor</agent>
-            <agent>Rx_Q8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_Q1_Reactor_Id1207</agent>
+            <agent>Rx_Q2_Reactor_Id1237</agent>
+            <agent>Rx_Q3_Reactor_Id1336</agent>
+            <agent>Rx_Q4_Reactor_Id1360</agent>
+            <agent>Rx_Q5_Reactor_Id1402</agent>
+            <agent>Rx_Q6_Reactor_Id1447</agent>
+            <agent>Rx_Q7_Reactor_Id1536</agent>
+            <agent>Rx_Q8_Reactor_Id1591</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_Q1_FreshFuelVault</agent>
-                <agent>Rx_Q2_FreshFuelVault</agent>
-                <agent>Rx_Q3_FreshFuelVault</agent>
-                <agent>Rx_Q4_FreshFuelVault</agent>
-                <agent>Rx_Q5_FreshFuelVault</agent>
-                <agent>Rx_Q6_FreshFuelVault</agent>
-                <agent>Rx_Q7_FreshFuelVault</agent>
-                <agent>Rx_Q8_FreshFuelVault</agent>
+                <agent>Rx_Q1_FreshFuelVault_Id1206</agent>
+                <agent>Rx_Q2_FreshFuelVault_Id1236</agent>
+                <agent>Rx_Q3_FreshFuelVault_Id1335</agent>
+                <agent>Rx_Q4_FreshFuelVault_Id1359</agent>
+                <agent>Rx_Q5_FreshFuelVault_Id1401</agent>
+                <agent>Rx_Q6_FreshFuelVault_Id1446</agent>
+                <agent>Rx_Q7_FreshFuelVault_Id1535</agent>
+                <agent>Rx_Q8_FreshFuelVault_Id1590</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_Q1_Reactor</agent>
-                <agent>Rx_Q2_Reactor</agent>
-                <agent>Rx_Q3_Reactor</agent>
-                <agent>Rx_Q4_Reactor</agent>
-                <agent>Rx_Q5_Reactor</agent>
-                <agent>Rx_Q6_Reactor</agent>
-                <agent>Rx_Q7_Reactor</agent>
-                <agent>Rx_Q8_Reactor</agent>
+                <agent>Rx_Q1_Reactor_Id1207</agent>
+                <agent>Rx_Q2_Reactor_Id1237</agent>
+                <agent>Rx_Q3_Reactor_Id1336</agent>
+                <agent>Rx_Q4_Reactor_Id1360</agent>
+                <agent>Rx_Q5_Reactor_Id1402</agent>
+                <agent>Rx_Q6_Reactor_Id1447</agent>
+                <agent>Rx_Q7_Reactor_Id1536</agent>
+                <agent>Rx_Q8_Reactor_Id1591</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_Q1_SpentFuelPool</agent>
-                <agent>Rx_Q2_SpentFuelPool</agent>
-                <agent>Rx_Q3_SpentFuelPool</agent>
-                <agent>Rx_Q4_SpentFuelPool</agent>
-                <agent>Rx_Q5_SpentFuelPool</agent>
-                <agent>Rx_Q6_SpentFuelPool</agent>
-                <agent>Rx_Q7_SpentFuelPool</agent>
-                <agent>Rx_Q8_SpentFuelPool</agent>
+                <agent>Rx_Q1_SpentFuelPool_Id1208</agent>
+                <agent>Rx_Q2_SpentFuelPool_Id1238</agent>
+                <agent>Rx_Q3_SpentFuelPool_Id1337</agent>
+                <agent>Rx_Q4_SpentFuelPool_Id1361</agent>
+                <agent>Rx_Q5_SpentFuelPool_Id1403</agent>
+                <agent>Rx_Q6_SpentFuelPool_Id1448</agent>
+                <agent>Rx_Q7_SpentFuelPool_Id1537</agent>
+                <agent>Rx_Q8_SpentFuelPool_Id1592</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1133,78 +1110,78 @@
         <country>DD</country>
         <facility>DDR-</facility>
         <agents>
-            <agent>Rx_R1_FreshFuelVault</agent>
-            <agent>Rx_R1_Reactor</agent>
-            <agent>Rx_R1_SpentFuelPool</agent>
-            <agent>Rx_R2_FreshFuelVault</agent>
-            <agent>Rx_R2_Reactor</agent>
-            <agent>Rx_R2_SpentFuelPool</agent>
-            <agent>Rx_R3_FreshFuelVault</agent>
-            <agent>Rx_R3_Reactor</agent>
-            <agent>Rx_R3_SpentFuelPool</agent>
-            <agent>Rx_R4_FreshFuelVault</agent>
-            <agent>Rx_R4_Reactor</agent>
-            <agent>Rx_R4_SpentFuelPool</agent>
-            <agent>Rx_R5_FreshFuelVault</agent>
-            <agent>Rx_R5_Reactor</agent>
-            <agent>Rx_R5_SpentFuelPool</agent>
-            <agent>Rx_R6_FreshFuelVault</agent>
-            <agent>Rx_R6_Reactor</agent>
-            <agent>Rx_R6_SpentFuelPool</agent>
-            <agent>Rx_R7_FreshFuelVault</agent>
-            <agent>Rx_R7_Reactor</agent>
-            <agent>Rx_R7_SpentFuelPool</agent>
-            <agent>Rx_R8_FreshFuelVault</agent>
-            <agent>Rx_R8_Reactor</agent>
-            <agent>Rx_R8_SpentFuelPool</agent>
-            <agent>Rx_R_Shipper</agent>
+            <agent>Rx_R1_FreshFuelVault_Id1119</agent>
+            <agent>Rx_R1_Reactor_Id1120</agent>
+            <agent>Rx_R1_SpentFuelPool_Id1121</agent>
+            <agent>Rx_R2_FreshFuelVault_Id1137</agent>
+            <agent>Rx_R2_Reactor_Id1138</agent>
+            <agent>Rx_R2_SpentFuelPool_Id1139</agent>
+            <agent>Rx_R3_FreshFuelVault_Id1248</agent>
+            <agent>Rx_R3_Reactor_Id1249</agent>
+            <agent>Rx_R3_SpentFuelPool_Id1250</agent>
+            <agent>Rx_R4_FreshFuelVault_Id1299</agent>
+            <agent>Rx_R4_Reactor_Id1300</agent>
+            <agent>Rx_R4_SpentFuelPool_Id1301</agent>
+            <agent>Rx_R5_FreshFuelVault_Id1419</agent>
+            <agent>Rx_R5_Reactor_Id1420</agent>
+            <agent>Rx_R5_SpentFuelPool_Id1421</agent>
+            <agent>Rx_R6_FreshFuelVault_Id1488</agent>
+            <agent>Rx_R6_Reactor_Id1489</agent>
+            <agent>Rx_R6_SpentFuelPool_Id1490</agent>
+            <agent>Rx_R7_FreshFuelVault_Id1555</agent>
+            <agent>Rx_R7_Reactor_Id1556</agent>
+            <agent>Rx_R7_SpentFuelPool_Id1557</agent>
+            <agent>Rx_R8_FreshFuelVault_Id1576</agent>
+            <agent>Rx_R8_Reactor_Id1577</agent>
+            <agent>Rx_R8_SpentFuelPool_Id1578</agent>
+            <agent>Rx_R_Shipper_Id1579</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_R1_Reactor</agent>
-            <agent>Rx_R2_Reactor</agent>
-            <agent>Rx_R3_Reactor</agent>
-            <agent>Rx_R4_Reactor</agent>
-            <agent>Rx_R5_Reactor</agent>
-            <agent>Rx_R6_Reactor</agent>
-            <agent>Rx_R7_Reactor</agent>
-            <agent>Rx_R8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_R1_Reactor_Id1120</agent>
+            <agent>Rx_R2_Reactor_Id1138</agent>
+            <agent>Rx_R3_Reactor_Id1249</agent>
+            <agent>Rx_R4_Reactor_Id1300</agent>
+            <agent>Rx_R5_Reactor_Id1420</agent>
+            <agent>Rx_R6_Reactor_Id1489</agent>
+            <agent>Rx_R7_Reactor_Id1556</agent>
+            <agent>Rx_R8_Reactor_Id1577</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_R1_FreshFuelVault</agent>
-                <agent>Rx_R2_FreshFuelVault</agent>
-                <agent>Rx_R3_FreshFuelVault</agent>
-                <agent>Rx_R4_FreshFuelVault</agent>
-                <agent>Rx_R5_FreshFuelVault</agent>
-                <agent>Rx_R6_FreshFuelVault</agent>
-                <agent>Rx_R7_FreshFuelVault</agent>
-                <agent>Rx_R8_FreshFuelVault</agent>
+                <agent>Rx_R1_FreshFuelVault_Id1119</agent>
+                <agent>Rx_R2_FreshFuelVault_Id1137</agent>
+                <agent>Rx_R3_FreshFuelVault_Id1248</agent>
+                <agent>Rx_R4_FreshFuelVault_Id1299</agent>
+                <agent>Rx_R5_FreshFuelVault_Id1419</agent>
+                <agent>Rx_R6_FreshFuelVault_Id1488</agent>
+                <agent>Rx_R7_FreshFuelVault_Id1555</agent>
+                <agent>Rx_R8_FreshFuelVault_Id1576</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_R1_Reactor</agent>
-                <agent>Rx_R2_Reactor</agent>
-                <agent>Rx_R3_Reactor</agent>
-                <agent>Rx_R4_Reactor</agent>
-                <agent>Rx_R5_Reactor</agent>
-                <agent>Rx_R6_Reactor</agent>
-                <agent>Rx_R7_Reactor</agent>
-                <agent>Rx_R8_Reactor</agent>
+                <agent>Rx_R1_Reactor_Id1120</agent>
+                <agent>Rx_R2_Reactor_Id1138</agent>
+                <agent>Rx_R3_Reactor_Id1249</agent>
+                <agent>Rx_R4_Reactor_Id1300</agent>
+                <agent>Rx_R5_Reactor_Id1420</agent>
+                <agent>Rx_R6_Reactor_Id1489</agent>
+                <agent>Rx_R7_Reactor_Id1556</agent>
+                <agent>Rx_R8_Reactor_Id1577</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_R1_SpentFuelPool</agent>
-                <agent>Rx_R2_SpentFuelPool</agent>
-                <agent>Rx_R3_SpentFuelPool</agent>
-                <agent>Rx_R4_SpentFuelPool</agent>
-                <agent>Rx_R5_SpentFuelPool</agent>
-                <agent>Rx_R6_SpentFuelPool</agent>
-                <agent>Rx_R7_SpentFuelPool</agent>
-                <agent>Rx_R8_SpentFuelPool</agent>
+                <agent>Rx_R1_SpentFuelPool_Id1121</agent>
+                <agent>Rx_R2_SpentFuelPool_Id1139</agent>
+                <agent>Rx_R3_SpentFuelPool_Id1250</agent>
+                <agent>Rx_R4_SpentFuelPool_Id1301</agent>
+                <agent>Rx_R5_SpentFuelPool_Id1421</agent>
+                <agent>Rx_R6_SpentFuelPool_Id1490</agent>
+                <agent>Rx_R7_SpentFuelPool_Id1557</agent>
+                <agent>Rx_R8_SpentFuelPool_Id1578</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1212,78 +1189,78 @@
         <country>DD</country>
         <facility>DDS-</facility>
         <agents>
-            <agent>Rx_S1_FreshFuelVault</agent>
-            <agent>Rx_S1_Reactor</agent>
-            <agent>Rx_S1_SpentFuelPool</agent>
-            <agent>Rx_S2_FreshFuelVault</agent>
-            <agent>Rx_S2_Reactor</agent>
-            <agent>Rx_S2_SpentFuelPool</agent>
-            <agent>Rx_S3_FreshFuelVault</agent>
-            <agent>Rx_S3_Reactor</agent>
-            <agent>Rx_S3_SpentFuelPool</agent>
-            <agent>Rx_S4_FreshFuelVault</agent>
-            <agent>Rx_S4_Reactor</agent>
-            <agent>Rx_S4_SpentFuelPool</agent>
-            <agent>Rx_S5_FreshFuelVault</agent>
-            <agent>Rx_S5_Reactor</agent>
-            <agent>Rx_S5_SpentFuelPool</agent>
-            <agent>Rx_S6_FreshFuelVault</agent>
-            <agent>Rx_S6_Reactor</agent>
-            <agent>Rx_S6_SpentFuelPool</agent>
-            <agent>Rx_S7_FreshFuelVault</agent>
-            <agent>Rx_S7_Reactor</agent>
-            <agent>Rx_S7_SpentFuelPool</agent>
-            <agent>Rx_S8_FreshFuelVault</agent>
-            <agent>Rx_S8_Reactor</agent>
-            <agent>Rx_S8_SpentFuelPool</agent>
-            <agent>Rx_S_Shipper</agent>
+            <agent>Rx_S1_FreshFuelVault_Id1155</agent>
+            <agent>Rx_S1_Reactor_Id1156</agent>
+            <agent>Rx_S1_SpentFuelPool_Id1157</agent>
+            <agent>Rx_S2_FreshFuelVault_Id1179</agent>
+            <agent>Rx_S2_Reactor_Id1180</agent>
+            <agent>Rx_S2_SpentFuelPool_Id1181</agent>
+            <agent>Rx_S3_FreshFuelVault_Id1281</agent>
+            <agent>Rx_S3_Reactor_Id1282</agent>
+            <agent>Rx_S3_SpentFuelPool_Id1283</agent>
+            <agent>Rx_S4_FreshFuelVault_Id1314</agent>
+            <agent>Rx_S4_Reactor_Id1315</agent>
+            <agent>Rx_S4_SpentFuelPool_Id1316</agent>
+            <agent>Rx_S5_FreshFuelVault_Id1485</agent>
+            <agent>Rx_S5_Reactor_Id1486</agent>
+            <agent>Rx_S5_SpentFuelPool_Id1487</agent>
+            <agent>Rx_S6_FreshFuelVault_Id1434</agent>
+            <agent>Rx_S6_Reactor_Id1435</agent>
+            <agent>Rx_S6_SpentFuelPool_Id1436</agent>
+            <agent>Rx_S7_FreshFuelVault_Id1491</agent>
+            <agent>Rx_S7_Reactor_Id1492</agent>
+            <agent>Rx_S7_SpentFuelPool_Id1493</agent>
+            <agent>Rx_S8_FreshFuelVault_Id1626</agent>
+            <agent>Rx_S8_Reactor_Id1627</agent>
+            <agent>Rx_S8_SpentFuelPool_Id1628</agent>
+            <agent>Rx_S_Shipper_Id1629</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_S1_Reactor</agent>
-            <agent>Rx_S2_Reactor</agent>
-            <agent>Rx_S3_Reactor</agent>
-            <agent>Rx_S4_Reactor</agent>
-            <agent>Rx_S5_Reactor</agent>
-            <agent>Rx_S6_Reactor</agent>
-            <agent>Rx_S7_Reactor</agent>
-            <agent>Rx_S8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_S1_Reactor_Id1156</agent>
+            <agent>Rx_S2_Reactor_Id1180</agent>
+            <agent>Rx_S3_Reactor_Id1282</agent>
+            <agent>Rx_S4_Reactor_Id1315</agent>
+            <agent>Rx_S5_Reactor_Id1486</agent>
+            <agent>Rx_S6_Reactor_Id1435</agent>
+            <agent>Rx_S7_Reactor_Id1492</agent>
+            <agent>Rx_S8_Reactor_Id1627</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_S1_FreshFuelVault</agent>
-                <agent>Rx_S2_FreshFuelVault</agent>
-                <agent>Rx_S3_FreshFuelVault</agent>
-                <agent>Rx_S4_FreshFuelVault</agent>
-                <agent>Rx_S5_FreshFuelVault</agent>
-                <agent>Rx_S6_FreshFuelVault</agent>
-                <agent>Rx_S7_FreshFuelVault</agent>
-                <agent>Rx_S8_FreshFuelVault</agent>
+                <agent>Rx_S1_FreshFuelVault_Id1155</agent>
+                <agent>Rx_S2_FreshFuelVault_Id1179</agent>
+                <agent>Rx_S3_FreshFuelVault_Id1281</agent>
+                <agent>Rx_S4_FreshFuelVault_Id1314</agent>
+                <agent>Rx_S5_FreshFuelVault_Id1485</agent>
+                <agent>Rx_S6_FreshFuelVault_Id1434</agent>
+                <agent>Rx_S7_FreshFuelVault_Id1491</agent>
+                <agent>Rx_S8_FreshFuelVault_Id1626</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_S1_Reactor</agent>
-                <agent>Rx_S2_Reactor</agent>
-                <agent>Rx_S3_Reactor</agent>
-                <agent>Rx_S4_Reactor</agent>
-                <agent>Rx_S5_Reactor</agent>
-                <agent>Rx_S6_Reactor</agent>
-                <agent>Rx_S7_Reactor</agent>
-                <agent>Rx_S8_Reactor</agent>
+                <agent>Rx_S1_Reactor_Id1156</agent>
+                <agent>Rx_S2_Reactor_Id1180</agent>
+                <agent>Rx_S3_Reactor_Id1282</agent>
+                <agent>Rx_S4_Reactor_Id1315</agent>
+                <agent>Rx_S5_Reactor_Id1486</agent>
+                <agent>Rx_S6_Reactor_Id1435</agent>
+                <agent>Rx_S7_Reactor_Id1492</agent>
+                <agent>Rx_S8_Reactor_Id1627</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_S1_SpentFuelPool</agent>
-                <agent>Rx_S2_SpentFuelPool</agent>
-                <agent>Rx_S3_SpentFuelPool</agent>
-                <agent>Rx_S4_SpentFuelPool</agent>
-                <agent>Rx_S5_SpentFuelPool</agent>
-                <agent>Rx_S6_SpentFuelPool</agent>
-                <agent>Rx_S7_SpentFuelPool</agent>
-                <agent>Rx_S8_SpentFuelPool</agent>
+                <agent>Rx_S1_SpentFuelPool_Id1157</agent>
+                <agent>Rx_S2_SpentFuelPool_Id1181</agent>
+                <agent>Rx_S3_SpentFuelPool_Id1283</agent>
+                <agent>Rx_S4_SpentFuelPool_Id1316</agent>
+                <agent>Rx_S5_SpentFuelPool_Id1487</agent>
+                <agent>Rx_S6_SpentFuelPool_Id1436</agent>
+                <agent>Rx_S7_SpentFuelPool_Id1493</agent>
+                <agent>Rx_S8_SpentFuelPool_Id1628</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1291,78 +1268,78 @@
         <country>DD</country>
         <facility>DDT-</facility>
         <agents>
-            <agent>Rx_T1_FreshFuelVault</agent>
-            <agent>Rx_T1_Reactor</agent>
-            <agent>Rx_T1_SpentFuelPool</agent>
-            <agent>Rx_T2_FreshFuelVault</agent>
-            <agent>Rx_T2_Reactor</agent>
-            <agent>Rx_T2_SpentFuelPool</agent>
-            <agent>Rx_T3_FreshFuelVault</agent>
-            <agent>Rx_T3_Reactor</agent>
-            <agent>Rx_T3_SpentFuelPool</agent>
-            <agent>Rx_T4_FreshFuelVault</agent>
-            <agent>Rx_T4_Reactor</agent>
-            <agent>Rx_T4_SpentFuelPool</agent>
-            <agent>Rx_T5_FreshFuelVault</agent>
-            <agent>Rx_T5_Reactor</agent>
-            <agent>Rx_T5_SpentFuelPool</agent>
-            <agent>Rx_T6_FreshFuelVault</agent>
-            <agent>Rx_T6_Reactor</agent>
-            <agent>Rx_T6_SpentFuelPool</agent>
-            <agent>Rx_T7_FreshFuelVault</agent>
-            <agent>Rx_T7_Reactor</agent>
-            <agent>Rx_T7_SpentFuelPool</agent>
-            <agent>Rx_T8_FreshFuelVault</agent>
-            <agent>Rx_T8_Reactor</agent>
-            <agent>Rx_T8_SpentFuelPool</agent>
-            <agent>Rx_T_Shipper</agent>
+            <agent>Rx_T1_FreshFuelVault_Id1125</agent>
+            <agent>Rx_T1_Reactor_Id1126</agent>
+            <agent>Rx_T1_SpentFuelPool_Id1127</agent>
+            <agent>Rx_T2_FreshFuelVault_Id1227</agent>
+            <agent>Rx_T2_Reactor_Id1228</agent>
+            <agent>Rx_T2_SpentFuelPool_Id1229</agent>
+            <agent>Rx_T3_FreshFuelVault_Id1329</agent>
+            <agent>Rx_T3_Reactor_Id1330</agent>
+            <agent>Rx_T3_SpentFuelPool_Id1331</agent>
+            <agent>Rx_T4_FreshFuelVault_Id1353</agent>
+            <agent>Rx_T4_Reactor_Id1354</agent>
+            <agent>Rx_T4_SpentFuelPool_Id1355</agent>
+            <agent>Rx_T5_FreshFuelVault_Id1371</agent>
+            <agent>Rx_T5_Reactor_Id1372</agent>
+            <agent>Rx_T5_SpentFuelPool_Id1373</agent>
+            <agent>Rx_T6_FreshFuelVault_Id1440</agent>
+            <agent>Rx_T6_Reactor_Id1441</agent>
+            <agent>Rx_T6_SpentFuelPool_Id1442</agent>
+            <agent>Rx_T7_FreshFuelVault_Id1565</agent>
+            <agent>Rx_T7_Reactor_Id1566</agent>
+            <agent>Rx_T7_SpentFuelPool_Id1567</agent>
+            <agent>Rx_T8_FreshFuelVault_Id1622</agent>
+            <agent>Rx_T8_Reactor_Id1623</agent>
+            <agent>Rx_T8_SpentFuelPool_Id1624</agent>
+            <agent>Rx_T_Shipper_Id1625</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_T1_Reactor</agent>
-            <agent>Rx_T2_Reactor</agent>
-            <agent>Rx_T3_Reactor</agent>
-            <agent>Rx_T4_Reactor</agent>
-            <agent>Rx_T5_Reactor</agent>
-            <agent>Rx_T6_Reactor</agent>
-            <agent>Rx_T7_Reactor</agent>
-            <agent>Rx_T8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_T1_Reactor_Id1126</agent>
+            <agent>Rx_T2_Reactor_Id1228</agent>
+            <agent>Rx_T3_Reactor_Id1330</agent>
+            <agent>Rx_T4_Reactor_Id1354</agent>
+            <agent>Rx_T5_Reactor_Id1372</agent>
+            <agent>Rx_T6_Reactor_Id1441</agent>
+            <agent>Rx_T7_Reactor_Id1566</agent>
+            <agent>Rx_T8_Reactor_Id1623</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_T1_FreshFuelVault</agent>
-                <agent>Rx_T2_FreshFuelVault</agent>
-                <agent>Rx_T3_FreshFuelVault</agent>
-                <agent>Rx_T4_FreshFuelVault</agent>
-                <agent>Rx_T5_FreshFuelVault</agent>
-                <agent>Rx_T6_FreshFuelVault</agent>
-                <agent>Rx_T7_FreshFuelVault</agent>
-                <agent>Rx_T8_FreshFuelVault</agent>
+                <agent>Rx_T1_FreshFuelVault_Id1125</agent>
+                <agent>Rx_T2_FreshFuelVault_Id1227</agent>
+                <agent>Rx_T3_FreshFuelVault_Id1329</agent>
+                <agent>Rx_T4_FreshFuelVault_Id1353</agent>
+                <agent>Rx_T5_FreshFuelVault_Id1371</agent>
+                <agent>Rx_T6_FreshFuelVault_Id1440</agent>
+                <agent>Rx_T7_FreshFuelVault_Id1565</agent>
+                <agent>Rx_T8_FreshFuelVault_Id1622</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_T1_Reactor</agent>
-                <agent>Rx_T2_Reactor</agent>
-                <agent>Rx_T3_Reactor</agent>
-                <agent>Rx_T4_Reactor</agent>
-                <agent>Rx_T5_Reactor</agent>
-                <agent>Rx_T6_Reactor</agent>
-                <agent>Rx_T7_Reactor</agent>
-                <agent>Rx_T8_Reactor</agent>
+                <agent>Rx_T1_Reactor_Id1126</agent>
+                <agent>Rx_T2_Reactor_Id1228</agent>
+                <agent>Rx_T3_Reactor_Id1330</agent>
+                <agent>Rx_T4_Reactor_Id1354</agent>
+                <agent>Rx_T5_Reactor_Id1372</agent>
+                <agent>Rx_T6_Reactor_Id1441</agent>
+                <agent>Rx_T7_Reactor_Id1566</agent>
+                <agent>Rx_T8_Reactor_Id1623</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_T1_SpentFuelPool</agent>
-                <agent>Rx_T2_SpentFuelPool</agent>
-                <agent>Rx_T3_SpentFuelPool</agent>
-                <agent>Rx_T4_SpentFuelPool</agent>
-                <agent>Rx_T5_SpentFuelPool</agent>
-                <agent>Rx_T6_SpentFuelPool</agent>
-                <agent>Rx_T7_SpentFuelPool</agent>
-                <agent>Rx_T8_SpentFuelPool</agent>
+                <agent>Rx_T1_SpentFuelPool_Id1127</agent>
+                <agent>Rx_T2_SpentFuelPool_Id1229</agent>
+                <agent>Rx_T3_SpentFuelPool_Id1331</agent>
+                <agent>Rx_T4_SpentFuelPool_Id1355</agent>
+                <agent>Rx_T5_SpentFuelPool_Id1373</agent>
+                <agent>Rx_T6_SpentFuelPool_Id1442</agent>
+                <agent>Rx_T7_SpentFuelPool_Id1567</agent>
+                <agent>Rx_T8_SpentFuelPool_Id1624</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1370,78 +1347,78 @@
         <country>DD</country>
         <facility>DDU-</facility>
         <agents>
-            <agent>Rx_U1_FreshFuelVault</agent>
-            <agent>Rx_U1_Reactor</agent>
-            <agent>Rx_U1_SpentFuelPool</agent>
-            <agent>Rx_U2_FreshFuelVault</agent>
-            <agent>Rx_U2_Reactor</agent>
-            <agent>Rx_U2_SpentFuelPool</agent>
-            <agent>Rx_U3_FreshFuelVault</agent>
-            <agent>Rx_U3_Reactor</agent>
-            <agent>Rx_U3_SpentFuelPool</agent>
-            <agent>Rx_U4_FreshFuelVault</agent>
-            <agent>Rx_U4_Reactor</agent>
-            <agent>Rx_U4_SpentFuelPool</agent>
-            <agent>Rx_U5_FreshFuelVault</agent>
-            <agent>Rx_U5_Reactor</agent>
-            <agent>Rx_U5_SpentFuelPool</agent>
-            <agent>Rx_U6_FreshFuelVault</agent>
-            <agent>Rx_U6_Reactor</agent>
-            <agent>Rx_U6_SpentFuelPool</agent>
-            <agent>Rx_U7_FreshFuelVault</agent>
-            <agent>Rx_U7_Reactor</agent>
-            <agent>Rx_U7_SpentFuelPool</agent>
-            <agent>Rx_U8_FreshFuelVault</agent>
-            <agent>Rx_U8_Reactor</agent>
-            <agent>Rx_U8_SpentFuelPool</agent>
-            <agent>Rx_U_Shipper</agent>
+            <agent>Rx_U1_FreshFuelVault_Id1116</agent>
+            <agent>Rx_U1_Reactor_Id1117</agent>
+            <agent>Rx_U1_SpentFuelPool_Id1118</agent>
+            <agent>Rx_U2_FreshFuelVault_Id1224</agent>
+            <agent>Rx_U2_Reactor_Id1225</agent>
+            <agent>Rx_U2_SpentFuelPool_Id1226</agent>
+            <agent>Rx_U3_FreshFuelVault_Id1263</agent>
+            <agent>Rx_U3_Reactor_Id1264</agent>
+            <agent>Rx_U3_SpentFuelPool_Id1265</agent>
+            <agent>Rx_U4_FreshFuelVault_Id1356</agent>
+            <agent>Rx_U4_Reactor_Id1357</agent>
+            <agent>Rx_U4_SpentFuelPool_Id1358</agent>
+            <agent>Rx_U5_FreshFuelVault_Id1392</agent>
+            <agent>Rx_U5_Reactor_Id1393</agent>
+            <agent>Rx_U5_SpentFuelPool_Id1394</agent>
+            <agent>Rx_U6_FreshFuelVault_Id1458</agent>
+            <agent>Rx_U6_Reactor_Id1459</agent>
+            <agent>Rx_U6_SpentFuelPool_Id1460</agent>
+            <agent>Rx_U7_FreshFuelVault_Id1515</agent>
+            <agent>Rx_U7_Reactor_Id1516</agent>
+            <agent>Rx_U7_SpentFuelPool_Id1517</agent>
+            <agent>Rx_U8_FreshFuelVault_Id1614</agent>
+            <agent>Rx_U8_Reactor_Id1615</agent>
+            <agent>Rx_U8_SpentFuelPool_Id1616</agent>
+            <agent>Rx_U_Shipper_Id1617</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_U1_Reactor</agent>
-            <agent>Rx_U2_Reactor</agent>
-            <agent>Rx_U3_Reactor</agent>
-            <agent>Rx_U4_Reactor</agent>
-            <agent>Rx_U5_Reactor</agent>
-            <agent>Rx_U6_Reactor</agent>
-            <agent>Rx_U7_Reactor</agent>
-            <agent>Rx_U8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_U1_Reactor_Id1117</agent>
+            <agent>Rx_U2_Reactor_Id1225</agent>
+            <agent>Rx_U3_Reactor_Id1264</agent>
+            <agent>Rx_U4_Reactor_Id1357</agent>
+            <agent>Rx_U5_Reactor_Id1393</agent>
+            <agent>Rx_U6_Reactor_Id1459</agent>
+            <agent>Rx_U7_Reactor_Id1516</agent>
+            <agent>Rx_U8_Reactor_Id1615</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_U1_FreshFuelVault</agent>
-                <agent>Rx_U2_FreshFuelVault</agent>
-                <agent>Rx_U3_FreshFuelVault</agent>
-                <agent>Rx_U4_FreshFuelVault</agent>
-                <agent>Rx_U5_FreshFuelVault</agent>
-                <agent>Rx_U6_FreshFuelVault</agent>
-                <agent>Rx_U7_FreshFuelVault</agent>
-                <agent>Rx_U8_FreshFuelVault</agent>
+                <agent>Rx_U1_FreshFuelVault_Id1116</agent>
+                <agent>Rx_U2_FreshFuelVault_Id1224</agent>
+                <agent>Rx_U3_FreshFuelVault_Id1263</agent>
+                <agent>Rx_U4_FreshFuelVault_Id1356</agent>
+                <agent>Rx_U5_FreshFuelVault_Id1392</agent>
+                <agent>Rx_U6_FreshFuelVault_Id1458</agent>
+                <agent>Rx_U7_FreshFuelVault_Id1515</agent>
+                <agent>Rx_U8_FreshFuelVault_Id1614</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_U1_Reactor</agent>
-                <agent>Rx_U2_Reactor</agent>
-                <agent>Rx_U3_Reactor</agent>
-                <agent>Rx_U4_Reactor</agent>
-                <agent>Rx_U5_Reactor</agent>
-                <agent>Rx_U6_Reactor</agent>
-                <agent>Rx_U7_Reactor</agent>
-                <agent>Rx_U8_Reactor</agent>
+                <agent>Rx_U1_Reactor_Id1117</agent>
+                <agent>Rx_U2_Reactor_Id1225</agent>
+                <agent>Rx_U3_Reactor_Id1264</agent>
+                <agent>Rx_U4_Reactor_Id1357</agent>
+                <agent>Rx_U5_Reactor_Id1393</agent>
+                <agent>Rx_U6_Reactor_Id1459</agent>
+                <agent>Rx_U7_Reactor_Id1516</agent>
+                <agent>Rx_U8_Reactor_Id1615</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_U1_SpentFuelPool</agent>
-                <agent>Rx_U2_SpentFuelPool</agent>
-                <agent>Rx_U3_SpentFuelPool</agent>
-                <agent>Rx_U4_SpentFuelPool</agent>
-                <agent>Rx_U5_SpentFuelPool</agent>
-                <agent>Rx_U6_SpentFuelPool</agent>
-                <agent>Rx_U7_SpentFuelPool</agent>
-                <agent>Rx_U8_SpentFuelPool</agent>
+                <agent>Rx_U1_SpentFuelPool_Id1118</agent>
+                <agent>Rx_U2_SpentFuelPool_Id1226</agent>
+                <agent>Rx_U3_SpentFuelPool_Id1265</agent>
+                <agent>Rx_U4_SpentFuelPool_Id1358</agent>
+                <agent>Rx_U5_SpentFuelPool_Id1394</agent>
+                <agent>Rx_U6_SpentFuelPool_Id1460</agent>
+                <agent>Rx_U7_SpentFuelPool_Id1517</agent>
+                <agent>Rx_U8_SpentFuelPool_Id1616</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1449,78 +1426,78 @@
         <country>DD</country>
         <facility>DDV-</facility>
         <agents>
-            <agent>Rx_V1_FreshFuelVault</agent>
-            <agent>Rx_V1_Reactor</agent>
-            <agent>Rx_V1_SpentFuelPool</agent>
-            <agent>Rx_V2_FreshFuelVault</agent>
-            <agent>Rx_V2_Reactor</agent>
-            <agent>Rx_V2_SpentFuelPool</agent>
-            <agent>Rx_V3_FreshFuelVault</agent>
-            <agent>Rx_V3_Reactor</agent>
-            <agent>Rx_V3_SpentFuelPool</agent>
-            <agent>Rx_V4_FreshFuelVault</agent>
-            <agent>Rx_V4_Reactor</agent>
-            <agent>Rx_V4_SpentFuelPool</agent>
-            <agent>Rx_V5_FreshFuelVault</agent>
-            <agent>Rx_V5_Reactor</agent>
-            <agent>Rx_V5_SpentFuelPool</agent>
-            <agent>Rx_V6_FreshFuelVault</agent>
-            <agent>Rx_V6_Reactor</agent>
-            <agent>Rx_V6_SpentFuelPool</agent>
-            <agent>Rx_V7_FreshFuelVault</agent>
-            <agent>Rx_V7_Reactor</agent>
-            <agent>Rx_V7_SpentFuelPool</agent>
-            <agent>Rx_V8_FreshFuelVault</agent>
-            <agent>Rx_V8_Reactor</agent>
-            <agent>Rx_V8_SpentFuelPool</agent>
-            <agent>Rx_V_Shipper</agent>
+            <agent>Rx_V1_FreshFuelVault_Id1161</agent>
+            <agent>Rx_V1_Reactor_Id1162</agent>
+            <agent>Rx_V1_SpentFuelPool_Id1163</agent>
+            <agent>Rx_V2_FreshFuelVault_Id1233</agent>
+            <agent>Rx_V2_Reactor_Id1234</agent>
+            <agent>Rx_V2_SpentFuelPool_Id1235</agent>
+            <agent>Rx_V3_FreshFuelVault_Id1275</agent>
+            <agent>Rx_V3_Reactor_Id1276</agent>
+            <agent>Rx_V3_SpentFuelPool_Id1277</agent>
+            <agent>Rx_V4_FreshFuelVault_Id1332</agent>
+            <agent>Rx_V4_Reactor_Id1333</agent>
+            <agent>Rx_V4_SpentFuelPool_Id1334</agent>
+            <agent>Rx_V5_FreshFuelVault_Id1431</agent>
+            <agent>Rx_V5_Reactor_Id1432</agent>
+            <agent>Rx_V5_SpentFuelPool_Id1433</agent>
+            <agent>Rx_V6_FreshFuelVault_Id1464</agent>
+            <agent>Rx_V6_Reactor_Id1465</agent>
+            <agent>Rx_V6_SpentFuelPool_Id1466</agent>
+            <agent>Rx_V7_FreshFuelVault_Id1497</agent>
+            <agent>Rx_V7_Reactor_Id1498</agent>
+            <agent>Rx_V7_SpentFuelPool_Id1499</agent>
+            <agent>Rx_V8_FreshFuelVault_Id1558</agent>
+            <agent>Rx_V8_Reactor_Id1559</agent>
+            <agent>Rx_V8_SpentFuelPool_Id1560</agent>
+            <agent>Rx_V_Shipper_Id1561</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_V1_Reactor</agent>
-            <agent>Rx_V2_Reactor</agent>
-            <agent>Rx_V3_Reactor</agent>
-            <agent>Rx_V4_Reactor</agent>
-            <agent>Rx_V5_Reactor</agent>
-            <agent>Rx_V6_Reactor</agent>
-            <agent>Rx_V7_Reactor</agent>
-            <agent>Rx_V8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_V1_Reactor_Id1162</agent>
+            <agent>Rx_V2_Reactor_Id1234</agent>
+            <agent>Rx_V3_Reactor_Id1276</agent>
+            <agent>Rx_V4_Reactor_Id1333</agent>
+            <agent>Rx_V5_Reactor_Id1432</agent>
+            <agent>Rx_V6_Reactor_Id1465</agent>
+            <agent>Rx_V7_Reactor_Id1498</agent>
+            <agent>Rx_V8_Reactor_Id1559</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_V1_FreshFuelVault</agent>
-                <agent>Rx_V2_FreshFuelVault</agent>
-                <agent>Rx_V3_FreshFuelVault</agent>
-                <agent>Rx_V4_FreshFuelVault</agent>
-                <agent>Rx_V5_FreshFuelVault</agent>
-                <agent>Rx_V6_FreshFuelVault</agent>
-                <agent>Rx_V7_FreshFuelVault</agent>
-                <agent>Rx_V8_FreshFuelVault</agent>
+                <agent>Rx_V1_FreshFuelVault_Id1161</agent>
+                <agent>Rx_V2_FreshFuelVault_Id1233</agent>
+                <agent>Rx_V3_FreshFuelVault_Id1275</agent>
+                <agent>Rx_V4_FreshFuelVault_Id1332</agent>
+                <agent>Rx_V5_FreshFuelVault_Id1431</agent>
+                <agent>Rx_V6_FreshFuelVault_Id1464</agent>
+                <agent>Rx_V7_FreshFuelVault_Id1497</agent>
+                <agent>Rx_V8_FreshFuelVault_Id1558</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_V1_Reactor</agent>
-                <agent>Rx_V2_Reactor</agent>
-                <agent>Rx_V3_Reactor</agent>
-                <agent>Rx_V4_Reactor</agent>
-                <agent>Rx_V5_Reactor</agent>
-                <agent>Rx_V6_Reactor</agent>
-                <agent>Rx_V7_Reactor</agent>
-                <agent>Rx_V8_Reactor</agent>
+                <agent>Rx_V1_Reactor_Id1162</agent>
+                <agent>Rx_V2_Reactor_Id1234</agent>
+                <agent>Rx_V3_Reactor_Id1276</agent>
+                <agent>Rx_V4_Reactor_Id1333</agent>
+                <agent>Rx_V5_Reactor_Id1432</agent>
+                <agent>Rx_V6_Reactor_Id1465</agent>
+                <agent>Rx_V7_Reactor_Id1498</agent>
+                <agent>Rx_V8_Reactor_Id1559</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_V1_SpentFuelPool</agent>
-                <agent>Rx_V2_SpentFuelPool</agent>
-                <agent>Rx_V3_SpentFuelPool</agent>
-                <agent>Rx_V4_SpentFuelPool</agent>
-                <agent>Rx_V5_SpentFuelPool</agent>
-                <agent>Rx_V6_SpentFuelPool</agent>
-                <agent>Rx_V7_SpentFuelPool</agent>
-                <agent>Rx_V8_SpentFuelPool</agent>
+                <agent>Rx_V1_SpentFuelPool_Id1163</agent>
+                <agent>Rx_V2_SpentFuelPool_Id1235</agent>
+                <agent>Rx_V3_SpentFuelPool_Id1277</agent>
+                <agent>Rx_V4_SpentFuelPool_Id1334</agent>
+                <agent>Rx_V5_SpentFuelPool_Id1433</agent>
+                <agent>Rx_V6_SpentFuelPool_Id1466</agent>
+                <agent>Rx_V7_SpentFuelPool_Id1499</agent>
+                <agent>Rx_V8_SpentFuelPool_Id1560</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1528,78 +1505,78 @@
         <country>DD</country>
         <facility>DDW-</facility>
         <agents>
-            <agent>Rx_W1_FreshFuelVault</agent>
-            <agent>Rx_W1_Reactor</agent>
-            <agent>Rx_W1_SpentFuelPool</agent>
-            <agent>Rx_W2_FreshFuelVault</agent>
-            <agent>Rx_W2_Reactor</agent>
-            <agent>Rx_W2_SpentFuelPool</agent>
-            <agent>Rx_W3_FreshFuelVault</agent>
-            <agent>Rx_W3_Reactor</agent>
-            <agent>Rx_W3_SpentFuelPool</agent>
-            <agent>Rx_W4_FreshFuelVault</agent>
-            <agent>Rx_W4_Reactor</agent>
-            <agent>Rx_W4_SpentFuelPool</agent>
-            <agent>Rx_W5_FreshFuelVault</agent>
-            <agent>Rx_W5_Reactor</agent>
-            <agent>Rx_W5_SpentFuelPool</agent>
-            <agent>Rx_W6_FreshFuelVault</agent>
-            <agent>Rx_W6_Reactor</agent>
-            <agent>Rx_W6_SpentFuelPool</agent>
-            <agent>Rx_W7_FreshFuelVault</agent>
-            <agent>Rx_W7_Reactor</agent>
-            <agent>Rx_W7_SpentFuelPool</agent>
-            <agent>Rx_W8_FreshFuelVault</agent>
-            <agent>Rx_W8_Reactor</agent>
-            <agent>Rx_W8_SpentFuelPool</agent>
-            <agent>Rx_W_Shipper</agent>
+            <agent>Rx_W1_FreshFuelVault_Id1149</agent>
+            <agent>Rx_W1_Reactor_Id1150</agent>
+            <agent>Rx_W1_SpentFuelPool_Id1151</agent>
+            <agent>Rx_W2_FreshFuelVault_Id1167</agent>
+            <agent>Rx_W2_Reactor_Id1168</agent>
+            <agent>Rx_W2_SpentFuelPool_Id1169</agent>
+            <agent>Rx_W3_FreshFuelVault_Id1290</agent>
+            <agent>Rx_W3_Reactor_Id1291</agent>
+            <agent>Rx_W3_SpentFuelPool_Id1292</agent>
+            <agent>Rx_W4_FreshFuelVault_Id1341</agent>
+            <agent>Rx_W4_Reactor_Id1342</agent>
+            <agent>Rx_W4_SpentFuelPool_Id1343</agent>
+            <agent>Rx_W5_FreshFuelVault_Id1398</agent>
+            <agent>Rx_W5_Reactor_Id1399</agent>
+            <agent>Rx_W5_SpentFuelPool_Id1400</agent>
+            <agent>Rx_W6_FreshFuelVault_Id1422</agent>
+            <agent>Rx_W6_Reactor_Id1423</agent>
+            <agent>Rx_W6_SpentFuelPool_Id1424</agent>
+            <agent>Rx_W7_FreshFuelVault_Id1506</agent>
+            <agent>Rx_W7_Reactor_Id1507</agent>
+            <agent>Rx_W7_SpentFuelPool_Id1508</agent>
+            <agent>Rx_W8_FreshFuelVault_Id1618</agent>
+            <agent>Rx_W8_Reactor_Id1619</agent>
+            <agent>Rx_W8_SpentFuelPool_Id1620</agent>
+            <agent>Rx_W_Shipper_Id1621</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_W1_Reactor</agent>
-            <agent>Rx_W2_Reactor</agent>
-            <agent>Rx_W3_Reactor</agent>
-            <agent>Rx_W4_Reactor</agent>
-            <agent>Rx_W5_Reactor</agent>
-            <agent>Rx_W6_Reactor</agent>
-            <agent>Rx_W7_Reactor</agent>
-            <agent>Rx_W8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_W1_Reactor_Id1150</agent>
+            <agent>Rx_W2_Reactor_Id1168</agent>
+            <agent>Rx_W3_Reactor_Id1291</agent>
+            <agent>Rx_W4_Reactor_Id1342</agent>
+            <agent>Rx_W5_Reactor_Id1399</agent>
+            <agent>Rx_W6_Reactor_Id1423</agent>
+            <agent>Rx_W7_Reactor_Id1507</agent>
+            <agent>Rx_W8_Reactor_Id1619</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_W1_FreshFuelVault</agent>
-                <agent>Rx_W2_FreshFuelVault</agent>
-                <agent>Rx_W3_FreshFuelVault</agent>
-                <agent>Rx_W4_FreshFuelVault</agent>
-                <agent>Rx_W5_FreshFuelVault</agent>
-                <agent>Rx_W6_FreshFuelVault</agent>
-                <agent>Rx_W7_FreshFuelVault</agent>
-                <agent>Rx_W8_FreshFuelVault</agent>
+                <agent>Rx_W1_FreshFuelVault_Id1149</agent>
+                <agent>Rx_W2_FreshFuelVault_Id1167</agent>
+                <agent>Rx_W3_FreshFuelVault_Id1290</agent>
+                <agent>Rx_W4_FreshFuelVault_Id1341</agent>
+                <agent>Rx_W5_FreshFuelVault_Id1398</agent>
+                <agent>Rx_W6_FreshFuelVault_Id1422</agent>
+                <agent>Rx_W7_FreshFuelVault_Id1506</agent>
+                <agent>Rx_W8_FreshFuelVault_Id1618</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_W1_Reactor</agent>
-                <agent>Rx_W2_Reactor</agent>
-                <agent>Rx_W3_Reactor</agent>
-                <agent>Rx_W4_Reactor</agent>
-                <agent>Rx_W5_Reactor</agent>
-                <agent>Rx_W6_Reactor</agent>
-                <agent>Rx_W7_Reactor</agent>
-                <agent>Rx_W8_Reactor</agent>
+                <agent>Rx_W1_Reactor_Id1150</agent>
+                <agent>Rx_W2_Reactor_Id1168</agent>
+                <agent>Rx_W3_Reactor_Id1291</agent>
+                <agent>Rx_W4_Reactor_Id1342</agent>
+                <agent>Rx_W5_Reactor_Id1399</agent>
+                <agent>Rx_W6_Reactor_Id1423</agent>
+                <agent>Rx_W7_Reactor_Id1507</agent>
+                <agent>Rx_W8_Reactor_Id1619</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_W1_SpentFuelPool</agent>
-                <agent>Rx_W2_SpentFuelPool</agent>
-                <agent>Rx_W3_SpentFuelPool</agent>
-                <agent>Rx_W4_SpentFuelPool</agent>
-                <agent>Rx_W5_SpentFuelPool</agent>
-                <agent>Rx_W6_SpentFuelPool</agent>
-                <agent>Rx_W7_SpentFuelPool</agent>
-                <agent>Rx_W8_SpentFuelPool</agent>
+                <agent>Rx_W1_SpentFuelPool_Id1151</agent>
+                <agent>Rx_W2_SpentFuelPool_Id1169</agent>
+                <agent>Rx_W3_SpentFuelPool_Id1292</agent>
+                <agent>Rx_W4_SpentFuelPool_Id1343</agent>
+                <agent>Rx_W5_SpentFuelPool_Id1400</agent>
+                <agent>Rx_W6_SpentFuelPool_Id1424</agent>
+                <agent>Rx_W7_SpentFuelPool_Id1508</agent>
+                <agent>Rx_W8_SpentFuelPool_Id1620</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
     <MBA>
@@ -1607,78 +1584,78 @@
         <country>DD</country>
         <facility>DDX-</facility>
         <agents>
-            <agent>Rx_X1_FreshFuelVault</agent>
-            <agent>Rx_X1_Reactor</agent>
-            <agent>Rx_X1_SpentFuelPool</agent>
-            <agent>Rx_X2_FreshFuelVault</agent>
-            <agent>Rx_X2_Reactor</agent>
-            <agent>Rx_X2_SpentFuelPool</agent>
-            <agent>Rx_X3_FreshFuelVault</agent>
-            <agent>Rx_X3_Reactor</agent>
-            <agent>Rx_X3_SpentFuelPool</agent>
-            <agent>Rx_X4_FreshFuelVault</agent>
-            <agent>Rx_X4_Reactor</agent>
-            <agent>Rx_X4_SpentFuelPool</agent>
-            <agent>Rx_X5_FreshFuelVault</agent>
-            <agent>Rx_X5_Reactor</agent>
-            <agent>Rx_X5_SpentFuelPool</agent>
-            <agent>Rx_X6_FreshFuelVault</agent>
-            <agent>Rx_X6_Reactor</agent>
-            <agent>Rx_X6_SpentFuelPool</agent>
-            <agent>Rx_X7_FreshFuelVault</agent>
-            <agent>Rx_X7_Reactor</agent>
-            <agent>Rx_X7_SpentFuelPool</agent>
-            <agent>Rx_X8_FreshFuelVault</agent>
-            <agent>Rx_X8_Reactor</agent>
-            <agent>Rx_X8_SpentFuelPool</agent>
-            <agent>Rx_X_Shipper</agent>
+            <agent>Rx_X1_FreshFuelVault_Id1185</agent>
+            <agent>Rx_X1_Reactor_Id1186</agent>
+            <agent>Rx_X1_SpentFuelPool_Id1187</agent>
+            <agent>Rx_X2_FreshFuelVault_Id1203</agent>
+            <agent>Rx_X2_Reactor_Id1204</agent>
+            <agent>Rx_X2_SpentFuelPool_Id1205</agent>
+            <agent>Rx_X3_FreshFuelVault_Id1269</agent>
+            <agent>Rx_X3_Reactor_Id1270</agent>
+            <agent>Rx_X3_SpentFuelPool_Id1271</agent>
+            <agent>Rx_X4_FreshFuelVault_Id1296</agent>
+            <agent>Rx_X4_Reactor_Id1297</agent>
+            <agent>Rx_X4_SpentFuelPool_Id1298</agent>
+            <agent>Rx_X5_FreshFuelVault_Id1428</agent>
+            <agent>Rx_X5_Reactor_Id1429</agent>
+            <agent>Rx_X5_SpentFuelPool_Id1430</agent>
+            <agent>Rx_X6_FreshFuelVault_Id1467</agent>
+            <agent>Rx_X6_Reactor_Id1468</agent>
+            <agent>Rx_X6_SpentFuelPool_Id1469</agent>
+            <agent>Rx_X7_FreshFuelVault_Id1587</agent>
+            <agent>Rx_X7_Reactor_Id1588</agent>
+            <agent>Rx_X7_SpentFuelPool_Id1589</agent>
+            <agent>Rx_X8_FreshFuelVault_Id1594</agent>
+            <agent>Rx_X8_Reactor_Id1595</agent>
+            <agent>Rx_X8_SpentFuelPool_Id1596</agent>
+            <agent>Rx_X_Shipper_Id1597</agent>
         </agents>
-        <reactor_agents>
-            <agent>Rx_X1_Reactor</agent>
-            <agent>Rx_X2_Reactor</agent>
-            <agent>Rx_X3_Reactor</agent>
-            <agent>Rx_X4_Reactor</agent>
-            <agent>Rx_X5_Reactor</agent>
-            <agent>Rx_X6_Reactor</agent>
-            <agent>Rx_X7_Reactor</agent>
-            <agent>Rx_X8_Reactor</agent>
-        </reactor_agents>
+        <reactor_agent>
+            <agent>Rx_X1_Reactor_Id1186</agent>
+            <agent>Rx_X2_Reactor_Id1204</agent>
+            <agent>Rx_X3_Reactor_Id1270</agent>
+            <agent>Rx_X4_Reactor_Id1297</agent>
+            <agent>Rx_X5_Reactor_Id1429</agent>
+            <agent>Rx_X6_Reactor_Id1468</agent>
+            <agent>Rx_X7_Reactor_Id1588</agent>
+            <agent>Rx_X8_Reactor_Id1595</agent>
+        </reactor_agent>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>Rx_X1_FreshFuelVault</agent>
-                <agent>Rx_X2_FreshFuelVault</agent>
-                <agent>Rx_X3_FreshFuelVault</agent>
-                <agent>Rx_X4_FreshFuelVault</agent>
-                <agent>Rx_X5_FreshFuelVault</agent>
-                <agent>Rx_X6_FreshFuelVault</agent>
-                <agent>Rx_X7_FreshFuelVault</agent>
-                <agent>Rx_X8_FreshFuelVault</agent>
+                <agent>Rx_X1_FreshFuelVault_Id1185</agent>
+                <agent>Rx_X2_FreshFuelVault_Id1203</agent>
+                <agent>Rx_X3_FreshFuelVault_Id1269</agent>
+                <agent>Rx_X4_FreshFuelVault_Id1296</agent>
+                <agent>Rx_X5_FreshFuelVault_Id1428</agent>
+                <agent>Rx_X6_FreshFuelVault_Id1467</agent>
+                <agent>Rx_X7_FreshFuelVault_Id1587</agent>
+                <agent>Rx_X8_FreshFuelVault_Id1594</agent>
             </KMP>
             <KMP>
                 <name>B</name>
-                <agent>Rx_X1_Reactor</agent>
-                <agent>Rx_X2_Reactor</agent>
-                <agent>Rx_X3_Reactor</agent>
-                <agent>Rx_X4_Reactor</agent>
-                <agent>Rx_X5_Reactor</agent>
-                <agent>Rx_X6_Reactor</agent>
-                <agent>Rx_X7_Reactor</agent>
-                <agent>Rx_X8_Reactor</agent>
+                <agent>Rx_X1_Reactor_Id1186</agent>
+                <agent>Rx_X2_Reactor_Id1204</agent>
+                <agent>Rx_X3_Reactor_Id1270</agent>
+                <agent>Rx_X4_Reactor_Id1297</agent>
+                <agent>Rx_X5_Reactor_Id1429</agent>
+                <agent>Rx_X6_Reactor_Id1468</agent>
+                <agent>Rx_X7_Reactor_Id1588</agent>
+                <agent>Rx_X8_Reactor_Id1595</agent>
             </KMP>
             <KMP>
                 <name>C</name>
-                <agent>Rx_X1_SpentFuelPool</agent>
-                <agent>Rx_X2_SpentFuelPool</agent>
-                <agent>Rx_X3_SpentFuelPool</agent>
-                <agent>Rx_X4_SpentFuelPool</agent>
-                <agent>Rx_X5_SpentFuelPool</agent>
-                <agent>Rx_X6_SpentFuelPool</agent>
-                <agent>Rx_X7_SpentFuelPool</agent>
-                <agent>Rx_X8_SpentFuelPool</agent>
+                <agent>Rx_X1_SpentFuelPool_Id1187</agent>
+                <agent>Rx_X2_SpentFuelPool_Id1205</agent>
+                <agent>Rx_X3_SpentFuelPool_Id1271</agent>
+                <agent>Rx_X4_SpentFuelPool_Id1298</agent>
+                <agent>Rx_X5_SpentFuelPool_Id1430</agent>
+                <agent>Rx_X6_SpentFuelPool_Id1469</agent>
+                <agent>Rx_X7_SpentFuelPool_Id1589</agent>
+                <agent>Rx_X8_SpentFuelPool_Id1596</agent>
             </KMP>
         </inventory_KMPs>
-        <generate_reports>True</generate_reports>
+        <generate_reports>False</generate_reports>
     </MBA>
 
 </data>
