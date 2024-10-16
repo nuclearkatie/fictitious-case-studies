@@ -57,6 +57,8 @@
         <Source>
             <outcommod>NatUO2_fuel</outcommod>
             <outrecipe>Nat_0-7_UO2_fuel</outrecipe>
+            <package>fuel_assembly</package>
+            <transport_unit>fresh_fuel_canister</transport_unit>
         </Source>
     </config>
 </facility>
@@ -71,8 +73,9 @@
     <config>
         <Source>
             <outcommod>yellowcake</outcommod>
-            <package>UOC_drum</package>\
-            <transport_unit>UOC_shipment</transport_unit>
+            <outrecipe>natural_u3o8</outrecipe>
+            <package>UOC_drum</package>
+            <transport_unit>UOC_container</transport_unit>
         </Source>
     </config>
 </facility>
@@ -10664,7 +10667,6 @@
     <nuclide><id>ru104</id><comp>0.000128917463331969</comp></nuclide>
     <nuclide><id>xe131</id><comp>0.000125596781684204</comp></nuclide>
     <nuclide><id>sr90</id><comp>0.000107164998128474</comp></nuclide>
-
 </recipe>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
