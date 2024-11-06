@@ -9,7 +9,7 @@
     <explicit_inventory>1</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
-    <seed>20241103</seed>
+    <seed>20241104</seed>
 </control>
 
 <archetypes>
