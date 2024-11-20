@@ -101,6 +101,17 @@
     </config>
 </facility>
 
+<facility>
+    <name>HALEUTrainingFuelFabShipper</name>
+    <config>
+        <Source>
+            <outcommod>HALEUO2_fuel_training</outcommod>
+            <outrecipe>HALEU_8-5_UZr_fuel</outrecipe>
+            <package>Tr_RR</package>
+        </Source>
+    </config>
+</facility>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                           Mill                               -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -235,6 +246,19 @@
         <out_buf_size>3274.32</out_buf_size>
         <throughput>3274.32</throughput>
         </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>EnrichmentProductPackager</name>
+    <config>
+        <Storage>
+            <in_commods><val>LEUF6_mixed</val></in_commods>
+            <out_commods><val>LEUF6_cylinder</val></out_commods>
+            <throughput>3274.32</throughput>
+            <max_inv_size>20493.0</max_inv_size>
+            <package>Type30B_UF6_cylinder</package>
+        </Storage>
     </config>
 </facility>
 
@@ -406,10 +430,23 @@
 </facility>
 
 <facility>
-    <name>FuelFabShipper</name>
+    <name>FuelFabRodLoading</name>
     <config>
         <Storage>
             <in_commods><val>LEUO2_process</val></in_commods>
+            <out_commods><val>LEUO2_rods</val></out_commods>
+            <throughput>2060</throughput>
+            <max_inv_size>4120</max_inv_size>
+            <sell_quantity>2.13</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>LEUO2_rods</val></in_commods>
             <out_commods><val>LEUO2_fuel</val></out_commods>
             <throughput>2060</throughput>
             <max_inv_size>63980.800000104</max_inv_size>
@@ -497,6 +534,18 @@
 </facility>
 
 <facility>
+    <name>HALEUFuelFabRodLoading</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_process</val></in_commods>
+            <out_commods><val>HALEUO2_rods</val></out_commods>
+            <throughput>280</throughput>
+            <max_inv_size>560</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
     <name>HALEUFuelFabShipper</name>
     <config>
         <Storage>
@@ -504,6 +553,18 @@
             <out_commods><val>HALEUO2_fuel</val></out_commods>
             <throughput>280</throughput>
             <max_inv_size>8400</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>HALEUMedicalFuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_process</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_medical</val></out_commods>
+            <max_inv_size>53.5</max_inv_size>
+            <package>HP_RR</package>
         </Storage>
     </config>
 </facility>
@@ -1373,27 +1434,26 @@
 </facility>
 
 <facility>
-    <name>ResearchReactor3FreshFuelVault</name>
+    <name>ResearchReactorTraining1FreshFuelVault</name>
     <config>
         <Storage>
-            <in_commods><val>HALEUO2_fuel</val></in_commods>
-            <out_commods><val>HALEUO2_fuel_RR3</val></out_commods>
+            <in_commods><val>HALEUO2_fuel_training</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRT1</val></out_commods>
             <throughput>22.5</throughput>
             <max_inv_size>22.5</max_inv_size>
             <reorder_point>4.5</reorder_point>
-            <package>MP_RR</package>
         </Storage>
     </config>
 </facility>
 
 <facility>
-    <name>ResearchReactor3</name>
+    <name>ResearchReactorTraining1</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>HALEUO2_fuel_RR3</val></fuel_incommods>
-            <fuel_inrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>HALEUO2_fuel_RR3_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>generic_recipe</val></fuel_outrecipes>
+            <fuel_incommods><val>HALEUO2_fuel_RRT1</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRT1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_outrecipes>
             <assem_size>2.25</assem_size>
             <n_assem_batch>1</n_assem_batch>
             <n_assem_core>57</n_assem_core>
@@ -1405,27 +1465,26 @@
 </facility>
 
 <facility>
-    <name>ResearchReactor4FreshFuelVault</name>
+    <name>ResearchReactorTraining2FreshFuelVault</name>
     <config>
         <Storage>
-            <in_commods><val>HALEUO2_fuel</val></in_commods>
-            <out_commods><val>HALEUO2_fuel_RR4</val></out_commods>
+            <in_commods><val>HALEUO2_fuel_training</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRT2</val></out_commods>
             <throughput>22.5</throughput>
             <max_inv_size>22.5</max_inv_size>
             <reorder_point>4.5</reorder_point>
-            <package>MP_RR</package>
         </Storage>
     </config>
 </facility>
 
 <facility>
-    <name>ResearchReactor4</name>
+    <name>ResearchReactorTraining2</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>HALEUO2_fuel_RR4</val></fuel_incommods>
-            <fuel_inrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>HALEUO2_fuel_RR4_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>generic_recipe</val></fuel_outrecipes>
+            <fuel_incommods><val>HALEUO2_fuel_RRT2</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRT2_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_outrecipes>
             <assem_size>2.25</assem_size>
             <n_assem_batch>1</n_assem_batch>
             <n_assem_core>57</n_assem_core>
@@ -1437,27 +1496,26 @@
 </facility>
 
 <facility>
-    <name>ResearchReactor5FreshFuelVault</name>
+    <name>ResearchReactorMedical1FreshFuelVault</name>
     <config>
         <Storage>
-            <in_commods><val>HALEUO2_fuel</val></in_commods>
-            <out_commods><val>HALEUO2_fuel_RR5</val></out_commods>
+            <in_commods><val>HALEUO2_fuel_medical</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRM1</val></out_commods>
             <throughput>53.5</throughput>
             <max_inv_size>53.5</max_inv_size>
             <reorder_point>10.2</reorder_point>
-            <package>HP_RR</package>
         </Storage>
     </config>
 </facility>
 
 <facility>
-    <name>ResearchReactor5</name>
+    <name>ResearchReactorMedical1</name>
     <config>
         <Reactor>
-            <fuel_incommods><val>HALEUO2_fuel_RR5</val></fuel_incommods>
+            <fuel_incommods><val>HALEUO2_fuel_RRM1</val></fuel_incommods>
             <fuel_inrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_inrecipes>
-            <fuel_outcommods><val>HALEUO2_fuel_RR5_spent</val></fuel_outcommods>
-            <fuel_outrecipes><val>generic_recipe</val></fuel_outrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRM1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_outrecipes>
             <assem_size>1.71</assem_size>
             <n_assem_batch>3</n_assem_batch>
             <n_assem_core>28</n_assem_core>
@@ -1828,6 +1886,14 @@
 </recipe>
 
 <recipe>
+    <name>HALEU_8-5_UZr_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.066645</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.708355</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.225000</comp></nuclide>
+</recipe>
+
+<recipe>
     <name>leu_spent_fuel</name>
     <basis>mass</basis>
     <nuclide> <id>922350000</id> <comp>0.0083</comp> </nuclide>
@@ -1881,14 +1947,14 @@
     <name>Type30B_UF6_cylinder</name>
     <fill_min>2049.30</fill_min>
     <fill_max>2277</fill_max>
-    <strategy>equal</strategy>
+    <strategy>normal</strategy>
 </package>
 
 <package>
     <name>Type30B-20_UF6_cylinder</name>
     <fill_min>1143.9</fill_min>
     <fill_max>1271</fill_max>
-    <strategy>equal</strategy>
+    <strategy>normal</strategy>
 </package>
 
 <transportunit>
@@ -1920,7 +1986,7 @@
 </transportunit>
 
 <package>
-    <name>MP_RR</name>
+    <name>Tr_RR</name>
     <fill_min>2.25</fill_min>
     <fill_max>2.25</fill_max>
     <strategy>first</strategy>
@@ -1963,6 +2029,7 @@
             <entry><prototype>EnrichmentRecipeRequester</prototype><number>1</number></entry>
             <entry><prototype>EnrichmentMixer</prototype><number>1</number>
             </entry>
+            <entry><prototype>EnrichmentProductPackager</prototype><number>1</number></entry>
             <entry><prototype>EnrichmentTailsMixer</prototype><number>1</number></entry>
             <entry><prototype>EnrichmentTailsPackager</prototype><number>1</number></entry>
             <entry><prototype>EnrichmentTailsStorage</prototype><number>1</number></entry>
@@ -1972,11 +2039,15 @@
             <entry><prototype>FuelFabReceiver</prototype><number>1</number></entry>
             <entry><prototype>FuelFabSeparation</prototype><number>1</number></entry>
             <entry><prototype>FuelFabMixer</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabRodLoading</prototype><number>1</number></entry>
             <entry><prototype>FuelFabShipper</prototype><number>1</number></entry>
             <entry><prototype>HALEUFuelFabReceiver</prototype><number>1</number></entry>
             <entry><prototype>HALEUFuelFabSeparation</prototype><number>1</number></entry>
             <entry><prototype>HALEUFuelFabMixer</prototype><number>1</number></entry>
+            <entry><prototype>HALEUFuelFabRodLoading</prototype><number>1</number></entry>
             <entry><prototype>HALEUFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>HALEUTrainingFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>HALEUMedicalFuelFabShipper</prototype><number>1</number></entry>
             <entry><prototype>ForeignLEUO2Receiver</prototype><number>1</number></entry>
             <!-- <entry><prototype>ForeignHALEUO2Reciver</prototype><number>1</number></entry> -->
             <entry><prototype>RxA1Storage</prototype><number>1</number></entry>
@@ -1997,12 +2068,12 @@
             <entry><prototype>RxDShipper</prototype><number>1</number></entry>
             <entry><prototype>DecommissionedRR1Storage</prototype><number>1</number></entry>
             <entry><prototype>DecommissionedRR2Storage</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor3FreshFuelVault</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor3</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor4FreshFuelVault</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor4</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor5FreshFuelVault</prototype><number>1</number></entry>
-            <entry><prototype>ResearchReactor5</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining2FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining2</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1</prototype><number>1</number></entry>
             <entry><prototype>ConsolidatedStorage1</prototype><number>1</number></entry>
             <entry><prototype>ConsolidatedStorage2</prototype><number>1</number></entry>
             <entry><prototype>RepositoryTestFacilitySource</prototype><number>1</number></entry>
