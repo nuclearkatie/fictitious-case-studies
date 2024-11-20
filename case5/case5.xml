@@ -9,7 +9,9 @@
     <explicit_inventory>1</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
-    <seed>20241103</seed>
+    <seed>1234567890</seed>
+    <!-- <seed>20241104</seed> -->
+    <!-- <seed>87654321</seed> -->
 </control>
 
 <archetypes>
@@ -31,12 +33,13 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <facility>
-    <name>ForeignNUO2Shipper</name>
+    <name>ForeignNU3O8Shipper</name>
     <config>
         <Source>
-            <outcommod>NUO2</outcommod>
-            <outrecipe>nuo2</outrecipe>
-            <package>fuel_assembly_in</package>
+            <outcommod>NU3O8</outcommod>
+            <outrecipe>natural_u3o8</outrecipe>
+            <package>U_oxide_drum</package>
+            <transport_unit>U_oxide_container</transport_unit>
         </Source>
     </config>
 </facility>
@@ -52,6 +55,21 @@
     </config>
 </facility>
 
+<facility>
+    <name>ForeignUZrReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>UZr_fuel</val></in_commods>
+            <out_commods><val>UZr_fuel_foreign</val></out_commods>
+            <max_inv_size>1e99</max_inv_size>
+            <cumulative_cap>5803.920000484</cumulative_cap>
+            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
+            <dormant_buying_mean>45</dormant_buying_mean>
+            <dormant_buying_stddev>10</dormant_buying_stddev>
+        </Storage>
+    </config>
+</facility>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                     Fuel Fabrication                         -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -60,17 +78,18 @@
     <name>FuelFabReceiver</name>
     <config>
         <Storage>
-            <in_commods><val>NUO2</val></in_commods>
-            <out_commods><val>NUO2_received</val></out_commods>
+            <in_commods><val>NU3O8</val></in_commods>
+            <out_commods><val>NU3O8_received</val></out_commods>
             <residence_time>7</residence_time>
-            <throughput>1657</throughput>
-            <max_inv_size>16800</max_inv_size>
+            <max_inv_size>17000</max_inv_size>
             <active_buying_frequency_type>Fixed</active_buying_frequency_type>
             <active_buying_val>5</active_buying_val>
-            <dormant_buying_frequency_type>FixedWithDisruption</dormant_buying_frequency_type>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>2</dormant_buying_val>
+            <!-- <dormant_buying_frequency_type>FixedWithDisruption</dormant_buying_frequency_type>
             <dormant_buying_val>2</dormant_buying_val>
             <dormant_buying_disruption_probability>0.002</dormant_buying_disruption_probability>
-            <dormant_buying_disruption>90</dormant_buying_disruption>
+            <dormant_buying_disruption>365</dormant_buying_disruption> -->
         </Storage>
     </config>
 </facility>
@@ -79,8 +98,8 @@
     <name>FuelFabSeparation</name>
     <config>
         <Separations>
-            <feed_commods><val>NUO2_received</val></feed_commods>
-            <feed_recipe>nuo2</feed_recipe>
+            <feed_commods><val>NU3O8_received</val></feed_commods>
+            <feed_recipe>natural_u3o8</feed_recipe>
             <feedbuf_size>13158</feedbuf_size>
             <throughput>828.40</throughput>
             <leftover_commod>extra_oxygen</leftover_commod>
@@ -141,14 +160,27 @@
 </facility>
 
 <facility>
-    <name>FuelFabShipper</name>
+    <name>FuelFabRodLoading</name>
     <config>
         <Storage>
             <in_commods><val>UZr_fuel_process</val></in_commods>
+            <out_commods><val>UZr_fuel_rods</val></out_commods>
+            <throughput>311.11</throughput>
+            <max_inv_size>622.22</max_inv_size>
+            <sell_quantity>3.808</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>UZr_fuel_rods</val></in_commods>
             <out_commods><val>UZr_fuel</val></out_commods>
             <residence_time>10</residence_time>
             <throughput>311.11</throughput>
-            <max_inv_size>28000</max_inv_size>
+            <max_inv_size>17500</max_inv_size>
             <package>fuel_assembly_in</package>
         </Storage>
     </config>
@@ -161,130 +193,6 @@
 <!--                         Reactors                             -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!-- 
-<facility>
-    <name>ModelFFV</name>
-    <config>
-        <Storage>
-            <throughput>1934.64</throughput>
-            <cumulative_cap>5803.92</cumulative_cap>
-            <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-            <dormant_buying_mean>547</dormant_buying_mean>
-            <dormant_buying_stddev>10</dormant_buying_stddev>
-            <residence_time>0</residence_time>
-        </Storage>
-    </config>
-</facility>
-
-<facility>
-    <name>ModelRx</name>
-    <config>
-        <Reactor>
-            <fuel_inrecipes><val>fresh_fuel</val></fuel_inrecipes>
-            <fuel_outrecipes><val>used_fuel</val></fuel_outrecipes>
-            <assem_size>483.66</assem_size>
-            <n_assem_batch>12</n_assem_batch>
-            <n_assem_core>408</n_assem_core>
-            <cycle_time>520</cycle_time>
-            <refuel_time>28</refuel_time>
-        </Reactor>
-    </config>
-</facility> -->
-
- <!-- <facility>
-        <name>Rx_A1_FreshFuelVault</name>
-        <config>
-            <Storage>
-                <in_commods>
-                    <val>UZr_fuel</val>
-                </in_commods>
-                <out_commods>
-                    <val>UZr_fuel_A1_FFV</val>
-                </out_commods>
-                <residence_time>0</residence_time>
-                <cumulative_cap>5803.920000484</cumulative_cap>
-                <throughput>2901.960000242</throughput>
-                <dormant_buying_frequency_type>Normal</dormant_buying_frequency_type>
-                <dormant_buying_mean>547</dormant_buying_mean>
-                <dormant_buying_stddev>10</dormant_buying_stddev>
-                <discrete_handling>1</discrete_handling>
-            </Storage>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_A1_Reactor</name>
-        <config>
-            <Reactor>
-                <fuel_incommods><val>UZr_fuel_A1_FFV</val></fuel_incommods>
-                <fuel_inrecipes><val>NU-10Zr_fuel</val></fuel_inrecipes>
-                <fuel_outcommods><val>UZr_fuel_A1_spent</val></fuel_outcommods>
-                <fuel_outrecipes><val>U-10Zr_spent_fuel</val></fuel_outrecipes>
-                <assem_size>483.66</assem_size>
-                <n_assem_batch>12</n_assem_batch>
-                <n_assem_core>408</n_assem_core>
-                <cycle_time>520</cycle_time>
-                <refuel_time>28</refuel_time>
-            </Reactor>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_A1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_A1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_A1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>        
-
-            </Storage>
-        </config>
-    </facility>
-
-        <facility>
-        <name>Rx_A2_Shipper</name>
-        <config>
-            <Storage>
-                <in_commods>
-                    <val>UZr_fuel_A1_spent_cooled</val>
-                    <val>UZr_fuel_A2_spent_cooled</val>
-                </in_commods>
-                <out_commods>
-                    <val>UZr_fuel_A_spent_cooled</val>
-                </out_commods>
-                <residence_time>1</residence_time>
-                <throughput>11607.84</throughput>
-                <max_inv_size>11607.84</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-                <package>fuel_assembly</package>        
-                <transport_unit>used_fuel_multipurpose_canister</transport_unit>        
-            </Storage>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Startup_A1_FFV</name>
-        <config>
-            <Storage>
-                <in_commods>
-                    <val>HALEU_UZr_fuel</val>
-                </in_commods>
-                <out_commods>
-                    <val>UZr_fuel_A1_FFV</val>
-                </out_commods>
-                <residence_time>0</residence_time>
-                <cumulative_cap>197333.280000408</cumulative_cap>    
-                <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
-                <dormant_buying_mean>100000</dormant_buying_mean>
-                <package>fuel_assembly</package>    
-            </Storage>
-        </config>
-    </facility> -->
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                        Reactor A                             -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -323,21 +231,9 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_A1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_A1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_A1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-            </Storage>
         </config>
     </facility>
         
@@ -375,16 +271,21 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
     <facility>
-        <name>Rx_A2_SpentFuelPool</name>
+        <name>Rx_A_SpentFuelPool</name>
         <config>
             <Storage>
-                <in_commods><val>UZr_fuel_A2_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_A2_spent_cooled</val></out_commods>
+                <in_commods>
+                    <val>UZr_fuel_A1_spent</val>
+                    <val>UZr_fuel_A2_spent</val>
+                </in_commods>
+                <out_commods><val>UZr_fuel_A12_spent_cooled</val></out_commods>
                 <residence_time>1825</residence_time>
                 <throughput>5803.92</throughput>
                 <max_inv_size>194000</max_inv_size>
@@ -394,12 +295,11 @@
     </facility>
         
     <facility>
-        <name>Rx_A2_Shipper</name>
+        <name>Rx_A_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_A1_spent_cooled</val>
-                    <val>UZr_fuel_A2_spent_cooled</val>
+                    <val>UZr_fuel_A12_spent_cooled</val>
                 </in_commods>
                 <out_commods>
                     <val>UZr_fuel_A_spent_cooled</val>
@@ -491,21 +391,9 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_B1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_B1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_B1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-            </Storage>
         </config>
     </facility>
         
@@ -543,16 +431,21 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
     <facility>
-        <name>Rx_B2_SpentFuelPool</name>
+        <name>Rx_B_SpentFuelPool</name>
         <config>
             <Storage>
-                <in_commods><val>UZr_fuel_B2_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_B2_spent_cooled</val></out_commods>
+                <in_commods>
+                    <val>UZr_fuel_B1_spent</val>
+                    <val>UZr_fuel_B2_spent</val>
+                </in_commods>
+                <out_commods><val>UZr_fuel_B12_spent_cooled</val></out_commods>
                 <residence_time>1825</residence_time>
                 <throughput>5803.92</throughput>
                 <max_inv_size>194000</max_inv_size>
@@ -562,12 +455,11 @@
     </facility>
         
     <facility>
-        <name>Rx_B2_Shipper</name>
+        <name>Rx_B_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_B1_spent_cooled</val>
-                    <val>UZr_fuel_B2_spent_cooled</val>
+                    <val>UZr_fuel_B12_spent_cooled</val>
                 </in_commods>
                 <out_commods>
                     <val>UZr_fuel_B_spent_cooled</val>
@@ -659,21 +551,9 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_C1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_C1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_C1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-            </Storage>
         </config>
     </facility>
         
@@ -711,16 +591,21 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
     <facility>
-        <name>Rx_C2_SpentFuelPool</name>
+        <name>Rx_C_SpentFuelPool</name>
         <config>
             <Storage>
-                <in_commods><val>UZr_fuel_C2_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_C2_spent_cooled</val></out_commods>
+                <in_commods>
+                    <val>UZr_fuel_C1_spent</val>
+                    <val>UZr_fuel_C2_spent</val>
+                </in_commods>
+                <out_commods><val>UZr_fuel_C12_spent_cooled</val></out_commods>
                 <residence_time>1825</residence_time>
                 <throughput>5803.92</throughput>
                 <max_inv_size>194000</max_inv_size>
@@ -730,12 +615,11 @@
     </facility>
         
     <facility>
-        <name>Rx_C2_Shipper</name>
+        <name>Rx_C_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_C1_spent_cooled</val>
-                    <val>UZr_fuel_C2_spent_cooled</val>
+                    <val>UZr_fuel_C12_spent_cooled</val>
                 </in_commods>
                 <out_commods>
                     <val>UZr_fuel_C_spent_cooled</val>
@@ -827,24 +711,12 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
-    <facility>
-        <name>Rx_D1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_D1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_D1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-            </Storage>
-        </config>
-    </facility>
-        
     <facility>
         <name>Rx_D2_FreshFuelVault</name>
         <config>
@@ -879,16 +751,21 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
     <facility>
-        <name>Rx_D2_SpentFuelPool</name>
+        <name>Rx_D_SpentFuelPool</name>
         <config>
             <Storage>
-                <in_commods><val>UZr_fuel_D2_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_D2_spent_cooled</val></out_commods>
+                <in_commods>
+                    <val>UZr_fuel_D1_spent</val>
+                    <val>UZr_fuel_D2_spent</val>
+                </in_commods>
+                <out_commods><val>UZr_fuel_D12_spent_cooled</val></out_commods>
                 <residence_time>1825</residence_time>
                 <throughput>5803.92</throughput>
                 <max_inv_size>194000</max_inv_size>
@@ -898,12 +775,11 @@
     </facility>
         
     <facility>
-        <name>Rx_D2_Shipper</name>
+        <name>Rx_D_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_D1_spent_cooled</val>
-                    <val>UZr_fuel_D2_spent_cooled</val>
+                    <val>UZr_fuel_D12_spent_cooled</val>
                 </in_commods>
                 <out_commods>
                     <val>UZr_fuel_D_spent_cooled</val>
@@ -995,21 +871,9 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
-        </config>
-    </facility>
-
-    <facility>
-        <name>Rx_E1_SpentFuelPool</name>
-        <config>
-            <Storage>
-                <in_commods><val>UZr_fuel_E1_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_E1_spent_cooled</val></out_commods>
-                <residence_time>1825</residence_time>
-                <throughput>5803.92</throughput>
-                <max_inv_size>194000</max_inv_size>
-                <discrete_handling>1</discrete_handling>    
-            </Storage>
         </config>
     </facility>
         
@@ -1047,16 +911,21 @@
                 <n_assem_core>408</n_assem_core>
                 <cycle_time>520</cycle_time>
                 <refuel_time>28</refuel_time>
+                <power_cap>1000</power_cap>
+                <power_name>power</power_name>
             </Reactor>
         </config>
     </facility>
 
     <facility>
-        <name>Rx_E2_SpentFuelPool</name>
+        <name>Rx_E_SpentFuelPool</name>
         <config>
             <Storage>
-                <in_commods><val>UZr_fuel_E2_spent</val></in_commods>
-                <out_commods><val>UZr_fuel_E2_spent_cooled</val></out_commods>
+                <in_commods>
+                    <val>UZr_fuel_E1_spent</val>
+                    <val>UZr_fuel_E2_spent</val>
+                </in_commods>
+                <out_commods><val>UZr_fuel_E12_spent_cooled</val></out_commods>
                 <residence_time>1825</residence_time>
                 <throughput>5803.92</throughput>
                 <max_inv_size>194000</max_inv_size>
@@ -1066,12 +935,11 @@
     </facility>
         
     <facility>
-        <name>Rx_E2_Shipper</name>
+        <name>Rx_E_Shipper</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_E1_spent_cooled</val>
-                    <val>UZr_fuel_E2_spent_cooled</val>
+                    <val>UZr_fuel_E12_spent_cooled</val>
                 </in_commods>
                 <out_commods>
                     <val>UZr_fuel_E_spent_cooled</val>
@@ -1129,14 +997,32 @@
 <!--                      Interim Storage                         -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!-- Assume canisters from power plant A are eligible to be opened and a rod
+ removed for used in reprocessing R&D. Hold in special location so it can be
+ requested if needed, otherwise move to the main area (inaccessible)  -->
+    <facility>
+        <name>ConsolidatedStorage1A</name>
+        <config>
+            <Storage>
+                <in_commods><val>UZr_fuel_A_spent_cooled</val></in_commods>
+                <out_commods><val>UZr_fuel_A_rep_research</val></out_commods>
+                <reorder_point>0</reorder_point>
+                <throughput>11607.84</throughput>
+                <max_inv_size>11607.85</max_inv_size>
+                <sell_quantity>483.66</sell_quantity>
+                <residence_time>365</residence_time>
+            </Storage>
+        </config>
+    </facility>
+
     <facility>
         <name>ConsolidatedStorage1</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_A_spent_cooled</val>
                     <val>UZr_fuel_B_spent_cooled</val>
                     <val>UZr_fuel_C_spent_cooled</val>
+                    <val>UZr_fuel_rep_research</val>
                 </in_commods>
                 <out_commods><val>UZr_fuel_spent_consolidated_cooled</val></out_commods>
                 <residence_time>18250</residence_time>
@@ -1162,6 +1048,88 @@
 <!--                              R&D                             -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<facility>
+    <name>ResearchHotCellsReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>UZr_fuel_A_rep_research</val></in_commods>
+            <in_commod_prefs><val>10</val></in_commod_prefs>
+            <out_commods><val>UZr_fuel_rod_rep_research</val></out_commods>
+            <residence_time>0</residence_time>
+            <throughput>483.66</throughput>
+            <max_inv_size>483.66</max_inv_size>
+            <reorder_point>0</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchHotCellsRodFeeder</name>
+    <config>
+        <Storage>
+            <in_commods><val>UZr_fuel_for_reprocessing_research</val></in_commods>
+            <in_commod_prefs><val>10</val></in_commod_prefs>
+            <out_commods><val>UZr_fuel_rod_rep_research</val></out_commods>
+            <residence_time>0</residence_time>
+            <throughput>3.81</throughput>
+            <max_inv_size>3.808</max_inv_size>
+            <cumulative_cap>3.808</cumulative_cap>
+            <dormant_buying_frequency_type>Uniform</dormant_buying_frequency_type>
+            <dormant_buying_min>731</dormant_buying_min>
+            <dormant_buying_max>1095</dormant_buying_max>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchHotCellsSeparation</name>
+    <config>
+        <Separations>
+            <feed_commods><val>UZr_fuel_for_reprocessing_research</val></feed_commods>
+            <feedbuf_size>3.808</feedbuf_size>
+            <leftover_commod>Fission_Products</leftover_commod>
+            <streams>
+                <item>
+                    <commod>TRU</commod>
+                    <info>
+                        <buf_size>1e99</buf_size>
+                        <efficiencies>
+                            <item>
+                                <comp>Pu</comp>
+                                <eff>0.9</eff>
+                            </item>
+                            <item>
+                                <comp>Np</comp>
+                                <eff>0.9</eff>
+                            </item>
+                            <item>
+                                <comp>Am</comp>
+                                <eff>0.9</eff>
+                            </item>
+                            <item>
+                                <comp>Cm</comp>
+                                <eff>0.9</eff>
+                            </item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <item>
+                    <commod>Reprocessed_U</commod>
+                    <info>
+                        <buf_size>1e99</buf_size>
+                        <efficiencies>
+                            <item>
+                                <comp>U</comp>
+                                <eff>0.99</eff>
+                            </item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                          Unphysical                          -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1176,17 +1144,29 @@
     </config>
 </facility>
 
+<facility>
+    <name>OZrSink</name>
+    <config>
+        <Sink>
+            <in_commods>
+                <val>zirc</val>
+                <val>oxygen</val>    
+            </in_commods>
+            <capacity>1e99</capacity>
+        </Sink>
+    </config>
+</facility>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!--                            Recipes                           -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <recipe>
-    <name>nuo2</name>
+    <name>natural_u3o8</name>
     <basis>atom</basis>
-    <nuclide> <id>O16</id> <comp>0.666667</comp> </nuclide>
-    <nuclide> <id>U235</id> <comp>0.002430</comp> </nuclide>
-    <nuclide> <id>U238</id> <comp>0.330903</comp> </nuclide>
+    <nuclide><id>922350000</id><comp>0.001964</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.270764</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.727273</comp></nuclide>
 </recipe>
 
 <recipe>
@@ -1278,7 +1258,6 @@
     <nuclide> <id>Nd150</id> <comp>0.001522</comp> </nuclide>
     <nuclide> <id>Sm149</id> <comp>0.001467</comp> </nuclide>
     <nuclide> <id>Sm150</id> <comp>0.001393</comp> </nuclide>
-    <!-- <nuclide> <id>      </id> <comp>     </comp> </nuclide> -->
 </recipe>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1286,17 +1265,17 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <package>
-    <name>UO2_drum</name>
+    <name>U_oxide_drum</name>
     <fill_min>315</fill_min>
     <fill_max>350</fill_max>
-    <strategy>equal</strategy>
+    <strategy>uniform</strategy>
 </package>
 
 <transportunit>
-    <name>UO2_container</name>
+    <name>U_oxide_container</name>
     <fill_min>36</fill_min>
     <fill_max>48</fill_max>
-    <strategy>hybrid</strategy>
+    <strategy>first</strategy>
 </transportunit>
 
 <package>
@@ -1309,15 +1288,15 @@
 <package>
     <name>fuel_assembly</name>
     <strategy>first</strategy>
-    <fill_min>483.66</fill_min>
+    <fill_min>483.659999999</fill_min>
     <fill_max>483.66</fill_max>
 </package>
 
 <transportunit>
     <name>used_fuel_multipurpose_canister</name>
     <strategy>first</strategy>
-    <fill_min>36</fill_min>
-    <fill_max>36</fill_max>
+    <fill_min>24</fill_min>
+    <fill_max>24</fill_max>
 </transportunit>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1335,26 +1314,17 @@
             <NullInst/>
         </config>
         <initialfacilitylist>
-            <entry>
-                <prototype>ForeignNUO2Shipper</prototype>
-                <number>1</number>
-            </entry>
-            <entry>
-                <prototype>ForeignHALEUZrShipper</prototype>
-                <number>1</number>
-            </entry>
-            <entry>
-                <prototype>ConsolidatedStorage1</prototype>
-                <number>1</number>
-            </entry>
-            <entry>
-                <prototype>ConsolidatedStorage2</prototype>
-                <number>1</number>
-            </entry>
-            <entry>
-                <prototype>ZrSource</prototype>
-                <number>1</number>
-            </entry>
+            <entry><prototype>ForeignNU3O8Shipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignHALEUZrShipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignUZrReceiver</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage1A</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage1</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage2</prototype><number>1</number></entry>
+            <entry><prototype>ResearchHotCellsReceiver</prototype><number>1</number></entry>
+            <entry><prototype>ResearchHotCellsRodFeeder</prototype><number>1</number></entry>
+            <entry><prototype>ResearchHotCellsSeparation</prototype><number>1</number></entry>
+            <entry><prototype>ZrSource</prototype><number>1</number></entry>
+            <entry><prototype>OZrSink</prototype><number>1</number></entry>
         </initialfacilitylist>
     </institution>
     <institution>
@@ -1365,9 +1335,11 @@
                     <val>FuelFabReceiver</val>
                     <val>FuelFabSeparation</val>
                     <val>FuelFabMixer</val>
+                    <val>FuelFabRodLoading</val>
                     <val>FuelFabShipper</val>
                 </prototypes>
                 <build_times>
+                    <val>455</val>
                     <val>455</val>
                     <val>455</val>
                     <val>455</val>
@@ -1378,8 +1350,10 @@
                     <val>1</val>
                     <val>1</val>
                     <val>1</val>
+                    <val>1</val>
                 </n_build>
                 <lifetimes>
+                    <val>-1</val>
                     <val>-1</val>
                     <val>-1</val>
                     <val>-1</val>
@@ -1395,75 +1369,70 @@
                 <prototypes>
                     <val>Rx_A1_FreshFuelVault</val>
                     <val>Rx_A1_Reactor</val>
-                    <val>Rx_A1_SpentFuelPool</val>    
                     <val>Rx_A2_FreshFuelVault</val>
                     <val>Rx_A2_Reactor</val>
-                    <val>Rx_A2_SpentFuelPool</val>    
-                    <val>Rx_A2_Shipper</val>
+                    <val>Rx_A_SpentFuelPool</val>    
+                    <val>Rx_A_Shipper</val>
                     <val>Rx_B1_FreshFuelVault</val>
                     <val>Rx_B1_Reactor</val>
-                    <val>Rx_B1_SpentFuelPool</val>    
                     <val>Rx_B2_FreshFuelVault</val>
                     <val>Rx_B2_Reactor</val>
-                    <val>Rx_B2_SpentFuelPool</val>    
-                    <val>Rx_B2_Shipper</val>
+                    <val>Rx_B_SpentFuelPool</val>    
+                    <val>Rx_B_Shipper</val>
                     <val>Rx_C1_FreshFuelVault</val>
                     <val>Rx_C1_Reactor</val>
-                    <val>Rx_C1_SpentFuelPool</val>    
                     <val>Rx_C2_FreshFuelVault</val>
                     <val>Rx_C2_Reactor</val>
-                    <val>Rx_C2_SpentFuelPool</val>    
-                    <val>Rx_C2_Shipper</val>
+                    <val>Rx_C_SpentFuelPool</val>    
+                    <val>Rx_C_Shipper</val>
                     <val>Rx_D1_FreshFuelVault</val>
                     <val>Rx_D1_Reactor</val>
-                    <val>Rx_D1_SpentFuelPool</val>    
                     <val>Rx_D2_FreshFuelVault</val>
                     <val>Rx_D2_Reactor</val>
-                    <val>Rx_D2_SpentFuelPool</val>    
-                    <val>Rx_D2_Shipper</val>
+                    <val>Rx_D_SpentFuelPool</val>    
+                    <val>Rx_D_Shipper</val>
                     <val>Rx_E1_FreshFuelVault</val>
                     <val>Rx_E1_Reactor</val>
-                    <val>Rx_E1_SpentFuelPool</val>    
                     <val>Rx_E2_FreshFuelVault</val>
                     <val>Rx_E2_Reactor</val>
-                    <val>Rx_E2_SpentFuelPool</val>    
-                    <val>Rx_E2_Shipper</val>
+                    <val>Rx_E_SpentFuelPool</val>    
+                    <val>Rx_E_Shipper</val>
                 </prototypes>
                 <build_times>
+                    <!-- RxA -->
                     <val>554</val>
-                    <val>79</val>
-                    <val>79</val>    
+                    <val>79</val> 
                     <val>731</val>
                     <val>256</val>
-                    <val>256</val>    
+                    <val>79</val>    
                     <val>256</val>
+                    <!-- RxB -->
                     <val>581</val>
                     <val>106</val>
-                    <val>106</val>    
                     <val>928</val>
                     <val>453</val>
-                    <val>453</val>    
+                    <val>106</val>    
                     <val>453</val>
+                    <!-- RxC -->
                     <val>768</val>
-                    <val>293</val>
-                    <val>293</val>    
+                    <val>293</val> 
                     <val>942</val>
                     <val>467</val>
-                    <val>467</val>    
+                    <val>293</val>    
                     <val>467</val>
+                    <!-- RxD -->
                     <val>963</val>
                     <val>488</val>
-                    <val>488</val>    
                     <val>1100</val>
                     <val>625</val>
-                    <val>625</val>    
+                    <val>488</val>    
                     <val>625</val>
+                    <!-- RxE -->
                     <val>782</val>
                     <val>307</val>
-                    <val>307</val>    
                     <val>1156</val>
                     <val>681</val>
-                    <val>681</val>    
+                    <val>307</val>    
                     <val>681</val>
                 </build_times>
                 <n_build>
@@ -1486,11 +1455,6 @@
                     <val>1</val>    
                     <val>1</val>
                     <val>1</val>
-                    <val>1</val>    
-                    <val>1</val>
-                    <val>1</val>
-                    <val>1</val>
-                    <val>1</val>    
                     <val>1</val>
                     <val>1</val>
                     <val>1</val>    
@@ -1509,11 +1473,6 @@
                     <val>-1</val>    
                     <val>-1</val>
                     <val>-1</val>
-                    <val>-1</val>    
-                    <val>-1</val>
-                    <val>-1</val>
-                    <val>-1</val>
-                    <val>-1</val>    
                     <val>-1</val>
                     <val>-1</val>
                     <val>-1</val>    
