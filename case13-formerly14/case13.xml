@@ -1,0 +1,893 @@
+<!-- case11-->
+
+<simulation>
+<control>
+    <startmonth>1</startmonth>
+    <startyear>2025</startyear>
+    <dt>86400</dt>
+    <duration>3650</duration>
+    <explicit_inventory>1</explicit_inventory>
+    <explicit_inventory_compact>0</explicit_inventory_compact>
+    <tolerance_resource>0.001</tolerance_resource>
+</control>
+
+<archetypes>
+    <spec><lib>cycamore</lib><name>Source</name></spec>
+    <spec><lib>cycamore</lib><name>Storage</name></spec>
+    <spec><lib>cycamore</lib><name>Sink</name></spec>
+    <spec><lib>cycamore</lib><name>Enrichment</name></spec>
+    <spec><lib>cycamore</lib><name>Separations</name></spec>
+    <spec><lib>cycamore</lib><name>Mixer</name></spec>
+    <spec><lib>cycamore</lib><name>FuelFab</name></spec>
+    <spec><lib>cycamore</lib><name>Reactor</name></spec>
+    <spec><lib>agents</lib><name>NullRegion</name></spec>
+    <spec><lib>agents</lib><name>NullInst</name></spec>
+    <spec><lib>cycamore</lib><name>DeployInst</name></spec>
+</archetypes>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                            Foreign                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ForeignThF4Receiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>ThF4</val></in_commods>
+            <in_commod_prefs><val>0.1</val></in_commod_prefs>
+            <out_commods><val>ThF4_foreign</val></out_commods>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignInitialFuelShipper</name>
+    <config>
+        <Source>
+            <outcommod>ThFuel</outcommod>
+            <outrecipe>ThF4</outrecipe>
+            <inventory_size>1e99</inventory_size>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignHALEUTrainingFuelFabShipper</name>
+    <config>
+        <Source>
+            <outcommod>HALEUO2_fuel_training</outcommod>
+            <outrecipe>HALEU_8-5_UZr_fuel</outrecipe>
+            <package>Tr_RR</package>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignHALEUMedicalFuelFabShipper</name>
+    <config>
+        <Source>
+            <outcommod>HALEUO2_fuel_medical</outcommod>
+            <outrecipe>HALEU_19-9_UO2_fuel</outrecipe>
+            <package>HP_RR</package>
+        </Source>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                             Mill                             -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ThMill</name>
+    <config>
+        <Source>
+            <outcommod>ThO2_powder</outcommod>
+            <outrecipe>Th</outrecipe>
+            <inventory_size>1e99</inventory_size>
+            <throughput>3340</throughput>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ThMillShipper</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThO2_powder</val>
+            </in_commods>
+            <out_commods>
+                <val>ThO2</val>
+            </out_commods>
+            <max_inv_size>168000</max_inv_size>
+            <throughput>3340</throughput>
+            <residence_time>0</residence_time>
+            <package>ThO2_drum</package>
+            <transport_unit>ThO2_pallet</transport_unit>
+        </Storage>
+    </config>
+</facility>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                         Conversion                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!-- Size: XS (Th) -->
+<facility>
+    <name>ConversionReciever</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThO2</val>
+            </in_commods>
+            <out_commods>
+                <val>ThO2_received</val>
+            </out_commods>
+            <residence_time>0</residence_time>
+            <throughput>27400</throughput>
+            <max_inv_size>46306</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConversionTh</name>
+    <config>
+        <Separations>
+            <feed_commods>
+                <val>ThO2_received</val>
+            </feed_commods>
+            <feed_recipe>ThO2</feed_recipe>
+            <feedbuf_size>46306</feedbuf_size>
+            <throughput>27400</throughput>
+            <leftover_commod>extra_oxygen</leftover_commod>
+            <leftoverbuf_size>1e199</leftoverbuf_size>
+            <streams>
+                <item>
+                    <commod>natural_th</commod>
+                    <info>
+                        <buf_size>46306</buf_size>
+                        <efficiencies>
+                            <item>
+                                <comp>Th</comp>
+                                <eff>0.999999</eff>
+                            </item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>ConversionThF4Mixer</name>
+    <config>
+        <Mixer>
+        <in_streams>
+            <stream>
+                <info>
+                    <mixing_ratio>0.676</mixing_ratio>
+                    <buf_size>46306</buf_size>
+                </info>
+                <commodities>
+                    <item>
+                        <commodity>natural_th</commodity>
+                        <pref>1</pref>
+                    </item>
+                </commodities>
+            </stream>
+            <stream>
+                <info>
+                    <mixing_ratio>0.324</mixing_ratio>
+                    <buf_size>1.00E+99</buf_size>
+                </info>
+                <commodities>
+                    <item>
+                        <commodity>fluorine</commodity>
+                        <pref>1</pref>
+                    </item>
+                </commodities>
+            </stream>
+        </in_streams>
+        <out_commod>ThF4_preshipped</out_commod>
+        <out_buf_size>2.74E+04</out_buf_size>
+        <throughput>13700</throughput>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>ConversionShipper</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThF4_preshipped</val>
+            </in_commods>
+            <out_commods>
+                <val>ThF4</val>
+            </out_commods>
+            <residence_time>0</residence_time>
+            <throughput>137000</throughput>
+            <max_inv_size>137000</max_inv_size>
+            <!-- <package>ThF4_package</package> -->
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                          Reactors                            -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>InitialFuelLoad</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThFuel</val>
+            </in_commods>
+            <out_commods>
+                <val>RecycledFuel</val>
+            </out_commods>
+            <max_inv_size>69604.1</max_inv_size>
+            <cumulative_cap>69604</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>100000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ThMakeupFuelReceiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThF4</val>
+            </in_commods>
+            <out_commods>
+                <val>ThF4_received</val>
+            </out_commods>
+            <residence_time>1</residence_time>
+            <cumulative_cap>1e3</cumulative_cap>
+            <dormant_buying_frequency_type>Uniform</dormant_buying_frequency_type>
+            <dormant_buying_min>100</dormant_buying_min>
+            <dormant_buying_max>250</dormant_buying_max>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>Rx</name>
+    <config>
+        <Reactor>
+            <fuel_incommods>
+                <val>RecycledFuel</val>
+            </fuel_incommods>
+            <fuel_inrecipes>
+                <val>ThF4</val>
+            </fuel_inrecipes>
+            <fuel_outcommods>
+                <val>UsedRecycledFuel</val>
+            </fuel_outcommods>
+            <fuel_outrecipes>
+                <val>discharged_fuel</val>
+            </fuel_outrecipes>
+            <assem_size>34752</assem_size> 
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>1</n_assem_core>
+            <cycle_time>5</cycle_time>
+            <refuel_time>0</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>SaltTreatment</name>
+    <config>
+        <Separations>
+            <feedbuf_size>1e10</feedbuf_size>
+            <feed_commods><val>UsedRecycledFuel</val></feed_commods>
+            <leftover_commod>DF1</leftover_commod>
+            <streams>
+                <!-- Noble metals -->
+                <item>
+                    <commod>FP1_noble_metals</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>Mo</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Te</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Nb</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Ru</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Tc</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Se</comp><eff>0.999999999999</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <!-- Seminoble metals -->
+                <item>
+                    <commod>FP1_seminoble_metals</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>Zr</comp><eff>0.05</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <!-- Gases -->
+                <item>
+                    <commod>FP1_gases</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>Xe</comp><eff>0.999999999999</eff></item>
+                            <item><comp>Kr</comp><eff>0.999999999999</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <!-- Volatile fluories -->
+                <item>
+                    <commod>FP1_volatile_fluorides</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>I</comp><eff>0.166666666667</eff></item>
+                            <item><comp>Br</comp><eff>0.166666666667</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>ChemicalSeparation</name>
+    <config>
+        <Separations>
+            <feedbuf_size>1e10</feedbuf_size>
+            <feed_commods><val>DF1</val></feed_commods>
+            <leftover_commod>FP2</leftover_commod>
+            <streams>
+                <item>
+                    <commod>Actinides</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>Th</comp><eff>0.999999999</eff></item>
+                            <item><comp>Pa</comp><eff>0.999999999</eff></item>
+                            <item><comp>U</comp><eff>0.992</eff></item>
+                            <item><comp>Np</comp><eff>0.992</eff></item>
+                            <item><comp>Pu</comp><eff>0.992</eff></item>
+                            <item><comp>Am</comp><eff>0.992</eff></item>
+                            <item><comp>Cm</comp><eff>0.992</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelMakeupMixer</name>
+    <config>
+        <Mixer>
+            <in_streams>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.983771239</mixing_ratio>
+                        <buf_size>34188.6</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>Actinides</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.01586332</mixing_ratio>
+                        <buf_size>551.3</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>FP2</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.0003675441</mixing_ratio>
+                        <buf_size>1e3</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>ThF4_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+            </in_streams>
+            <out_commod>RecycledFuel</out_commod>
+            <out_buf_size>34752.51</out_buf_size>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>FP1Storage</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>FP1_gases</val>
+                <val>FP1_noble_metals</val>
+                <val>FP1_seminoble_metals</val>
+                <val>FP1_volatile_fluorides</val>
+            </in_commods>
+            <out_commods>
+                <val>FP1_stored</val>
+            </out_commods>
+            <residence_time>1850</residence_time>
+            <discrete_handling>0</discrete_handling>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FP2Storage</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>FP2</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>0.1</val>
+            </in_commod_prefs>
+            <out_commods>
+                <val>FP2_stored</val>
+            </out_commods>
+            <throughput>6.1</throughput>
+            <residence_time>1850</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                      Interim Storage                         -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ConsolidatedStorageFP1Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>FP1_stored</val>
+            </in_commods>
+            <out_commods><val>FP1_stored_received</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorageFP2Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>FP2_stored</val>
+            </in_commods>
+            <out_commods><val>FP2_stored_received</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorageFP1</name>
+    <config>
+        <Storage>
+            <in_commods><val>FP1_stored_received</val></in_commods>
+            <out_commods><val>FP1_stored_consolidated</val></out_commods>
+            <residence_time>18250</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorageFP2</name>
+    <config>
+        <Storage>
+            <in_commods><val>FP2_stored_received</val></in_commods>
+            <out_commods><val>FP2_stored_consolidated</val></out_commods>
+            <residence_time>18250</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                      Research Reactors                       -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ResearchReactorTraining1FreshFuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_fuel_training</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRT1</val></out_commods>
+            <throughput>22.5</throughput>
+            <max_inv_size>22.5</max_inv_size>
+            <reorder_point>4.5</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorTraining1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>HALEUO2_fuel_RRT1</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRT1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_outrecipes>
+            <assem_size>2.25</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>57</n_assem_core>
+            <cycle_time>729</cycle_time>
+            <refuel_time>1</refuel_time>
+            <n_assem_spent>45</n_assem_spent>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorTraining2FreshFuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_fuel_training</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRT2</val></out_commods>
+            <throughput>22.5</throughput>
+            <max_inv_size>22.5</max_inv_size>
+            <reorder_point>4.5</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorTraining2</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>HALEUO2_fuel_RRT2</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRT2_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_outrecipes>
+            <assem_size>2.25</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>57</n_assem_core>
+            <cycle_time>729</cycle_time>
+            <refuel_time>1</refuel_time>
+            <n_assem_spent>45</n_assem_spent>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorMedical1FreshFuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_fuel_medical</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRM1</val></out_commods>
+            <throughput>53.5</throughput>
+            <max_inv_size>53.5</max_inv_size>
+            <reorder_point>10.2</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorMedical1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>HALEUO2_fuel_RRM1</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRM1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_outrecipes>
+            <assem_size>1.71</assem_size>
+            <n_assem_batch>3</n_assem_batch>
+            <n_assem_core>28</n_assem_core>
+            <cycle_time>21</cycle_time>
+            <refuel_time>14</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                           Unphysical                         -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>FSource</name>
+    <config>
+        <Source>
+            <outcommod>fluorine</outcommod>
+            <outrecipe>f</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                            Recipes                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<recipe>
+    <name>HALEU_8-5_UZr_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.066645</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.708355</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.225000</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>HALEU_19-9_UO2_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.067011</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.266322</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.666667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>Th</name>
+    <basis>mass</basis>
+    <nuclide><id>Th232</id><comp>1.0</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>ThO2</name>
+    <basis>atom</basis>
+    <nuclide><id>Th232</id><comp>0.333333</comp></nuclide>
+    <nuclide><id>O16</id><comp>0.666667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>f</name>
+    <basis>mass</basis>
+    <nuclide><id>F19</id><comp>1.0</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>ThF4</name>
+    <basis>atom</basis>
+    <nuclide><id>Th232</id><comp>0.2</comp></nuclide>
+    <nuclide><id>F19</id><comp>0.8</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>discharged_fuel</name>
+    <basis>mass</basis>
+    <!-- FP -->
+<nuclide> <id>BA138</id> <comp>0.003414</comp> </nuclide>
+<nuclide> <id>CS137</id> <comp>0.003337</comp> </nuclide>
+<nuclide> <id>SR90</id> <comp>0.002191</comp> </nuclide>
+<nuclide> <id>SR88</id> <comp>0.001928</comp> </nuclide>
+<nuclide> <id>RB87</id> <comp>0.00141</comp> </nuclide>
+<nuclide> <id>CS135</id> <comp>0.000675</comp> </nuclide>
+<nuclide> <id>BA137</id> <comp>0.000521</comp> </nuclide>
+<nuclide> <id>RB85</id> <comp>0.000511</comp> </nuclide>
+<nuclide> <id>ZR94</id> <comp>0.000175</comp> </nuclide>
+<nuclide> <id>BA136</id> <comp>0.000175</comp> </nuclide>
+<nuclide> <id>ZR96</id> <comp>0.00018</comp> </nuclide>
+<nuclide> <id>ZR92</id> <comp>0.000144</comp> </nuclide>
+<nuclide> <id>ZR93</id> <comp>0.00014</comp> </nuclide>
+<nuclide> <id>CS133</id> <comp>0.00014</comp> </nuclide>
+<nuclide> <id>BA134</id> <comp>0.000073</comp> </nuclide>
+<nuclide> <id>CE142</id> <comp>0.000064</comp> </nuclide>
+<nuclide> <id>LA139</id> <comp>0.000059</comp> </nuclide>
+<nuclide> <id>CE140</id> <comp>0.000059</comp> </nuclide>
+<nuclide> <id>SR89</id> <comp>0.000055</comp> </nuclide>
+<nuclide> <id>ZR95</id> <comp>0.000052</comp> </nuclide>
+<nuclide> <id>ZR91</id> <comp>0.000048</comp> </nuclide>
+<nuclide> <id>CE144</id> <comp>0.000043</comp> </nuclide>
+<nuclide> <id>ND143</id> <comp>0.000039</comp> </nuclide>
+<nuclide> <id>Y89</id> <comp>0.000038</comp> </nuclide>
+<nuclide> <id>CS134</id> <comp>0.000032</comp> </nuclide>
+<nuclide> <id>ND145</id> <comp>0.00003</comp> </nuclide>
+<nuclide> <id>PR141</id> <comp>0.000029</comp> </nuclide>
+<nuclide> <id>CE141</id> <comp>0.000028</comp> </nuclide>
+<nuclide> <id>ND146</id> <comp>0.000027</comp> </nuclide>
+<nuclide> <id>ZR90</id> <comp>0.000026</comp> </nuclide>
+<nuclide> <id>BA140</id> <comp>0.000023</comp> </nuclide>
+<nuclide> <id>Y91</id> <comp>0.000021</comp> </nuclide>
+<nuclide> <id>PR143</id> <comp>0.000016</comp> </nuclide>
+<nuclide> <id>I129</id> <comp>0.000015</comp> </nuclide>
+<nuclide> <id>ND148</id> <comp>0.000014</comp> </nuclide>
+<nuclide> <id>PM147</id> <comp>0.000012</comp> </nuclide>
+<nuclide> <id>SR86</id> <comp>0.000011</comp> </nuclide>
+<nuclide> <id>GE76</id> <comp>0.00001</comp> </nuclide>
+<!-- Th, U, Pu, MA -->
+<nuclide> <id>TH230</id> <comp>0.0000003</comp> </nuclide>
+<nuclide> <id>TH232</id> <comp>0.95807</comp> </nuclide>
+<nuclide> <id>TH233</id> <comp>0.0000008</comp> </nuclide>
+<nuclide> <id>PA233</id> <comp>0.0000998</comp> </nuclide>
+<nuclide> <id>U232</id> <comp>0.0000001</comp> </nuclide>
+<nuclide> <id>U233</id> <comp>0.0167777</comp> </nuclide>
+<nuclide> <id>U234</id> <comp>0.007058</comp> </nuclide>
+<nuclide> <id>U235</id> <comp>0.0010309</comp> </nuclide>
+<nuclide> <id>U236</id> <comp>0.0009716</comp> </nuclide>
+<nuclide> <id>U237</id> <comp>0.0000006</comp> </nuclide>
+<nuclide> <id>U238</id> <comp>0.0000012</comp> </nuclide>
+<nuclide> <id>NP237</id> <comp>0.0000259</comp> </nuclide>
+<nuclide> <id>NP238</id> <comp>0.0000001</comp> </nuclide>
+<nuclide> <id>PU238</id> <comp>0.0000082</comp> </nuclide>
+<nuclide> <id>PU239</id> <comp>0.0000011</comp> </nuclide>
+<nuclide> <id>PU240</id> <comp>0.0000005</comp> </nuclide>
+<nuclide> <id>PU241</id> <comp>0.0000005</comp> </nuclide>
+<nuclide> <id>PU242</id> <comp>0.0000006</comp> </nuclide>
+<nuclide> <id>AM243</id> <comp>0.0000003</comp> </nuclide>
+<nuclide> <id>CM244</id> <comp>0.0000005</comp> </nuclide>
+<!-- Salt treatment nuclides -->
+<nuclide> <id>XE136</id> <comp>0.0000377</comp> </nuclide>
+<nuclide> <id>XE134</id> <comp>0.0000202</comp> </nuclide>
+<nuclide> <id>MO98</id> <comp>0.0000124</comp> </nuclide>
+<nuclide> <id>TE132</id> <comp>0.0000112</comp> </nuclide>
+<nuclide> <id>MO100</id> <comp>0.000011</comp> </nuclide>
+<nuclide> <id>XE133</id> <comp>0.0000102</comp> </nuclide>
+<nuclide> <id>NB95</id> <comp>0.0000096</comp> </nuclide>
+<nuclide> <id>MO97</id> <comp>0.0000091</comp> </nuclide>
+<nuclide> <id>MO99</id> <comp>0.0000084</comp> </nuclide>
+<nuclide> <id>RU101</id> <comp>0.0000079</comp> </nuclide>
+<nuclide> <id>XE131</id> <comp>0.0000079</comp> </nuclide>
+<nuclide> <id>I133</id> <comp>0.0000072</comp> </nuclide>
+<nuclide> <id>TE130</id> <comp>0.0000065</comp> </nuclide>
+<nuclide> <id>RU102</id> <comp>0.0000061</comp> </nuclide>
+<nuclide> <id>KR86</id> <comp>0.0000059</comp> </nuclide>
+<nuclide> <id>XE132</id> <comp>0.0000043</comp> </nuclide>
+<nuclide> <id>ZR97</id> <comp>0.0000041</comp> </nuclide>
+<nuclide> <id>RU103</id> <comp>0.000004</comp> </nuclide>
+<nuclide> <id>KR84</id> <comp>0.0000034</comp> </nuclide>
+<nuclide> <id>TC99</id> <comp>0.000003</comp> </nuclide>
+<!-- nuclides in both salt treatment and dicharged fuel (manually summed) -->
+<!-- Zr94 0.0001748+0.0000155 -->
+<nuclide> <id>ZR94</id> <comp>0.0001903</comp> </nuclide> 
+<!-- Zr96 0.0000133+0.0001798 -->
+<nuclide> <id>ZR96</id> <comp>0.0001931</comp> </nuclide>
+<!-- Zr92 0.0000128+0.0001445 -->
+<nuclide> <id>ZR92</id> <comp>0.0001573</comp> </nuclide>
+<!-- Zr93 0.0000125+0.0001405 -->
+<nuclide> <id>ZR93</id> <comp>0.000153</comp> </nuclide>
+<!-- ZR95 0.0000046+0.0000523 -->
+<nuclide> <id>ZR95</id> <comp>0.0000569</comp> </nuclide>
+<!-- I129 0.0000045+0.0000148 -->
+<nuclide> <id>I129</id> <comp>0.0000193</comp> </nuclide>
+<!-- Zr91 0.0000042+0.0000477 -->
+<nuclide> <id>ZR91</id> <comp>0.0000519</comp> </nuclide>
+    <!-- <nuclide> <id>      </id> <comp>      </comp> </nuclide> -->
+</recipe>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--               Packages and Transport Units                   -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<package>
+    <name>ThO2_drum</name>
+    <fill_min>315</fill_min>
+    <fill_max>350</fill_max>
+    <strategy>uniform</strategy>
+</package>
+
+<transportunit>
+    <name>ThO2_pallet</name>
+    <fill_min>36</fill_min>
+    <fill_max>48</fill_max>
+    <strategy>hybrid</strategy>
+</transportunit>
+
+<!-- !! Not based on any real package type, just a guess -->
+<package>
+    <name>ThF4_package</name>
+    <fill_min>950</fill_min>
+    <fill_max>1000</fill_max>
+    <strategy>uniform</strategy>
+</package>
+
+<package>
+    <name>Tr_RR</name>
+    <fill_min>2.25</fill_min>
+    <fill_max>2.25</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<package>
+    <name>HP_RR</name>
+    <fill_min>1.71</fill_min>
+    <fill_max>1.71</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<package>
+    <name>recycled_fuel_package</name>
+    <fill_min>201.6000000001</fill_min>
+    <fill_max>201.6000000001</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<transportunit>
+    <name>recycled_fuel_package</name>
+    <fill_min>2</fill_min>
+    <fill_max>2</fill_max>
+    <strategy>first</strategy>
+</transportunit>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                         Regions                              -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<region>
+    <name>SingleRegion</name>
+    <config><NullRegion/></config>
+    <institution>
+        <name>SingleInstitution</name>
+        <initialfacilitylist>
+            <!-- <entry><prototype>ForeignThF4Receiver</prototype><number>1</number></entry> -->
+            <entry><prototype>ThMill</prototype><number>1</number></entry>
+            <entry><prototype>ThMillShipper</prototype><number>1</number></entry>
+            <entry><prototype>ConversionReciever</prototype><number>1</number></entry>
+            <entry><prototype>ConversionTh</prototype><number>1</number></entry>
+            <entry><prototype>ConversionThF4Mixer</prototype><number>1</number></entry>
+            <entry><prototype>ConversionShipper</prototype><number>1</number></entry>
+            <entry><prototype>InitialFuelLoad</prototype><number>1</number></entry>
+            <entry><prototype>ThMakeupFuelReceiver</prototype><number>1</number></entry>
+            <entry><prototype>Rx</prototype><number>1</number></entry>
+            <entry><prototype>SaltTreatment</prototype><number>1</number></entry>
+            <entry><prototype>ChemicalSeparation</prototype><number>1</number></entry>
+            <entry><prototype>FuelMakeupMixer</prototype><number>1</number></entry>
+            <entry><prototype>FP1Storage</prototype><number>1</number></entry>
+            <entry><prototype>FP2Storage</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorageFP1Receiver</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorageFP2Receiver</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorageFP1</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorageFP2</prototype><number>1</number></entry>
+            <entry><prototype>ForeignHALEUTrainingFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignHALEUMedicalFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining2FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining2</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1</prototype><number>1</number></entry>
+            <entry><prototype>FSource</prototype><number>1</number></entry>
+        </initialfacilitylist>
+        <config><NullInst/></config>
+    </institution>
+    <institution>
+        <name>DeployInst</name>
+        <config>
+            <DeployInst>
+                <prototypes>
+                    <val>ForeignInitialFuelShipper</val>
+                    <val>InitialFuelLoad</val>
+                </prototypes>
+                <build_times>
+                    <val>-1</val>
+                    <val>-1</val>
+                </build_times>
+                <n_build>
+                    <val>1</val>
+                    <val>1</val>
+                </n_build>
+                <lifetimes>
+                    <val>100</val>
+                    <val>100</val> <!-- at least one cycle -->
+                </lifetimes>
+            </DeployInst>
+        </config>
+    </institution>
+</region>
+
+</simulation>

@@ -1,0 +1,18 @@
+{
+    "ThF4": "O/E/U/B",
+    "ThO2_powder": "G/Q/Q/B",
+    "ThO2_received": "G/Q/Q/B",
+    "ThO2": "G/Q/Q/B",
+    "ThF4_preshipped": "O/E/U/B",
+    "ThFuel": "O/E/U/B",
+    "RecycledFuel": "N/E/4/F",
+    "UsedRecycledFuel": "N/E/3/G",
+    "DF1": "N/E/4/F",
+    "FP2": "N/E/4/M",
+    "Actinides": "N/E/4/G",
+    "HALEUO2_fuel_training": "B/5/2/F",
+    "HALEUO2_fuel_RRT1": "B/5/1/F",
+    "HALEUO2_fuel_RRT2": "B/5/1/F",
+    "HALEUO2_fuel_medical": "B/Q/2/F",
+    "HALEUO2_fuel_RRM1": "B/Q/1/F"
+}
