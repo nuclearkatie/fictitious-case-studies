@@ -1,0 +1,1361 @@
+<!-- case11-->
+
+<simulation>
+<control>
+    <startmonth>1</startmonth>
+    <startyear>2025</startyear>
+    <dt>86400</dt>
+    <duration>730</duration>
+    <!-- 3650 -->
+    <explicit_inventory>1</explicit_inventory>
+    <explicit_inventory_compact>0</explicit_inventory_compact>
+    <tolerance_resource>0.001</tolerance_resource>
+</control>
+
+<archetypes>
+    <spec><lib>cycamore</lib><name>Source</name></spec>
+    <spec><lib>cycamore</lib><name>Storage</name></spec>
+    <spec><lib>cycamore</lib><name>Sink</name></spec>
+    <spec><lib>cycamore</lib><name>Enrichment</name></spec>
+    <spec><lib>cycamore</lib><name>Separations</name></spec>
+    <spec><lib>cycamore</lib><name>Mixer</name></spec>
+    <spec><lib>cycamore</lib><name>Reactor</name></spec>
+    <spec><lib>agents</lib><name>NullRegion</name></spec>
+    <spec><lib>agents</lib><name>NullInst</name></spec>
+    <spec><lib>cycamore</lib><name>DeployInst</name></spec>
+</archetypes>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                   Importers/Exporters                        -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ForeignLWRFuelSource</name>
+    <config>
+        <Source>
+            <outcommod>Recycled_Fuel_Startup</outcommod>
+            <outrecipe>recycled_fuel</outrecipe>
+            <inventory_size>1800000</inventory_size> <!-- 1791993.6 total needed -->
+            <package>recycled_fuel_package</package>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignLWRSpentFuelSource</name>
+    <config>
+        <Source>
+            <outcommod>Reprocessing_Startup</outcommod>
+            <outrecipe>used_recycled_fuel</outrecipe>
+            <inventory_size>1941327</inventory_size>
+            <package>spent_fuel_package</package>
+            <transport_unit>recycled_fuel_tu</transport_unit>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignUO2Source</name>
+    <config>
+        <Source>
+            <outcommod>NUO2</outcommod>
+            <outrecipe>natural_uo2</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignHALEUTrainingFuelFabShipper</name>
+    <config>
+        <Source>
+            <outcommod>HALEUO2_fuel_training</outcommod>
+            <outrecipe>HALEU_8-5_UZr_fuel</outrecipe>
+            <package>Tr_RR</package>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ForeignHALEUMedicalFuelFabShipper</name>
+    <config>
+        <Source>
+            <outcommod>HALEUO2_fuel_medical</outcommod>
+            <outrecipe>HALEU_19-9_UO2_fuel</outrecipe>
+            <package>HP_RR</package>
+        </Source>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                      Mining/Milling                          -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ThO2Mill</name>
+    <config>
+        <Source>
+            <outcommod>ThO2_powder</outcommod>
+            <outrecipe>natural_tho2</outrecipe>
+            <inventory_size>1e99</inventory_size>
+            <throughput>24980</throughput>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>ThMillShipper</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>ThO2_powder</val>
+            </in_commods>
+            <out_commods>
+                <val>ThO2</val>
+            </out_commods>
+            <max_inv_size>168000</max_inv_size>
+            <throughput>24980</throughput>
+            <residence_time>0</residence_time>
+            <package>ThO2_drum</package>
+            <transport_unit>ThO2_container</transport_unit>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                          Fuel Fab                            -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>FuelFabNUReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>NUO2</val></in_commods>
+            <out_commods><val>NUO2_received</val></out_commods>
+            <max_inv_size>1e5</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabThReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>ThO2</val></in_commods>
+            <out_commods><val>ThO2_received</val></out_commods>
+            <max_inv_size>1e5</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabActinideReceiver</name>
+    <config>
+        <Storage>
+            <in_commods><val>Actinide_Oxide</val></in_commods>
+            <out_commods><val>Actinide_Oxide_received</val></out_commods>
+            <max_inv_size>242665.8</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFab</name>
+    <config>
+        <Mixer>
+            <in_streams>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.964</mixing_ratio>
+                        <buf_size>242665.8</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>Actinide_Oxide_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.0178</mixing_ratio>
+                        <buf_size>1e5</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>NUO2_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.0182</mixing_ratio>
+                        <buf_size>1e5</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>ThO2_received</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+            </in_streams>
+            <out_commod>Recycled_Fuel_process</out_commod>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabRodLoading</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel_process</val></in_commods>
+            <out_commods><val>Recycled_Fuel_rods</val></out_commods>
+            <residence_time>0</residence_time>
+            <sell_quantity>1.148</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>FuelFabShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel_rods</val></in_commods>
+            <out_commods><val>Recycled_Fuel</val></out_commods>
+            <package>recycled_fuel_package</package>
+            <transport_unit>recycled_fuel_tu</transport_unit>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                         Reactors                             -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                        Reactor A                             -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>RxA1FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_A1_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+
+<facility>
+    <name>StartupRxA1FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_A1_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA1Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_A1_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_A1</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA2FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_A2_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxA2FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_A2_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA2Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_A2_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_A2</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA3FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_A3_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxA3FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_A3_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA3Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_A3_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_A3</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA4FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_A4_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxA4FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_A4_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxA4Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_A4_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_A4</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxASpentFuelPool</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Used_Recycled_Fuel_A1</val>
+                <val>Used_Recycled_Fuel_A2</val>
+                <val>Used_Recycled_Fuel_A3</val>
+                <val>Used_Recycled_Fuel_A4</val>
+            </in_commods>
+            <out_commods><val>Used_Recycled_Fuel_A_Cooled</val></out_commods>
+            <residence_time>1095</residence_time>
+            <discrete_handling>1</discrete_handling>
+            <sell_quantity>48533.16</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxAShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>Used_Recycled_Fuel_A_Cooled</val></in_commods>
+            <out_commods><val>Used_Recycled_Fuel</val></out_commods>
+            <max_inv_size>97066.32</max_inv_size>
+            <discrete_handling>1</discrete_handling>
+            <package>spent_fuel_package</package>
+            <transport_unit>recycled_fuel_tu</transport_unit>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                        Reactor B                             -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>RxB1FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_B1_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxB1FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_B1_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB1Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_B1_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_B1</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB2FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_B2_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxB2FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_B2_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB2Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_B2_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_B2</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB3FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_B3_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxB3FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_B3_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB3Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_B3_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_B3</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB4FuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>Recycled_Fuel</val></in_commods>
+            <out_commods><val>Recycled_Fuel_B4_FFV</val></out_commods>
+            <cumulative_cap>48533.160000000156</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>336</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>StartupRxB4FFV</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Recycled_Fuel</val>
+                <val>Recycled_Fuel_Startup</val>
+            </in_commods>
+            <in_commod_prefs>
+                <val>1</val>
+                <val>10</val>
+            </in_commod_prefs>
+            <out_commods><val>Recycled_Fuel_B4_FFV</val></out_commods>
+            <residence_time>0</residence_time>
+            <cumulative_cap>223999.200000000720</cumulative_cap>
+            <dormant_buying_frequency_type>Fixed</dormant_buying_frequency_type>
+            <dormant_buying_val>10000</dormant_buying_val>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxB4Reactor</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>Recycled_Fuel_B4_FFV</val></fuel_incommods>
+            <fuel_inrecipes><val>recycled_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>Used_Recycled_Fuel_B4</val></fuel_outcommods>
+            <fuel_outrecipes><val>used_recycled_fuel</val></fuel_outrecipes>
+            <assem_size>311.11</assem_size> 
+            <n_assem_batch>156</n_assem_batch>
+            <n_assem_core>720</n_assem_core>
+            <cycle_time>337</cycle_time>
+            <refuel_time>28</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>RxBSpentFuelPool</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Used_Recycled_Fuel_B1</val>
+                <val>Used_Recycled_Fuel_B2</val>
+                <val>Used_Recycled_Fuel_B3</val>
+                <val>Used_Recycled_Fuel_B4</val>
+            </in_commods>
+            <out_commods><val>Used_Recycled_Fuel_B_Cooled</val></out_commods>
+            <residence_time>1095</residence_time>
+            <discrete_handling>1</discrete_handling>
+            <sell_quantity>48533.16</sell_quantity>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>RxBShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>Used_Recycled_Fuel_A_Cooled</val></in_commods>
+            <out_commods><val>Used_Recycled_Fuel</val></out_commods>
+            <discrete_handling>1</discrete_handling>
+            <max_inv_size>97066.32</max_inv_size>
+            <package>spent_fuel_package</package>
+            <transport_unit>recycled_fuel_tu</transport_unit>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                       Reprocessing                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ReprocessingReceiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Used_Recycled_Fuel</val>
+                <val>Reprocessing_Startup</val>    
+            </in_commods>
+            <out_commods><val>Used_Recycled_Fuel_Rep_Received</val></out_commods>
+            <discrete_handling>0</discrete_handling>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>Reprocessing</name>
+    <config>
+        <Separations>
+            <feedbuf_size>220000</feedbuf_size>
+            <feed_commods>
+                <val>Used_Recycled_Fuel_Rep_Received</val>
+            </feed_commods>
+            <leftover_commod>Fission_Products</leftover_commod>
+            <streams>
+                <item>
+                    <commod>Recycled_Actinides</commod>
+                    <info>
+                        <buf_size>220000</buf_size>
+                        <efficiencies>
+                            <item><comp>Th</comp><eff>0.99</eff></item>
+                            <item><comp>Pa</comp><eff>0.99</eff></item>
+                            <item><comp>U</comp><eff>0.99</eff></item>
+                            <item><comp>Np</comp><eff>0.99</eff></item>
+                            <item><comp>Pu</comp><eff>0.99</eff></item>
+                            <item><comp>Am</comp><eff>0.99</eff></item>
+                            <item><comp>Cm</comp><eff>0.99</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+                <item>
+                    <commod>Oxygen</commod>
+                    <info>
+                        <buf_size>1e9</buf_size>
+                        <efficiencies>
+                            <item><comp>O</comp><eff>0.999999999</eff></item>
+                        </efficiencies>
+                    </info>
+                </item>
+            </streams>
+        </Separations>
+    </config>
+</facility>
+
+<facility>
+    <name>ReprocessingOxideMixer</name>
+    <config>
+        <Mixer>
+            <throughput>2200</throughput>
+            <in_streams>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.844</mixing_ratio>
+                        <buf_size>1e99</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>Recycled_Actinides</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+                <stream>
+                    <info>
+                        <mixing_ratio>0.120</mixing_ratio>
+                        <buf_size>1e99</buf_size>
+                    </info>
+                    <commodities>
+                        <item>
+                            <commodity>Oxygen</commodity>
+                            <pref>1</pref>
+                        </item>
+                    </commodities>
+                </stream>
+            </in_streams>
+            <out_commod>Actinide_Oxide_process</out_commod>
+        </Mixer>
+    </config>
+</facility>
+
+<facility>
+    <name>ReprocessingFissionProductStorage</name>
+    <config>
+        <Storage>
+            <in_commods><val>Fission_Products</val></in_commods>
+            <out_commods><val>Fission_Products_Stored</val></out_commods>
+            <residence_time>365</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ReprocessingShipper</name>
+    <config>
+        <Storage>
+            <in_commods><val>Actinide_Oxide_process</val></in_commods>
+            <out_commods><val>Actinide_Oxide</val></out_commods>
+            <!-- <throughput>2200</throughput> -->
+            <sell_quantity>300</sell_quantity>
+            <max_inv_size>242666</max_inv_size>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                      Research Reactors                       -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ResearchReactorTraining1FreshFuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_fuel_training</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRT1</val></out_commods>
+            <throughput>22.5</throughput>
+            <max_inv_size>22.5</max_inv_size>
+            <reorder_point>4.5</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorTraining1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>HALEUO2_fuel_RRT1</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRT1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_8-5_UZr_fuel</val></fuel_outrecipes>
+            <assem_size>2.25</assem_size>
+            <n_assem_batch>1</n_assem_batch>
+            <n_assem_core>57</n_assem_core>
+            <cycle_time>729</cycle_time>
+            <refuel_time>1</refuel_time>
+            <n_assem_spent>45</n_assem_spent>
+        </Reactor>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorMedical1FreshFuelVault</name>
+    <config>
+        <Storage>
+            <in_commods><val>HALEUO2_fuel_medical</val></in_commods>
+            <out_commods><val>HALEUO2_fuel_RRM1</val></out_commods>
+            <throughput>53.5</throughput>
+            <max_inv_size>53.5</max_inv_size>
+            <reorder_point>10.2</reorder_point>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ResearchReactorMedical1</name>
+    <config>
+        <Reactor>
+            <fuel_incommods><val>HALEUO2_fuel_RRM1</val></fuel_incommods>
+            <fuel_inrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_inrecipes>
+            <fuel_outcommods><val>HALEUO2_fuel_RRM1_spent</val></fuel_outcommods>
+            <fuel_outrecipes><val>HALEU_19-9_UO2_fuel</val></fuel_outrecipes>
+            <assem_size>1.71</assem_size>
+            <n_assem_batch>3</n_assem_batch>
+            <n_assem_core>28</n_assem_core>
+            <cycle_time>21</cycle_time>
+            <refuel_time>14</refuel_time>
+        </Reactor>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                      Interim Storage                         -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>ConsolidatedStorage1Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>Fission_Products_Stored</val>
+            </in_commods>
+            <out_commods><val>Fission_Products_Stored_received</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorage1</name>
+    <config>
+        <Storage>
+            <in_commods><val>Fission_Products_Stored_received</val></in_commods>
+            <out_commods><val>Fission_Products_Stored_received_consolidated</val></out_commods>
+            <residence_time>18250</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                           Unphysical                         -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<facility>
+    <name>OSource</name>
+    <config>
+        <Source>
+            <outcommod>Oxygen</outcommod>
+            <outrecipe>o</outrecipe>
+        </Source>
+    </config>
+</facility>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                            Recipes                           -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<recipe>
+    <name>HALEU_8-5_UZr_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.066645</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.708355</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.225000</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>HALEU_19-9_UO2_fuel</name>
+    <basis>atom</basis>
+    <nuclide><id>922350000</id><comp>0.067011</comp></nuclide>
+    <nuclide><id>922380000</id><comp>0.266322</comp></nuclide>
+    <nuclide><id>080160000</id><comp>0.666667</comp></nuclide>
+</recipe>
+
+<recipe>
+    <name>recycled_fuel</name>
+    <basis>mass</basis>
+    <nuclide> <id>O16</id> <comp>0.119999</comp> </nuclide>
+    <nuclide> <id>Th232</id> <comp>0.367135</comp> </nuclide>
+    <nuclide> <id>U232</id> <comp>0.000035</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>0.026141</comp> </nuclide>
+    <nuclide> <id>U234</id> <comp>0.010126</comp> </nuclide>
+    <nuclide> <id>U235</id> <comp>0.003707</comp> </nuclide>
+    <nuclide> <id>U236</id> <comp>0.002346</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.405945</comp> </nuclide>
+    <nuclide> <id>Np237</id> <comp>0.001008</comp> </nuclide>
+    <nuclide> <id>Pu238</id> <comp>0.00273</comp> </nuclide>
+    <nuclide> <id>Pu239</id> <comp>0.030959</comp> </nuclide>
+    <nuclide> <id>Pu240</id> <comp>0.020788</comp> </nuclide>
+    <nuclide> <id>Pu241</id> <comp>0.001923</comp> </nuclide>
+    <nuclide> <id>Pu242</id> <comp>0.002217</comp> </nuclide>
+    <nuclide> <id>Am241</id> <comp>0.003319</comp> </nuclide>
+    <nuclide> <id>Am242m</id> <comp>0.000151</comp> </nuclide>
+    <nuclide> <id>Am243</id> <comp>0.000834</comp> </nuclide>
+    <nuclide> <id>Cm244</id> <comp>0.000361</comp> </nuclide>
+    <nuclide> <id>Cm245</id> <comp>0.000155</comp> </nuclide>
+    <nuclide> <id>Cm246</id> <comp>0.000085</comp> </nuclide>
+    <nuclide> <id>Cm247</id> <comp>0.000015</comp> </nuclide>
+    <nuclide> <id>Cm248</id> <comp>0.00001</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>used_recycled_fuel</name>
+    <basis>mass</basis>
+    <nuclide> <id>C13</id> <comp>0.000016</comp> </nuclide>
+    <nuclide> <id>O16</id> <comp>0.120092</comp> </nuclide>
+    <nuclide> <id>Se82</id> <comp>0.000051</comp> </nuclide>
+    <nuclide> <id>Kr83</id> <comp>0.000079</comp> </nuclide>
+    <nuclide> <id>Kr84</id> <comp>0.000142</comp> </nuclide>
+    <nuclide> <id>Kr86</id> <comp>0.000192</comp> </nuclide>
+    <nuclide> <id>Rb85</id> <comp>0.000097</comp> </nuclide>
+    <nuclide> <id>Rb87</id> <comp>0.000335</comp> </nuclide>
+    <nuclide> <id>Sr88</id> <comp>0.000451</comp> </nuclide>
+    <nuclide> <id>Sr90</id> <comp>0.000585</comp> </nuclide>
+    <nuclide> <id>Y89</id> <comp>0.000513</comp> </nuclide>
+    <nuclide> <id>Zr91</id> <comp>0.000594</comp> </nuclide>
+    <nuclide> <id>Zr92</id> <comp>0.000683</comp> </nuclide>
+    <nuclide> <id>Zr93</id> <comp>0.000754</comp> </nuclide>
+    <nuclide> <id>Zr94</id> <comp>0.000804</comp> </nuclide>
+    <nuclide> <id>Zr95</id> <comp>0.000052</comp> </nuclide>
+    <nuclide> <id>Zr96</id> <comp>0.000786</comp> </nuclide>
+    <nuclide> <id>Mo95</id> <comp>0.000683</comp> </nuclide>
+    <nuclide> <id>Mo97</id> <comp>0.000598</comp> </nuclide>
+    <nuclide> <id>Mo98</id> <comp>0.000826</comp> </nuclide>
+    <nuclide> <id>Mo100</id> <comp>0.000844</comp> </nuclide>
+    <nuclide> <id>Tc99</id> <comp>0.000772</comp> </nuclide>
+    <nuclide> <id>Ru100</id> <comp>0.00007</comp> </nuclide>
+    <nuclide> <id>Ru101</id> <comp>0.000692</comp> </nuclide>
+    <nuclide> <id>Ru102</id> <comp>0.00075</comp> </nuclide>
+    <nuclide> <id>Ru104</id> <comp>0.000571</comp> </nuclide>
+    <nuclide> <id>Ru106</id> <comp>0.000131</comp> </nuclide>
+    <nuclide> <id>Rh103</id> <comp>0.000589</comp> </nuclide>
+    <nuclide> <id>Pd104</id> <comp>0.000054</comp> </nuclide>
+    <nuclide> <id>Pd105</id> <comp>0.000446</comp> </nuclide>
+    <nuclide> <id>Pd106</id> <comp>0.000283</comp> </nuclide>
+    <nuclide> <id>Pd107</id> <comp>0.000256</comp> </nuclide>
+    <nuclide> <id>Pd108</id> <comp>0.0002</comp> </nuclide>
+    <nuclide> <id>Pd110</id> <comp>0.00007</comp> </nuclide>
+    <nuclide> <id>Ag109</id> <comp>0.000088</comp> </nuclide>
+    <nuclide> <id>Te128</id> <comp>0.000158</comp> </nuclide>
+    <nuclide> <id>Te130</id> <comp>0.000444</comp> </nuclide>
+    <nuclide> <id>I127</id> <comp>0.000092</comp> </nuclide>
+    <nuclide> <id>I129</id> <comp>0.000274</comp> </nuclide>
+    <nuclide> <id>Xe131</id> <comp>0.000629</comp> </nuclide>
+    <nuclide> <id>Xe132</id> <comp>0.001112</comp> </nuclide>
+    <nuclide> <id>Xe134</id> <comp>0.001433</comp> </nuclide>
+    <nuclide> <id>Xe136</id> <comp>0.0015</comp> </nuclide>
+    <nuclide> <id>Cs133</id> <comp>0.001188</comp> </nuclide>
+    <nuclide> <id>Cs134</id> <comp>0.000075</comp> </nuclide>
+    <nuclide> <id>Cs135</id> <comp>0.001308</comp> </nuclide>
+    <nuclide> <id>Cs137</id> <comp>0.001321</comp> </nuclide>
+    <nuclide> <id>Ba136</id> <comp>0.000069</comp> </nuclide>
+    <nuclide> <id>Ba137</id> <comp>0.000062</comp> </nuclide>
+    <nuclide> <id>Ba138</id> <comp>0.001299</comp> </nuclide>
+    <nuclide> <id>La139</id> <comp>0.001272</comp> </nuclide>
+    <nuclide> <id>Ce140</id> <comp>0.001259</comp> </nuclide>
+    <nuclide> <id>Ce142</id> <comp>0.001237</comp> </nuclide>
+    <nuclide> <id>Ce144</id> <comp>0.000267</comp> </nuclide>
+    <nuclide> <id>Pr141</id> <comp>0.001183</comp> </nuclide>
+    <nuclide> <id>Nd143</id> <comp>0.001036</comp> </nuclide>
+    <nuclide> <id>Nd144</id> <comp>0.000772</comp> </nuclide>
+    <nuclide> <id>Nd145</id> <comp>0.000679</comp> </nuclide>
+    <nuclide> <id>Nd146</id> <comp>0.000656</comp> </nuclide>
+    <nuclide> <id>Nd148</id> <comp>0.000347</comp> </nuclide>
+    <nuclide> <id>Nd150</id> <comp>0.000178</comp> </nuclide>
+    <nuclide> <id>Pm147</id> <comp>0.000218</comp> </nuclide>
+    <nuclide> <id>Sm147</id> <comp>0.000113</comp> </nuclide>
+    <nuclide> <id>Sm148</id> <comp>0.0001</comp> </nuclide>
+    <nuclide> <id>Sm149</id> <comp>0.000137</comp> </nuclide>
+    <nuclide> <id>Sm150</id> <comp>0.000118</comp> </nuclide>
+    <nuclide> <id>Sm151</id> <comp>0.00008</comp> </nuclide>
+    <nuclide> <id>Sm152</id> <comp>0.00011</comp> </nuclide>
+    <nuclide> <id>Eu153</id> <comp>0.000075</comp> </nuclide>
+    <nuclide> <id>Th232</id> <comp>0.347775</comp> </nuclide>
+    <nuclide> <id>Pa231</id> <comp>0.000091</comp> </nuclide>
+    <nuclide> <id>Pa233</id> <comp>0.000496</comp> </nuclide>
+    <nuclide> <id>U232</id> <comp>0.000039</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>0.02692</comp> </nuclide>
+    <nuclide> <id>U234</id> <comp>0.010491</comp> </nuclide>
+    <nuclide> <id>U235</id> <comp>0.003317</comp> </nuclide>
+    <nuclide> <id>U236</id> <comp>0.0025</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.386169</comp> </nuclide>
+    <nuclide> <id>Np237</id> <comp>0.000982</comp> </nuclide>
+    <nuclide> <id>Np239</id> <comp>0.000039</comp> </nuclide>
+    <nuclide> <id>Pu238</id> <comp>0.002839</comp> </nuclide>
+    <nuclide> <id>Pu239</id> <comp>0.031563</comp> </nuclide>
+    <nuclide> <id>Pu240</id> <comp>0.021206</comp> </nuclide>
+    <nuclide> <id>Pu241</id> <comp>0.003013</comp> </nuclide>
+    <nuclide> <id>Pu242</id> <comp>0.002277</comp> </nuclide>
+    <nuclide> <id>Am241</id> <comp>0.002393</comp> </nuclide>
+    <nuclide> <id>Am242m</id> <comp>0.000159</comp> </nuclide>
+    <nuclide> <id>Am243</id> <comp>0.000848</comp> </nuclide>
+    <nuclide> <id>Cm242</id> <comp>0.000128</comp> </nuclide>
+    <nuclide> <id>Cm243</id> <comp>0.000015</comp> </nuclide>
+    <nuclide> <id>Cm244</id> <comp>0.000513</comp> </nuclide>
+    <nuclide> <id>Cm245</id> <comp>0.000157</comp> </nuclide>
+    <nuclide> <id>Cm246</id> <comp>0.000087</comp> </nuclide>
+    <nuclide> <id>Cm247</id> <comp>0.000015</comp> </nuclide>
+    <nuclide> <id>Cm248</id> <comp>0.000011</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>natural_uo2</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id> <comp>0.006347</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.875154</comp> </nuclide>
+    <nuclide> <id>O16</id> <comp>0.118499</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>natural_tho2</name>
+    <basis>atom</basis>
+    <nuclide> <id>Th232</id> <comp>0.333333</comp> </nuclide>
+    <nuclide> <id>O16</id> <comp>0.666667</comp> </nuclide>
+</recipe>
+
+<recipe>
+    <name>o</name>
+    <basis>mass</basis>
+    <nuclide> <id>O16</id> <comp>1</comp> </nuclide>
+</recipe>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--               Packages and Transport Units                   -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<package>
+    <name>ThO2_drum</name>
+    <fill_min>315</fill_min>
+    <fill_max>350</fill_max>
+    <strategy>equal</strategy>
+</package>
+
+<transportunit>
+    <name>ThO2_container</name>
+    <fill_min>36</fill_min>
+    <fill_max>48</fill_max>
+    <strategy>hybrid</strategy>
+</transportunit>
+
+<package>
+    <name>recycled_fuel_package</name>
+    <fill_min>311.110000000001</fill_min>
+    <fill_max>311.110000000001</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<package>
+    <name>spent_fuel_package</name>
+    <fill_min>311.11</fill_min>
+    <fill_max>311.11</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<transportunit>
+    <name>recycled_fuel_tu</name>
+    <fill_min>2</fill_min>
+    <fill_max>2</fill_max>
+    <strategy>first</strategy>
+</transportunit>
+
+<package>
+    <name>Tr_RR</name>
+    <fill_min>2.25</fill_min>
+    <fill_max>2.25</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<package>
+    <name>HP_RR</name>
+    <fill_min>1.71</fill_min>
+    <fill_max>1.71</fill_max>
+    <strategy>first</strategy>
+</package>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!--                         Regions                              -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<region>
+    <name>StateCase10</name>
+    <config><NullRegion/></config>
+    <institution>
+        <name>Inst</name>
+        <config><NullInst/></config>
+        <initialfacilitylist>
+            <entry><prototype>ForeignLWRFuelSource</prototype><number>1</number></entry>
+            <entry><prototype>ForeignLWRSpentFuelSource</prototype><number>1</number></entry>
+            <entry><prototype>ForeignUO2Source</prototype><number>1</number></entry>
+            <entry><prototype>ForeignHALEUTrainingFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ForeignHALEUMedicalFuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorTraining1</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1FreshFuelVault</prototype><number>1</number></entry>
+            <entry><prototype>ResearchReactorMedical1</prototype><number>1</number></entry>
+            <entry><prototype>ThO2Mill</prototype><number>1</number></entry>
+            <entry><prototype>ThMillShipper</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabNUReceiver</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabThReceiver</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabActinideReceiver</prototype><number>1</number></entry>
+            <entry><prototype>FuelFab</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabRodLoading</prototype><number>1</number></entry>
+            <entry><prototype>FuelFabShipper</prototype><number>1</number></entry>
+            <entry><prototype>ReprocessingReceiver</prototype><number>1</number></entry>
+            <entry><prototype>Reprocessing</prototype><number>1</number></entry>
+            <entry><prototype>ReprocessingOxideMixer</prototype><number>1</number></entry>
+            <entry><prototype>ReprocessingFissionProductStorage</prototype><number>1</number></entry>
+            <entry><prototype>ReprocessingShipper</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage1Receiver</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage1</prototype><number>1</number></entry>
+            <entry><prototype>OSource</prototype><number>1</number></entry>
+        </initialfacilitylist>
+    </institution>
+    <institution>
+        <name>ReactorDeployInst</name>
+        <config>
+            <DeployInst>
+                <prototypes>
+                    <val>RxA1FuelVault</val>
+                    <val>StartupRxA1FFV</val>
+                    <val>RxA1Reactor</val>
+                    <val>RxA2FuelVault</val>
+                    <val>StartupRxA2FFV</val>
+                    <val>RxA2Reactor</val>
+                    <val>RxA3FuelVault</val>
+                    <val>StartupRxA3FFV</val>
+                    <val>RxA3Reactor</val>
+                    <val>RxA4FuelVault</val>
+                    <val>StartupRxA4FFV</val>
+                    <val>RxA4Reactor</val>
+                    <val>RxASpentFuelPool</val>
+                    <val>RxAShipper</val>
+                    <val>RxB1FuelVault</val>
+                    <val>StartupRxB1FFV</val>
+                    <val>RxB1Reactor</val>
+                    <val>RxB2FuelVault</val>
+                    <val>StartupRxB2FFV</val>
+                    <val>RxB2Reactor</val>
+                    <val>RxB3FuelVault</val>
+                    <val>StartupRxB3FFV</val>
+                    <val>RxB3Reactor</val>
+                    <val>RxB4FuelVault</val>
+                    <val>StartupRxB4FFV</val>
+                    <val>RxB4Reactor</val>
+                    <val>RxBSpentFuelPool</val>
+                    <val>RxBShipper</val>
+                </prototypes>
+                <build_times>
+                    <!-- RxA1 -->
+                    <val>325</val>
+                    <val>-1</val>
+                    <val>33</val>
+                    <!-- RxA2 -->
+                    <val>440</val>
+                    <val>103</val>
+                    <val>148</val>
+                    <!-- RxA3 -->
+                    <val>528</val>
+                    <val>191</val>
+                    <val>236</val>
+                    <!-- RxA4 -->
+                    <val>597</val>
+                    <val>260</val>
+                    <val>305</val>
+                    <!-- RxA Pool & Shipper -->
+                    <val>325</val>
+                    <val>325</val>
+                    <!-- RxB1 -->
+                    <val>344</val>
+                    <val>7</val>
+                    <val>52</val>
+                    <!-- RxB2 -->
+                    <val>459</val>
+                    <val>122</val>
+                    <val>167</val>
+                    <!-- RxB3 -->
+                    <val>535</val>
+                    <val>198</val>
+                    <val>243</val>
+                    <!-- RxB4 -->
+                    <val>628</val>
+                    <val>291</val>
+                    <val>336</val>
+                    <!-- RxB Pool & Shipper -->
+                    <val>344</val>
+                    <val>344</val>
+                </build_times>
+                <n_build>
+                    <!-- RxA1 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxA2 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxA3 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxA4 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxA Pool & Shipper -->
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxB1 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxB2 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxB3 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxB4 -->
+                    <val>1</val>
+                    <val>1</val>
+                    <val>1</val>
+                    <!-- RxB Pool & Shipper -->
+                    <val>1</val>
+                    <val>1</val>
+                </n_build>
+                <lifetimes>
+                    <!-- RxA1 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxA2 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxA3 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxA4 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxA Pool & Shipper -->
+                    <val>-1</val>
+                    <val>-1</val>
+                    <!-- RxB1 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxB2 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxB3 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxB4 -->
+                    <val>-1</val>
+                    <val>1850</val>
+                    <val>-1</val>
+                    <!-- RxB Pool & Shipper -->
+                    <val>-1</val>
+                    <val>-1</val>
+                </lifetimes>
+            </DeployInst>
+        </config>
+    </institution>
+</region>
+
+</simulation>
