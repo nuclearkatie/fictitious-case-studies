@@ -9,7 +9,8 @@
     <explicit_inventory>1</explicit_inventory>
     <explicit_inventory_compact>0</explicit_inventory_compact>
     <tolerance_resource>0.001</tolerance_resource>
-    <seed>1234567890</seed>
+    <seed>20250120</seed>
+    <!-- <seed>1234567890</seed> -->
     <!-- <seed>20241104</seed> -->
     <!-- <seed>87654321</seed> -->
 </control>
@@ -1015,14 +1016,27 @@
         </config>
     </facility>
 
+<facility>
+    <name>ConsolidatedStorage1Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>UZr_fuel_B_spent_cooled</val>
+                <val>UZr_fuel_C_spent_cooled</val>
+                <val>UZr_fuel_rep_research</val>
+            </in_commods>
+            <out_commods><val>UZr_fuel_spent_consolidated_cooled_1</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
     <facility>
         <name>ConsolidatedStorage1</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_B_spent_cooled</val>
-                    <val>UZr_fuel_C_spent_cooled</val>
-                    <val>UZr_fuel_rep_research</val>
+                    <val>UZr_fuel_spent_consolidated_cooled_1</val>
                 </in_commods>
                 <out_commods><val>UZr_fuel_spent_consolidated_cooled</val></out_commods>
                 <residence_time>18250</residence_time>
@@ -1030,13 +1044,26 @@
         </config>
     </facility>
 
+<facility>
+    <name>ConsolidatedStorage2Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>UZr_fuel_D_spent_cooled</val>
+                <val>UZr_fuel_E_spent_cooled</val>
+            </in_commods>
+            <out_commods><val>UZr_fuel_spent_consolidated_cooled_2</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
     <facility>
         <name>ConsolidatedStorage2</name>
         <config>
             <Storage>
                 <in_commods>
-                    <val>UZr_fuel_D_spent_cooled</val>
-                    <val>UZr_fuel_E_spent_cooled</val>
+                    <val>UZr_fuel_spent_consolidated_cooled_2</val>
                 </in_commods>
                 <out_commods><val>UZr_fuel_spent_consolidated_cooled</val></out_commods>
                 <residence_time>18250</residence_time>
