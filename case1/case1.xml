@@ -118,15 +118,33 @@
 
 <!--     Size: L     -->
 <facility>
-    <name>MillShipper</name>
+    <name>Mill</name>
     <config>
         <Source>
-            <outcommod>UOC_shipment</outcommod>
+            <outcommod>UOC_powder</outcommod>
             <outrecipe>natural_u3o8</outrecipe>
-            <throughput>2740</throughput>
+            <throughput>48470</throughput>
+            <inventory_size>1e99</inventory_size>
+        </Source>
+    </config>
+</facility>
+
+<facility>
+    <name>MillShipper</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>UOC_powder</val>
+            </in_commods>
+            <out_commods>
+                <val>UOC_shipment</val>
+            </out_commods>
+            <max_inv_size>168000</max_inv_size>
+            <throughput>48470</throughput>
+            <residence_time>0</residence_time>
             <package>UOC_drum</package>
             <transport_unit>UOC_container</transport_unit>
-        </Source>
+        </Storage>
     </config>
 </facility>
 
@@ -1529,17 +1547,43 @@
 <!--                      Interim Storage                         -->
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-
 <facility>
-    <name>ConsolidatedStorage1</name>
+    <name>ConsolidatedStorage1Receiver</name>
     <config>
         <Storage>
             <in_commods>
                 <val>LEUO2_fuel_A_spent_cooled</val>
                 <val>LEUO2_fuel_B_spent_cooled</val>
             </in_commods>
+            <out_commods><val>LEUO2_fuel_spent_consolidated_cooled_1</val></out_commods>
+            <residence_time>1</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorage1</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>LEUO2_fuel_spent_consolidated_cooled_1</val>
+            </in_commods>
             <out_commods><val>LEUO2_fuel_spent_consolidated_cooled</val></out_commods>
             <residence_time>18250</residence_time>
+        </Storage>
+    </config>
+</facility>
+
+<facility>
+    <name>ConsolidatedStorage2Receiver</name>
+    <config>
+        <Storage>
+            <in_commods>
+                <val>LEUO2_fuel_C_spent_cooled</val>
+                <val>LEUO2_fuel_D_spent_cooled</val>
+            </in_commods>
+            <out_commods><val>LEUO2_fuel_spent_consolidated_cooled_2</val></out_commods>
+            <residence_time>1</residence_time>
         </Storage>
     </config>
 </facility>
@@ -1549,8 +1593,7 @@
     <config>
         <Storage>
             <in_commods>
-                <val>LEUO2_fuel_C_spent_cooled</val>
-                <val>LEUO2_fuel_D_spent_cooled</val>
+                <val>LEUO2_fuel_spent_consolidated_cooled_2</val>
             </in_commods>
             <out_commods><val>LEUO2_fuel_spent_consolidated_cooled</val></out_commods>
             <residence_time>18250</residence_time>
@@ -1597,6 +1640,8 @@
         <Source>
             <outcommod>startup_LEUO2_fuel</outcommod>
             <outrecipe>LEU_4-8_UO2_fuel</outrecipe>
+            <package>fuel_assembly</package>
+            <transport_unit>fresh_fuel_canister</transport_unit>
         </Source>
     </config>
 </facility>
@@ -2020,6 +2065,7 @@
             <entry><prototype>FSource</prototype><number>1</number></entry>
             <entry><prototype>OSource</prototype><number>1</number></entry>
             <entry><prototype>OFSink</prototype><number>1</number></entry>
+            <entry><prototype>Mill</prototype><number>1</number></entry>
             <entry><prototype>MillShipper</prototype><number>1</number></entry>
             <entry><prototype>ForeignUOCReceiver</prototype><number>1</number></entry>
             <entry><prototype>ForeignNatUF6Shipper</prototype><number>1</number></entry>
@@ -2074,7 +2120,9 @@
             <entry><prototype>ResearchReactorTraining2</prototype><number>1</number></entry>
             <entry><prototype>ResearchReactorMedical1FreshFuelVault</prototype><number>1</number></entry>
             <entry><prototype>ResearchReactorMedical1</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage1Receiver</prototype><number>1</number></entry>
             <entry><prototype>ConsolidatedStorage1</prototype><number>1</number></entry>
+            <entry><prototype>ConsolidatedStorage2Receiver</prototype><number>1</number></entry>
             <entry><prototype>ConsolidatedStorage2</prototype><number>1</number></entry>
             <entry><prototype>RepositoryTestFacilitySource</prototype><number>1</number></entry>
             <entry><prototype>RepositoryTestFacility</prototype><number>1</number></entry>

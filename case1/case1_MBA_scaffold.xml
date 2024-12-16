@@ -10,6 +10,7 @@
             <agent>ForeignLEUO2Receiver</agent>
             <agent>RepositoryTestFacilitySource</agent>
             <agent>HALEUTrainingFuelFabShipper</agent>
+            <agent>StartupFreshFuel</agent>
         </agents>
         <generate_reports>False</generate_reports>
     </MBA>
@@ -20,6 +21,7 @@
         <country>CC</country>
         <facility>CC1-</facility>
         <agents>
+            <agent>Mill</agent>
             <agent>MillShipper</agent>
         </agents>
         <generate_reports>False</generate_reports>
@@ -49,7 +51,7 @@
         <generate_reports>True</generate_reports>
     </MBA>
     <MBA>
-        <name>CC3</name>
+        <name>CC32</name>
         <country>CC</country>
         <facility>CC3-</facility>
         <agents>
@@ -539,29 +541,116 @@
         <country>CC</country>
         <facility>CC81</facility>
         <agents>
-            <agent>ConsolidatedStorage1</agent>
+            <agent>ConsolidatedStorage1Receiver</agent>
         </agents>
         <inventory_KMPs>
             <KMP>
                 <name>A</name>
-                <agent>ConsolidatedStorage1</agent>
+                <agent>ConsolidatedStorage1Receiver</agent>
             </KMP>
         </inventory_KMPs>
+        <flow_KMPs>
+            <in>
+                <KMP>
+                    <name>1</name>
+                    <MBA>else</MBA>
+                </KMP>
+            </in>
+            <out>
+                <KMP>
+                    <name>4</name>
+                    <MBA>CC82</MBA>
+                </KMP>
+            </out>
+        </flow_KMPs>
         <generate_reports>True</generate_reports>
     </MBA>
     <MBA>
         <name>CC82</name>
         <country>CC</country>
-        <facility>CC82</facility>
+        <facility>CC81</facility>
+        <agents>
+            <agent>ConsolidatedStorage1</agent>
+        </agents>
+        <inventory_KMPs>
+            <KMP>
+                <name>D</name>
+                <agent>ConsolidatedStorage1</agent>
+            </KMP>
+        </inventory_KMPs>
+        <flow_KMPs>
+            <in>
+                <KMP>
+                    <name>4</name>
+                    <MBA>CC81</MBA>
+                </KMP>
+            </in>
+            <out>
+                <KMP>
+                    <name>5</name>
+                    <MBA>else</MBA>
+                </KMP>
+            </out>
+        </flow_KMPs>
+        <generate_reports>True</generate_reports>
+    </MBA>
+
+    <MBA>
+        <name>CC83</name>
+        <country>CC</country>
+        <facility>CC83</facility>
+        <agents>
+            <agent>ConsolidatedStorage2Receiver</agent>
+        </agents>
+        <inventory_KMPs>
+            <KMP>
+                <name>A</name>
+                <agent>ConsolidatedStorage2Receiver</agent>
+            </KMP>
+        </inventory_KMPs>
+        <flow_KMPs>
+            <in>
+                <KMP>
+                    <name>1</name>
+                    <MBA>else</MBA>
+                </KMP>
+            </in>
+            <out>
+                <KMP>
+                    <name>4</name>
+                    <MBA>CC84</MBA>
+                </KMP>
+            </out>
+        </flow_KMPs>
+        <generate_reports>True</generate_reports>
+    </MBA>
+    <MBA>
+        <name>CC84</name>
+        <country>CC</country>
+        <facility>CC83</facility>
         <agents>
             <agent>ConsolidatedStorage2</agent>
         </agents>
         <inventory_KMPs>
             <KMP>
-                <name>A</name>
+                <name>D</name>
                 <agent>ConsolidatedStorage2</agent>
             </KMP>
         </inventory_KMPs>
+        <flow_KMPs>
+            <in>
+                <KMP>
+                    <name>4</name>
+                    <MBA>CC83</MBA>
+                </KMP>
+            </in>
+            <out>
+                <KMP>
+                    <name>5</name>
+                    <MBA>else</MBA>
+                </KMP>
+            </out>
+        </flow_KMPs>
         <generate_reports>True</generate_reports>
     </MBA>
 
