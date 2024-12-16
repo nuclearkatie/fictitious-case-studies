@@ -358,7 +358,7 @@
                     <info>
                         <buf_size>1e9</buf_size>
                         <efficiencies>
-                            <item><comp>Th</comp><eff>0.999999999</eff></item>
+                            <item><comp>Th</comp><eff>0.9992</eff></item>
                             <item><comp>Pa</comp><eff>0.999999999</eff></item>
                             <item><comp>U</comp><eff>0.992</eff></item>
                             <item><comp>Np</comp><eff>0.992</eff></item>
