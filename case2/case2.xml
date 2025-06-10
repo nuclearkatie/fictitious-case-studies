@@ -456,8 +456,8 @@
                     <val>NatUO2_fuel_B1_FFV</val>
                 </out_commods>
                 <residence_time>0</residence_time>
-                <throughput>190802.142</throughput>
-                <max_inv_size>190802.142</max_inv_size>
+                <throughput>190802.1420000001</throughput>
+                <max_inv_size>190802.1420000001</max_inv_size>
                 <reorder_point>14636.16</reorder_point>
                 <discrete_handling>1</discrete_handling>
             </Storage>
