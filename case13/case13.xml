@@ -874,8 +874,8 @@
                     <val>InitialFuelLoad</val>
                 </prototypes>
                 <build_times>
-                    <val>-1</val>
-                    <val>-1</val>
+                    <val>1</val>
+                    <val>1</val>
                 </build_times>
                 <n_build>
                     <val>1</val>

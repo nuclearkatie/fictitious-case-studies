@@ -1236,7 +1236,7 @@
                 <build_times>
                     <!-- RxA1 -->
                     <val>325</val>
-                    <val>-1</val>
+                    <val>1</val>
                     <val>33</val>
                     <!-- RxA2 -->
                     <val>440</val>
